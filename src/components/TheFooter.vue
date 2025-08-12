@@ -2,44 +2,55 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-column">
-        <img src="#" alt="Логотип ДГТУ" class="footer-logo" />
-        <p>344003, г. Ростов-на-Дону, пл. Гагарина, 1</p>
-        <p><strong>Приемная комиссия:</strong><br>+7 (863) 306-20-00</p>
-        <p><strong>Email:</strong><br>info@donstu.ru</p>
-      </div>
+        <div class="footer-logos">
+          <a href="https://donstu.ru/university/struktura/priyemnaya-prorektora-po-strat-i-tsifrovomu-razvitiyu/upravleniye-tsifrovykh-obrazovatelnykh-tekhnologiy/" target="_blank" rel="noopener noreferrer">
+            <IconUcotSquare class="logo-skif-square" />
+          </a>
 
-      <div class="footer-column">
-        <h4>Абитуриенту</h4>
-        <ul>
-          <li><a href="#">Направления</a></li>
-          <li><a href="#">Правила приема</a></li>
-          <li><a href="#">Календарь абитуриента</a></li>
-          <li><a href="#">Общежития</a></li>
-        </ul>
-      </div>
+          <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
+            <IconSkifSquare class="logo-skif-square" />
+          </a>
 
-      <div class="footer-column">
-        <h4>Образование</h4>
-        <ul>
-          <li><a href="#">Институты и факультеты</a></li>
-          <li><a href="#">Расписание</a></li>
-          <li><a href="#">Дополнительное образование</a></li>
-          <li><a href="#">Аспирантура</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Мы в соцсетях</h4>
-        <div class="social-links">
-          <a href="#" aria-label="VK">VK</a>
-          <a href="#" aria-label="Telegram">TG</a>
-          <a href="#" aria-label="Youtube">YT</a>
+          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" >
+            <IconDstu95 class="logo-dstu"  />
+          </a>
         </div>
+        <p><strong>Начальник Управления цифровых образовательных технологий:</strong></p>
+        <p><strong>Шлыкова Алла Ивановна</strong><br>+7 (863) 238-15-83 (внутр. 3583)</p>
+        <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-420а</p>
+
+
+
       </div>
+
+      <div class="footer-column">
+        <h4><strong>Отдел сопровождения дистанционного образования</strong></h4>
+        <p><strong>Начальник Отдела сопровождения дистанционного образования:</strong></p>
+        <p>Ачаров Борис Фёдорович<br>+7 (863) 273-84-73 (внутр. 2473)</p>
+        <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-423</p>
+
+        <p><strong>Email:</strong><br>spu-06.1@donstu.ru</p>
+
+      </div>
+
+      <div class="footer-column">
+        <h4><strong>Сервисы СКИФ</strong></h4>
+        <ul>
+          <li><a href="#">ДО.СКИФ</a></li>
+          <li><a href="#">СКИФ.ТЕСТ</a></li>
+          <li><a href="#">СКИФ.Библиотека</a></li>
+          <li><a href="#">СКИФ.Заочный</a></li>
+          <li><a href="#">СКИФ.СПЕЦ</a></li>
+          <li><a href="#">СКИФ.Международный</a></li>
+        </ul>
+      </div>
+
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>© 1992–2025 Донской государственный технический университет</p>
+        <p>© 2025  </p>
+        <p>Управление Цифровых Образовательных Технологий</p>
+        <p>Донской государственный технический университет</p>
       </div>
     </div>
   </footer>
@@ -47,11 +58,14 @@
 
 <script setup>
 // Для этого компонента скрипты не требуются, так как он статичный
+import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
+import IconDstu95 from "@/components/icons/IconDstu95.vue";
+import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 </script>
 
 <style scoped>
 .site-footer {
-  background-color: #003366; /* Темно-синий фон */
+  background-color: #0E468B; /* Темно-синий фон */
   color: #e5e5e5;
   padding-top: 60px;
 }
@@ -63,10 +77,21 @@
   padding-bottom: 60px;
 }
 
-.footer-logo {
-  height: 40px;
-  margin-bottom: 20px;
-  filter: brightness(0) invert(1); /* Делаем логотип белым, если он был черным */
+
+.footer-logos {
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-skif-square {
+  height: 90px;
+  width: 90px;
+}
+
+.logo-dstu {
+  height: 50px;
+  width: auto;
+  fill: #f4f4f4;
 }
 
 .footer-column h4 {
@@ -109,7 +134,7 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid #004a8f;
+  border-top: 1px solid #1370B9;
   padding: 20px 0;
   text-align: center;
 }

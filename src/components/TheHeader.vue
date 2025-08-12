@@ -5,6 +5,7 @@
         <span>ДО.СКИФ</span>
         <span>СКИФ.ТЕСТ</span>
         <span>СКИФ.Библиотека</span>
+        <span>СКИФ.Заочный</span>
         <span>СКИФ.СПЕЦ</span>
         <span>СКИФ.Международный</span>
       </div>
@@ -24,7 +25,7 @@
           <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
         </nav>
         <div class="header-contacts">
-          <AppButton kind="secondary"><span>+7 (863) 273-85-66</span></AppButton>
+          <AppButton kind="secondary"><span>+7 (863) 273-84-73</span></AppButton>
         </div>
       </div>
     </div>

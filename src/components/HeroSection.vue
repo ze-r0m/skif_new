@@ -87,7 +87,7 @@ const slides = ref([
   grid-row: 1 / 2;
   position: relative;
   height: 100%;
-  border-radius: 18px;
+  border-radius: 32px;
   overflow: hidden; /* обрезаем скругления и элементы слайдера */
   min-width: 0;
 }
@@ -111,7 +111,7 @@ const slides = ref([
 
 /* карточки справа */
 .card {
-  border-radius: 14px;
+  border-radius: 32px;
   overflow: hidden;
   display: flex;
   align-items: center;
