@@ -1,0 +1,43 @@
+/*:root{*/
+/*    --app-bg: #f4f4f4;*/
+/*    --app-contrast-bg: #11519C;*/
+/*    --element-bg: #FFFFFF;*/
+/*    --element-bg-2: #E7E9ED;*/
+/*    --element-bg-3: rgba(255,255,255,0.10);*/
+/*    --element-bg-4: rgba(255,255,255,0.20);*/
+/*    --element-bg-5: rgba(255,255,255,0.30);*/
+/*    --element-bg-6: transparent;*/
+/*    --element-bg-contast: #11519C;*/
+/*    --element-bg-gradient: linear-gradient(215deg, #0E468B 0%, #1370B9 100%);*/
+/*    --element-bg-2-gradient: linear-gradient(184deg, #11519C 0%, #288AD8 100%);*/
+/*    --element-bg-transparent: transparent;*/
+/*    --text-color: #38424F;*/
+/*    --text-2-color: #80889D;*/
+/*    --text-link-color: #1370B9;*/
+/*    --text-contrast-color: #FFFFFF;*/
+/*    --primary-color: #11519C;*/
+/*    --primary-dark-color: #0E468B;*/
+/*    --primary-light-color: #1370B9;*/
+/*    --divider-color: #D2DAE3;*/
+/*    --gray-color-6: #F1F4F9;*/
+/*}*/
+:root {
+    --app-bg: #f4f4f4;
+    --app-contrast-bg: #11519C;
+    --element-bg: #FFFFFF;
+    --element-bg-2: #E7E9ED;
+    --element-bg-gradient: linear-gradient(215deg, #0E468B 0%, #1370B9 100%);
+    --text-color: #38424F;
+    --text-link-color: #1370B9;
+    --text-contrast-color: #FFFFFF;
+    --primary-color: #11519C;
+    --accent-color-yellow: #FDC51F;
+}
+
+
+/* базовый рессет */
+* { box-sizing: border-box; }
+html,body,#app { height:100%; margin:0; font-family: Inter, Roboto, Arial, sans-serif; background:var(--app-bg); color:var(--text-color); }
+.container { max-width:1100px; margin:0 auto; padding:0 16px; }
+a { color:var(--text-link-color); }
+.btn { background:var(--primary-color); color:var(--text-contrast-color); border:none; padding:10px 16px; border-radius:8px; text-decoration:none; display:inline-block; }
