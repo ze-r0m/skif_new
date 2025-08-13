@@ -4,8 +4,9 @@
     <div class="slide-content">
       <h2>{{ slide.title }}</h2>
       <div class="slide-actions">
-        <button class="btn">Подробнее</button>
-        <button class="btn-arrow" aria-label="next">›</button>
+        <AppButton class="btn">
+          <span>Подробнее</span>
+        </AppButton>
       </div>
     </div>
   </div>
@@ -13,6 +14,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import AppButton from "@/components/AppButton.vue";
 
 const props = defineProps({
   slide: {
@@ -77,17 +79,6 @@ const props = defineProps({
   backdrop-filter: blur(4px);
 }
 
-.btn-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: #fff;
-  color: #004a99;
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
-}
 
 /* Меньше отступы на мобильных */
 @media (max-width: 576px) {

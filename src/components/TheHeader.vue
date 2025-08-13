@@ -25,7 +25,7 @@
           <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
         </nav>
         <div class="header-contacts">
-          <AppButton kind="secondary"><span>+7 (863) 273-84-73</span></AppButton>
+          <AppButton hover-inverted :showArrow="false" >+7 (863) 273-84-73</AppButton>
         </div>
       </div>
     </div>
