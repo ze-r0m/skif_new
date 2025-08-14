@@ -4,9 +4,7 @@
     <div class="slide-content">
       <h2>{{ slide.title }}</h2>
       <div class="slide-actions">
-        <AppButton class="btn">
-          <span>Подробнее</span>
-        </AppButton>
+        <AppButton text="Подробнее" href="/about" :showArrow="true" />
       </div>
     </div>
   </div>

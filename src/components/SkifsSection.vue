@@ -5,7 +5,12 @@
         <div class="features-card">
           <div class="card-heading" v-html="item.heading"></div>
           <p class="card-text">{{ item.text }}</p>
-          <AppButton hover-inverted>Перейти</AppButton>
+<!--          <AppButton hover-inverted></AppButton>-->
+          <AppButton class="skifs-btn" >
+              :showArrow="true"
+          >
+            Перейти
+          </AppButton>
         </div>
       </a>
 
@@ -52,10 +57,10 @@ const features = ref([
 }
 
 .features-card {
-  background-color: #fff;
+  background-color: #e9edf2;
   border-radius: 10px;
   padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
   height: 100%;
@@ -79,5 +84,8 @@ const features = ref([
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
+}
+.skifs-btn{
+  color: #333 !important;
 }
 </style>
