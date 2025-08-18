@@ -1,15 +1,25 @@
 <template>
   <header class="site-header">
+    <!-- Верхняя полоса -->
     <div class="top-bar">
-      <div class="container">
-        <span>ДО.СКИФ</span>
-        <span>СКИФ.ТЕСТ</span>
-        <span>СКИФ.Библиотека</span>
-        <span>СКИФ.Заочный</span>
-        <span>СКИФ.СПЕЦ</span>
-        <span>СКИФ.Международный</span>
+      <div class="container top-bar-content">
+        <div class="top-links">
+          <a href="https://do.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ДО.СКИФ</a>
+          <a href="https://skif.donstu.ru/test/" target="_blank" rel="noopener noreferrer">СКИФ.ТЕСТ</a>
+          <a href="https://de.donstu.ru/zaoch/organizations/1" target="_blank" rel="noopener noreferrer">СКИФ.Библиотека</a>
+          <a href="https://skif.donstu.ru/spec/" target="_blank" rel="noopener noreferrer">СКИФ.СПЕЦ</a>
+          <a href="https://int.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">СКИФ.Международный</a>
+          <a href="https://prof.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ПРОФ.СКИФ</a>
+        </div>
+        <div class="dstu-link">
+          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" class="link-button">
+            Сайт ДГТУ
+          </a>
+        </div>
       </div>
     </div>
+
+    <!-- Основная часть шапки -->
     <div class="main-header">
       <div class="container main-header-content">
         <div class="header-logos">
@@ -24,8 +34,9 @@
         <nav class="main-nav">
           <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
         </nav>
+
         <div class="header-contacts">
-          <AppButton text="+7 (863) 273-84-73" :showArrow="false" ></AppButton>
+          <AppButton text="+7 (863) 273-84-73" :showArrow="false" class="is-hovered" />
         </div>
       </div>
     </div>
@@ -45,21 +56,71 @@ const navItems = ref(['Начало', 'О нас', 'Системы', 'Обрат
 .site-header {
   border-bottom: 1px solid #e5e5e5;
 }
+
+/* верхняя полоса */
 .top-bar {
   background-color: #f9f9f9;
   padding: 8px 0;
   font-size: 14px;
 }
-.top-bar span {
-  margin-right: 20px;
-  cursor: pointer;
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.top-links a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.top-links a:hover {
+  color: #004a8f;
+}
+
+/* Ссылка Сайт ДГТУ */
+.link-button {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333; /* как обычные ссылки */
+  padding: 4px 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.link-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(208.61deg, rgb(15, 72, 143) 0%, rgb(23, 117, 191) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1; /* фон под текстом */
+}
+
+.link-button:hover::before {
+  opacity: 1;
+}
+
+.link-button:hover {
+  color: #fff;
+}
+
+/* контейнер */
 .container {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
 }
+
+/* основная шапка */
 .main-header-content {
   display: flex;
   justify-content: space-between;
@@ -82,6 +143,7 @@ const navItems = ref(['Начало', 'О нас', 'Системы', 'Обрат
   height: 50px;
   width: auto;
 }
+
 .main-nav a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -90,9 +152,11 @@ const navItems = ref(['Начало', 'О нас', 'Системы', 'Обрат
   margin: 0 15px;
   font-size: 16px;
 }
+
 .main-nav a:hover {
   color: #004a8f;
 }
+
 .header-contacts {
   display: flex;
   align-items: center;

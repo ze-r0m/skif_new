@@ -86,7 +86,7 @@
 .team-card {
   flex: 1; /* Карточки занимают равное пространство */
   background-color: #f0f4f7; /* Цвет фона карточек */
-  border-radius: 10px;
+  border-radius: 32px;
   padding: 30px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

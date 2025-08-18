@@ -66,7 +66,13 @@ export default {
   line-height: 24px;
   text-align: start;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
 }
+
+
 
 .app-button__icon {
   position: relative;
@@ -79,7 +85,7 @@ export default {
   min-width: 0;     /* предотвращает растягивание flex */
   flex-shrink: 0;   /* не сжимать элемент */
   border-radius: 6px;
-  background: transparent;
+  background: linear-gradient(208.61deg, rgb(15, 72, 143) 0%, rgb(23, 117, 191) 100%);
   transition: all 0.3s ease; /* анимация квадрата */
 }
 
@@ -110,6 +116,16 @@ export default {
 /* Active эффект */
 .app-button:active {
   transform: translateY(1px);
+}
+
+/* Имитация постоянного hover */
+.app-button.is-hovered .app-button__background {
+  opacity: 1;
+}
+
+.app-button.is-hovered .app-button__icon {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
 }
 
 </style>

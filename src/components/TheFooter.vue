@@ -11,45 +11,40 @@
             <IconSkifSquare class="logo-skif-square" />
           </a>
 
-          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" >
-            <IconDstu95 class="logo-dstu"  />
+          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />
           </a>
         </div>
-        <p><strong>Начальник Управления цифровых образовательных технологий:</strong></p>
+        <p><strong>Начальник Управления цифровых образовательных технологий</strong></p>
         <p><strong>Шлыкова Алла Ивановна</strong><br>+7 (863) 238-15-83 (внутр. 3583)</p>
         <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-420а</p>
-
-
-
       </div>
 
       <div class="footer-column">
         <h4><strong>Отдел сопровождения дистанционного образования</strong></h4>
-        <p><strong>Начальник Отдела сопровождения дистанционного образования:</strong></p>
+        <p><strong>Начальник Отдела сопровождения дистанционного образования</strong></p>
         <p>Ачаров Борис Фёдорович<br>+7 (863) 273-84-73 (внутр. 2473)</p>
         <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-423</p>
-
         <p><strong>Email:</strong><br>spu-06.1@donstu.ru</p>
-
       </div>
 
       <div class="footer-column">
         <h4><strong>Сервисы СКИФ</strong></h4>
         <ul>
-          <li><a href="#">ДО.СКИФ</a></li>
-          <li><a href="#">СКИФ.ТЕСТ</a></li>
-          <li><a href="#">СКИФ.Библиотека</a></li>
-          <li><a href="#">СКИФ.Заочный</a></li>
-          <li><a href="#">СКИФ.СПЕЦ</a></li>
-          <li><a href="#">СКИФ.Международный</a></li>
+          <li><a href="https://do.skif.donstu.ru/">ДО.СКИФ</a></li>
+          <li><a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a></li>
+          <li><a href="https://de.donstu.ru/zaoch/organizations/1">СКИФ.Библиотека</a></li>
+          <li><a href="https://skif.donstu.ru/spec/">СКИФ.СПЕЦ</a></li>
+          <li><a href="https://int.skif.donstu.ru/">СКИФ.Международный</a></li>
+          <li><a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a></li>
         </ul>
       </div>
-
     </div>
+
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2025  </p>
-        <p>Управление Цифровых Образовательных Технологий</p>
+        <p>© 2025</p>
+        <p>Управление цифровых образовательных технологий</p>
         <p>Донской государственный технический университет</p>
       </div>
     </div>
@@ -57,7 +52,7 @@
 </template>
 
 <script setup>
-// Для этого компонента скрипты не требуются, так как он статичный
+// статичный компонент, только иконки
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import IconDstu95 from "@/components/icons/IconDstu95.vue";
 import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
@@ -65,7 +60,7 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 
 <style scoped>
 .site-footer {
-  background-color: #0E468B; /* Темно-синий фон */
+  background-color: #0E468B; /* темно-синий фон */
   color: #e5e5e5;
   padding-top: 60px;
 }
@@ -76,7 +71,6 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
   gap: 40px;
   padding-bottom: 60px;
 }
-
 
 .footer-logos {
   align-items: center;
@@ -91,7 +85,7 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 .logo-dstu {
   height: 50px;
   width: auto;
-  fill: #f4f4f4;
+  fill: #FFFFFF !important;
 }
 
 .footer-column h4 {
@@ -116,15 +110,19 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
   margin-bottom: 12px;
 }
 
+/* ссылки в футере — как в navbar */
 .footer-column a {
-  color: #e5e5e5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;             /* белый в обычном состоянии */
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+  color: #9bb7d3;             /* светло-сине-серый hover */
+  text-decoration: none;
 }
 
 .social-links a {
