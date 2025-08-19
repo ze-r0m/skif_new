@@ -28,7 +28,7 @@
         <p><strong>Email:</strong><br>spu-06.1@donstu.ru</p>
       </div>
 
-      <div class="footer-column">
+      <div class="footer-column footer-skif-services">
         <h4><strong>Сервисы СКИФ</strong></h4>
         <ul>
           <li><a href="https://do.skif.donstu.ru/">ДО.СКИФ</a></li>
@@ -60,7 +60,7 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 
 <style scoped>
 .site-footer {
-  background-color: #0E468B; /* темно-синий фон */
+  background-color: #0E468B;
   color: #e5e5e5;
   padding-top: 60px;
 }
@@ -70,6 +70,11 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   padding-bottom: 60px;
+}
+
+/* Добавляем класс, чтобы можно было выбрать этот блок */
+.footer-skif-services {
+  /* ... стили этого блока ... */
 }
 
 .footer-logos {
@@ -110,18 +115,17 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
   margin-bottom: 12px;
 }
 
-/* ссылки в футере — как в navbar */
 .footer-column a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
-  color: #ffffff;             /* белый в обычном состоянии */
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-  color: #9bb7d3;             /* светло-сине-серый hover */
+  color: #9bb7d3;
   text-decoration: none;
 }
 
@@ -141,5 +145,15 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
   margin: 0;
   font-size: 14px;
   color: #a0b4c8;
+}
+
+/* =======================================================
+   Медиа-запрос для скрытия блока на маленьких экранах
+   ======================================================= */
+@media (max-width: 480px) {
+  /* Скрываем колонку с сервисами СКИФ */
+  .footer-skif-services {
+    display: none;
+  }
 }
 </style>

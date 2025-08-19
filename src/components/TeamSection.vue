@@ -41,53 +41,65 @@
 </template>
 
 <style scoped>
+/* =======================================================
+   Стили для всех устройств (Mobile-first подход)
+   ======================================================= */
 .team-section {
-  padding: 80px 0;
-  background-color: #fff; /* Фон секции */
+  padding: 40px 0; /* Уменьшаем отступы на мобильных */
+  background-color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .team-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 
+/* На мобильных заголовок и описание располагаются в одну колонку */
 .team-header-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .team-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .team-description-short {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: #555;
 }
 
 .team-description-long {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: #555;
 }
 
+/* На мобильных карточки выстраиваются в колонку */
 .team-cards-grid {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  justify-content: space-between;
 }
 
 .team-card {
-  flex: 1; /* Карточки занимают равное пространство */
-  background-color: #f0f4f7; /* Цвет фона карточек */
-  border-radius: 32px;
-  padding: 30px;
+  flex: 1;
+  background-color: #f0f4f7;
+  border-radius: 16px; /* Уменьшаем скругление для мобильных */
+  padding: 24px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -99,23 +111,78 @@
 }
 
 .card-number {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #004a99;
   opacity: 0.2;
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #004a99;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .card-text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #555;
   line-height: 1.5;
+}
+
+/* =======================================================
+   Медиа-запросы для планшетов и десктопов
+   ======================================================= */
+
+/* От 768px и выше (планшеты и десктопы) */
+@media (min-width: 768px) {
+  .team-section {
+    padding: 80px 0; /* Возвращаем стандартные отступы */
+  }
+
+  .team-container {
+    gap: 40px;
+  }
+
+  .team-header-grid {
+    grid-template-columns: 1fr 1fr; /* Возвращаем две колонки для заголовка */
+    gap: 40px;
+  }
+
+  .team-title {
+    font-size: 2.5rem; /* Увеличиваем размер шрифта */
+    margin-bottom: 10px;
+  }
+
+  .team-description-short,
+  .team-description-long {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .team-cards-grid {
+    flex-direction: row; /* Возвращаем карточки в ряд */
+    gap: 20px;
+  }
+
+  .team-card {
+    border-radius: 32px; /* Возвращаем стандартное скругление */
+    padding: 30px;
+  }
+
+  .card-number {
+    font-size: 2.5rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
 }
 </style>
