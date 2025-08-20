@@ -74,7 +74,6 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 
 /* Добавляем класс, чтобы можно было выбрать этот блок */
 .footer-skif-services {
-  /* ... стили этого блока ... */
 }
 
 .footer-logos {

@@ -45,14 +45,8 @@
       </div>
     </div>
 
-    <div class="mobile-menu-overlay" :class="{ 'is-active': isMobileMenuOpen }">
-      <nav class="mobile-nav">
-        <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
-      </nav>
-      <div class="mobile-contacts">
-        <AppButton text="+7 (863) 273-84-73" :showArrow="false" class="is-hovered" />
-      </div>
-    </div>
+    <MobileMenu :isMobileMenuOpen="isMobileMenuOpen" :navItems="navItems" />
+
   </header>
 </template>
 
@@ -61,6 +55,7 @@ import { ref } from 'vue';
 import AppButton from './AppButton.vue';
 import IconDstu95 from "@/components/icons/IconDstu95.vue";
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
+import MobileMenu from './MobileMenu.vue';
 
 const navItems = ref(['Начало', 'О нас', 'Системы', 'Обратная связь']);
 const isMobileMenuOpen = ref(false);
@@ -165,51 +160,6 @@ const toggleMobileMenu = () => {
 }
 .mobile-menu-toggle.is-active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* ===================== Мобильное меню ===================== */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-  display: flex;
-  flex-direction: column;
-  padding: 100px 20px 20px;
-  box-sizing: border-box;
-  z-index: 100;
-}
-
-.mobile-menu-overlay.is-active {
-  transform: translateX(0);
-}
-
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.mobile-nav a,
-.mobile-contacts a {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.mobile-nav a:hover,
-.mobile-contacts a:hover {
-  color: #004a8f;
-}
-
-.mobile-contacts {
-  margin-top: 40px;
 }
 
 /* ===================== Десктоп ===================== */
