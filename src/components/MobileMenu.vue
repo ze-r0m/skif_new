@@ -8,9 +8,21 @@
         <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />
       </a>
     </div>
+    <div class="mobile-header-separator"></div>
 
     <nav class="mobile-nav">
       <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
+
+      <div class="additional-links">
+        <a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a>
+        <a href="https://de.donstu.ru/zaoch/organizations/1">СКИФ.Библиотека</a>
+        <a href="https://skif.donstu.ru/spec/">СКИФ.СПЕЦ</a>
+        <a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a>
+        <a href="https://int.skif.donstu.ru/">СКИФ.Международный</a>
+        <a href="https://do.skif.donstu.ru/">ДО.СКИФ</a>
+      </div>
+
+      <a href="https://donstu.ru/" class="dstu-link">Сайт ДГТУ</a>
     </nav>
   </div>
 </template>
@@ -52,7 +64,15 @@ const props = defineProps({
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+.mobile-header-separator {
+  width: 100vw;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin-bottom: 20px;
+  position: relative;
+  left: calc(-50vw + 50%);
 }
 
 .logo-skif-square {
@@ -68,7 +88,9 @@ const props = defineProps({
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .mobile-nav a {
@@ -77,10 +99,24 @@ const props = defineProps({
   color: #e5e5e5;
   text-decoration: none;
   transition: color 0.3s ease;
+  margin-bottom: 22px;
 }
 
 .mobile-nav a:hover {
   color: #004a8f;
+}
+
+.additional-links {
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 22px;
+}
+
+.dstu-link {
+  margin-top: auto;
 }
 
 /* Скрываем на десктопе */

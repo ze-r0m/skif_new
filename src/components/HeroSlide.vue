@@ -4,7 +4,7 @@
     <div class="slide-content">
       <h2>{{ slide.title }}</h2>
       <div class="slide-actions">
-        <AppButton text="Подробнее" href="/about" :showArrow="true" />
+        <AppButton text="Подробнее" href="/about" :showArrow="true" class="slide-link"/>
       </div>
     </div>
   </div>
@@ -66,16 +66,10 @@ const props = defineProps({
   gap: 12px;
   align-items: center;
 }
-
-.btn {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.26);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
+.slide-link{
+  max-width: 320px;
 }
+
 
 
 /* Меньше отступы на мобильных */

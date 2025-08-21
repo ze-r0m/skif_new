@@ -37,16 +37,18 @@
           <AppButton text="+7 (863) 273-84-73" :showArrow="false" class="is-hovered" />
         </div>
 
-        <div class="mobile-menu-toggle" :class="{ 'is-active': isMobileMenuOpen }" @click="toggleMobileMenu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div
+            class="mobile-menu-toggle"
+            :class="{ 'is-active': isMobileMenuOpen }"
+            @click="toggleMobileMenu"
+        >
+          <IconMenu v-if="!isMobileMenuOpen" />
+          <IconClose v-else />
         </div>
       </div>
     </div>
 
     <MobileMenu :isMobileMenuOpen="isMobileMenuOpen" :navItems="navItems" />
-
   </header>
 </template>
 
@@ -56,6 +58,8 @@ import AppButton from './AppButton.vue';
 import IconDstu95 from "@/components/icons/IconDstu95.vue";
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import MobileMenu from './MobileMenu.vue';
+import IconMenu from "@/components/icons/IconMenu.vue";
+import IconClose from "@/components/icons/IconClose.vue";
 
 const navItems = ref(['Начало', 'О нас', 'Системы', 'Обратная связь']);
 const isMobileMenuOpen = ref(false);
@@ -67,21 +71,17 @@ const toggleMobileMenu = () => {
 </script>
 
 <style scoped>
-/* =======================================================
-   Стили для всех устройств (Mobile-first подход)
-   ======================================================= */
+/* ==================== Общие ==================== */
 .site-header {
   border-bottom: 1px solid #e5e5e5;
   position: relative;
   z-index: 100;
 }
 
-/* Верхняя полоса скрыта по умолчанию */
 .top-bar {
   display: none;
 }
 
-/* Контейнер */
 .container {
   width: 100%;
   max-width: 1300px;
@@ -89,7 +89,6 @@ const toggleMobileMenu = () => {
   padding: 0 20px;
 }
 
-/* Основная шапка */
 .main-header {
   padding: 10px 0;
 }
@@ -116,7 +115,6 @@ const toggleMobileMenu = () => {
   width: auto;
 }
 
-/* Навигация и контакты скрыты по умолчанию */
 .main-nav,
 .header-contacts {
   display: none;
@@ -125,41 +123,29 @@ const toggleMobileMenu = () => {
 /* ===================== Мобильная кнопка ===================== */
 .mobile-menu-toggle {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 8px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: linear-gradient(207.7deg, #0f488f 0%, #1775bf 100%);
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  z-index: 101;
+  background: linear-gradient(208.61deg, rgb(15, 72, 143) 0%, rgb(23, 117, 191) 100%);
+  position: relative;
+  z-index: 200;
 }
 
-.mobile-menu-toggle:hover {
-  background: linear-gradient(207.7deg, #15509f 0%, #1c82d0 100%);
+.mobile-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  color: #fff;
 }
 
-.mobile-menu-toggle span {
-  display: block;
-  width: 60%;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+.mobile-menu-toggle.is-active {
+  background: #fff;
 }
 
-/* Анимация бургер-меню */
-.mobile-menu-toggle.is-active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.mobile-menu-toggle.is-active span:nth-child(2) {
-  opacity: 0;
-}
-.mobile-menu-toggle.is-active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.mobile-menu-toggle.is-active svg {
+  color: #11519c;
 }
 
 /* ===================== Десктоп ===================== */

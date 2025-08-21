@@ -46,7 +46,6 @@ export default {
   box-shadow: inset 0 0 0 1px var(--divider-contrast-color);
   background-color: transparent;
   width: 100%;
-  max-width: 320px;
   gap: 20px;
 }
 
