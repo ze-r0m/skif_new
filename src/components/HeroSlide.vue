@@ -32,7 +32,7 @@ const props = defineProps({
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 24px;
 }
 
 /* затемнение для читаемости текста */
@@ -71,13 +71,11 @@ const props = defineProps({
 }
 
 
-
 /* Меньше отступы на мобильных */
 @media (max-width: 576px) {
-  .hero-slide { padding: 18px; }
+  .hero-slide { padding: 24px; }
   .slide-content { max-width: 100%; }
   .slide-content h2 { font-size: 1.25rem; }
-  .btn { padding: 6px 12px; }
-  .btn-arrow { width: 36px; height: 36px; font-size: 18px; }
+
 }
 </style>
