@@ -61,6 +61,57 @@ const slides = ref([
 ]);
 </script>
 
+<style>
+/* ===== Общие стили для пагинации (полоски) ===== */
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet {
+  flex: 1 !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
+
+/* 💻 ПК — полоски внутри слайда, светлые */
+@media (min-width: 992px) {
+  .swiper-pagination {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 0 20% !important;
+  }
+  .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.35) !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+  }
+}
+
+/* 📱 Планшеты и телефоны — полоски под слайдером, темные и акцентные */
+@media (max-width: 991px) {
+  .swiper-pagination {
+    position: relative !important;
+    transform: translateY(0) !important;
+    margin-top: 12px !important;
+    padding: 0 16px !important;
+  }
+  .swiper-pagination-bullet {
+    background: rgba(0, 0, 0, 0.15) !important; /* Тёмные, но видимые неактивные полоски */
+  }
+  .swiper-pagination-bullet-active {
+    background: #1370B9 !important; /* Ярко-синяя активная полоска */
+  }
+}
+</style>
+
 <style scoped>
 /* =======================================================
    Стили для всех устройств (Mobile-first подход)
@@ -127,7 +178,7 @@ const slides = ref([
 }
 
 .card-1 {
-  background: url("src/assets/fasad.jpg");
+  background: url("../assets/fasad.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -141,7 +192,7 @@ const slides = ref([
 }
 
 .card-3 {
-  background-image: url("src/assets/instructions.jpg");
+  background-image: url("../assets/instructions.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
