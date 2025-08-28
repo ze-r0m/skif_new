@@ -1,12 +1,18 @@
 <template>
-  <div class="hero-slide" :style="{ backgroundColor: slide.color }">
+  <div
+      class="hero-slide"
+      :style="{
+      backgroundImage: imageStyle,
+      backgroundColor: backgroundColor
+    }"
+  >
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <h2>{{ slide.title }}</h2>
       <div class="slide-actions">
         <AppButton
             text="Подробнее"
-            href="/about"
+            :href="slide.link"
             :showArrow="true"
             class="slide-link"
         />
@@ -16,7 +22,7 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 import AppButton from "@/components/AppButton.vue";
 
 const props = defineProps({
@@ -25,6 +31,14 @@ const props = defineProps({
     required: true
   }
 });
+
+// если есть картинка — используем её, иначе фон пустой
+const imageStyle = computed(() =>
+    props.slide.image ? `url(${props.slide.image})` : "none"
+);
+
+// если нет картинки, используем цвет
+const backgroundColor = computed(() => props.slide.color || "#34495e");
 </script>
 
 <style scoped>
@@ -37,25 +51,18 @@ const props = defineProps({
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
-
-  /* на ПК — твои родные отступы */
   padding: 3.2rem 3.2rem 5rem;
 }
 
-/* затемнение для читаемости текста */
 .slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.55) 12%,
-      rgba(0, 0, 0, 0.18) 40%,
-      rgba(0, 0, 0, 0) 100%
-  );
+  background: #000;
+  opacity: 0.3; /* регулируем интенсивность */
   pointer-events: none;
+  transition: opacity .35s ease;
 }
 
-/* контент */
 .slide-content {
   position: relative;
   z-index: 2;
@@ -63,7 +70,6 @@ const props = defineProps({
   max-width: 72%;
 }
 
-/* Заголовок */
 .slide-content h2 {
   font-size: clamp(1.5rem, 2.6vw, 2.6rem);
   line-height: 1.1;
@@ -72,7 +78,6 @@ const props = defineProps({
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Кнопки */
 .slide-actions {
   display: flex;
   gap: 12px;

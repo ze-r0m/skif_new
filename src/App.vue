@@ -7,7 +7,7 @@
       <SkifsSection />
       <TheEpigraph text="На факультетах и институтах Университета формируется система ответственных лиц по развитию ЭО и ДОТ, обладающих определенными
         компетенциями по созданию онлайн курсов, работе в системе LMS, обеспечивающих консультационную и организационную поддержку преподавателей."/>
-
+      <CreatingOnlineCourseTimeLine />
     </main>
 
     <TheFooter />
@@ -22,10 +22,7 @@ import TeamSection from "@/components/TeamSection.vue";
 import SkifsSection from "@/components/SkifsSection.vue";
 import TheFooter from './components/TheFooter.vue';
 import TheEpigraph from "@/components/TheEpigraph.vue";
-
-
-
-
+import CreatingOnlineCourseTimeLine from "@/components/CreatingOnlineCourseTimeLine.vue";
 </script>
 
 <style>

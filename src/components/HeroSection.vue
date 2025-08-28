@@ -1,30 +1,23 @@
 <template>
   <section class="hero-section">
     <div class="container hero-grid">
+      <!-- Слайдер -->
       <div class="grid-item grid-slider">
-        <swiper
-            :modules="[Navigation, Pagination]"
-            :slides-per-view="1"
-            :loop="true"
-            :navigation="false"
-            :pagination="{ clickable: true }"
-            class="mySwiper"
-        >
-          <swiper-slide v-for="(slide, index) in slides" :key="index">
-            <HeroSlide :slide="slide" />
-          </swiper-slide>
-        </swiper>
+        <HeroSlider />
       </div>
 
+      <!-- Мобильная пагинация -->
+      <div class="swiper-pagination-mobile"></div>
+
+      <!-- Правая колонка с карточками -->
       <div class="hero-grid-right">
-        <a href="">
+        <a href="https://news.donstu.ru/">
           <div class="card card-1">
             <div class="card-content">
               <h3 class="card-title">События ДГТУ</h3>
             </div>
           </div>
         </a>
-
         <a href="">
           <div class="card card-2">
             <div class="card-content">
@@ -32,7 +25,7 @@
             </div>
           </div>
         </a>
-        <a href="">
+        <a href="https://do.skif.donstu.ru/course/view.php?id=418">
           <div class="card card-3">
             <div class="card-content">
               <h3 class="card-title">Инструкции по работе с&nbsp;системами</h3>
@@ -45,78 +38,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import HeroSlide from './HeroSlide.vue';
-
-const slides = ref([
-  { title: 'Создание видеокурса. Студия записи', color: '#34495e' },
-  { title: 'Информация о ходе приёмной кампании 2025', color: '#2980b9' },
-  { title: 'Открытие новой лаборатории', color: '#8e44ad' },
-]);
+import HeroSlider from "./HeroSlider.vue";
 </script>
 
-<style>
-/* ===== Общие стили для пагинации (полоски) ===== */
-.swiper-pagination {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  transition: all 0.3s ease;
-}
-
-.swiper-pagination-bullet {
-  flex: 1 !important;
-  height: 4px !important;
-  border-radius: 2px !important;
-  opacity: 1 !important;
-  transition: all 0.3s ease;
-}
-
-/* 💻 ПК — полоски внутри слайда, светлые */
-@media (min-width: 992px) {
-  .swiper-pagination {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 0 !important;
-    right: 0 !important;
-    padding: 0 20% !important;
-  }
-  .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, 0.35) !important;
-  }
-  .swiper-pagination-bullet-active {
-    background: #fff !important;
-  }
-}
-
-/* 📱 Планшеты и телефоны — полоски под слайдером, темные и акцентные */
-@media (max-width: 991px) {
-  .swiper-pagination {
-    position: relative !important;
-    transform: translateY(0) !important;
-    margin-top: 12px !important;
-    padding: 0 16px !important;
-  }
-  .swiper-pagination-bullet {
-    background: rgba(0, 0, 0, 0.15) !important; /* Тёмные, но видимые неактивные полоски */
-  }
-  .swiper-pagination-bullet-active {
-    background: #1370B9 !important; /* Ярко-синяя активная полоска */
-  }
-}
-</style>
-
 <style scoped>
-/* =======================================================
-   Стили для всех устройств (Mobile-first подход)
-   ======================================================= */
-
 .container {
   width: 100%;
   max-width: 1300px;
@@ -128,17 +53,16 @@ const slides = ref([
   padding: 24px 0;
 }
 
-/* Сетка по умолчанию для мобильных — одна колонка */
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
-.hero-grid a{
+
+.hero-grid a {
   text-decoration: none;
 }
 
-/* Слайдер и его контейнер */
 .grid-slider {
   position: relative;
   min-height: 20rem;
@@ -147,20 +71,15 @@ const slides = ref([
   min-width: 0;
 }
 
-.mySwiper,
-.mySwiper .swiper-wrapper,
-.mySwiper .swiper-slide {
-  height: 100%;
-}
-
-/* Правая колонка с карточками */
 .hero-grid-right {
   display: grid;
   grid-auto-flow: row;
   gap: 20px;
 }
 
-.card {
+/* карточки */
+.hero-grid-right .card {
+  position: relative;       /* чтобы ::before был внутри карточки */
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -170,38 +89,31 @@ const slides = ref([
   min-height: 10rem;
 }
 
-.card-title{
+/* затемнение */
+.hero-grid-right .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0.3;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+/* контент над затемнением */
+.hero-grid-right .card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.card-title {
   font-size: 1.8rem;
   color: #ffffff;
   font-weight: 700;
   margin: 0;
-}
-
-.card-1 {
-  background: url("../assets/fasad.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-2 {
-  background: url("../assets/achievements.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-3 {
-  background-image: url("../assets/instructions.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  padding-right: 20px;
 }
 
 .card-content h3 {
@@ -210,10 +122,23 @@ const slides = ref([
   line-height: 1.25;
 }
 
+/* hover — уменьшение затемнения */
+.hero-grid-right .card:hover::before {
+  opacity: 0;
+}
 
-/* =======================================================
-   Медиа-запросы для более широких экранов
-   ======================================================= */
+/* фоновые картинки */
+.card-1 {
+  background: url("../assets/fasad.jpg") center/cover no-repeat;
+}
+
+.card-2 {
+  background: url("../assets/achievements.png") center/cover no-repeat;
+}
+
+.card-3 {
+  background: url("../assets/instructions.jpg") center/cover no-repeat;
+}
 
 @media (min-width: 768px) {
   .hero-section {
@@ -235,12 +160,10 @@ const slides = ref([
   .hero-grid-right {
     grid-template-rows: repeat(3, 1fr);
     height: 100%;
-    grid-auto-flow: unset;
   }
 
-  .card {
+  .hero-grid-right .card {
     border-radius: 32px;
-    min-height: 0;
     height: 100%;
   }
 }
