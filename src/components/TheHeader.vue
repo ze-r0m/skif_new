@@ -30,7 +30,7 @@
         </div>
 
         <nav class="main-nav">
-          <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
+          <a v-for="item in navItems" :key="item.id" :href="`#${item.id}`">{{ item.title }}</a>
         </nav>
 
         <div class="header-contacts">
@@ -61,7 +61,13 @@ import MobileMenu from './MobileMenu.vue';
 import IconMenu from "@/components/icons/IconMenu.vue";
 import IconClose from "@/components/icons/IconClose.vue";
 
-const navItems = ref(['Начало', 'О нас', 'Системы', 'Обратная связь']);
+const navItems = ref([
+  { id: 'about', title: 'О нас' },
+  { id: 'systems', title: 'Системы' },
+  { id: 'creating_courses', title: 'Разработка курсов' },
+  { id: 'feedback', title: 'Обратная связь' }
+]);
+
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {

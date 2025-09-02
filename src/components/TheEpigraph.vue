@@ -2,7 +2,7 @@
   <section class="epigraph-section">
     <div class="container">
       <p class="epigraph-text">
-        <span class="epigraph-icon">❝</span>
+        <span v-if="showIcon" class="epigraph-icon">❝</span>
         {{ text }}
       </p>
     </div>
@@ -14,6 +14,10 @@ defineProps({
   text: {
     type: String,
     required: true
+  },
+  showIcon: {
+    type: Boolean,
+    default: true
   }
 })
 </script>

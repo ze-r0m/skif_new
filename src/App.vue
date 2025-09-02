@@ -3,11 +3,14 @@
     <TheHeader />
     <main>
       <HeroSection />
-      <TeamSection />
-      <SkifsSection />
+      <TeamSection id="about" />
       <TheEpigraph text="На факультетах и институтах Университета формируется система ответственных лиц по развитию ЭО и ДОТ, обладающих определенными
         компетенциями по созданию онлайн курсов, работе в системе LMS, обеспечивающих консультационную и организационную поддержку преподавателей."/>
-      <CreatingOnlineCourseTimeLine />
+
+      <SkifsSection id="systems" />
+      <TheEpigraph id="creating_courses" :show-icon="false" text="РАЗРАБОТКА МАССОВЫХ ОНЛАЙН-КУРСОВ МООК" />
+
+      <TwoColumnsRows  />
     </main>
 
     <TheFooter />
@@ -22,12 +25,13 @@ import TeamSection from "@/components/TeamSection.vue";
 import SkifsSection from "@/components/SkifsSection.vue";
 import TheFooter from './components/TheFooter.vue';
 import TheEpigraph from "@/components/TheEpigraph.vue";
-import CreatingOnlineCourseTimeLine from "@/components/CreatingOnlineCourseTimeLine.vue";
+import TwoColumnsRows from "@/components/TwoColumnsRows.vue";
 </script>
 
 <style>
 /* Глобальные стили */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://globalfonts.pro/font/nekst');
 
 body {
   margin: 0;

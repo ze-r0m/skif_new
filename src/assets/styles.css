@@ -41,5 +41,16 @@ html,body,#app { height:100%; margin:0;
     background:var(--app-bg); color:var(--text-color); }
 .container { max-width:1100px; margin:0 auto; padding:0 16px; }
 
+html {
+    scroll-behavior: smooth;
+}
 
-
+@font-face {
+    font-family: 'Nekst';
+    src: local('Nekst SemiBold'), local('Nekst-SemiBold'),
+    url('@/assets/fonts/nekst-semibold/Nekst-SemiBold.woff2') format('woff2'),
+    url('@/assets/fonts/nekst-semibold/Nekst-SemiBold.woff') format('woff'),
+    url('@/assets/fonts/nekst-semibold/Nekst-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
