@@ -48,7 +48,12 @@
       </div>
     </div>
 
-    <MobileMenu :isMobileMenuOpen="isMobileMenuOpen" :navItems="navItems" />
+    <MobileMenu
+        :isMobileMenuOpen="isMobileMenuOpen"
+        :navItems="navItems"
+        @close="toggleMobileMenu"
+    />
+
   </header>
 </template>
 

@@ -8,7 +8,7 @@
         компетенциями по созданию онлайн курсов, работе в системе LMS, обеспечивающих консультационную и организационную поддержку преподавателей."/>
 
       <SkifsSection id="systems" />
-      <TheEpigraph id="creating_courses" :show-icon="false" text="РАЗРАБОТКА МАССОВЫХ ОНЛАЙН-КУРСОВ МООК" />
+
 
       <TwoColumnsRows  />
     </main>

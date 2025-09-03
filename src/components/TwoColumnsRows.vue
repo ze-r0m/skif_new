@@ -1,7 +1,9 @@
 <template>
   <div class="template">
     <div class="container">
+      <TheEpigraph id="creating_courses" :show-icon="false" text="РАЗРАБОТКА МАССОВЫХ ОТКРЫТЫХ ОНЛАЙН-КУРСОВ МООК" />
       <section class="two-col">
+
         <div
             v-for="(row, index) in rows"
             :key="index"
@@ -47,6 +49,7 @@ import { rows as rows } from "@/data/rows.js";
 
 
 import { onMounted, nextTick, ref } from 'vue';
+import TheEpigraph from "@/components/TheEpigraph.vue";
 
 const rowsRef = ref([]);
 
@@ -69,9 +72,8 @@ onMounted(() => {
 
 <style scoped>
 .template {
-
   width: 100%;
-  background-image: url('@/assets/bg-timeline.png');
+  background-image: url('@/assets/bg-timeline.jpg');
   background-repeat: no-repeat;
   background-position: center; /* центрирование картинки */
   background-size: cover;
@@ -93,7 +95,7 @@ onMounted(() => {
 .row {
   display: flex;
   width: 100%;
-  position: relative;
+  position: sticky;
 
 }
 .row.reverse {
@@ -104,24 +106,23 @@ onMounted(() => {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  min-height: 345px;
 }
 
 /* уменьшаем первый и последний ряд */
 .row:first-child .col
 {
-  min-height: 172px; /* половина 345px */
+  min-height: 86px; /* половина 345px */
 }
 .row:last-child .col{
   display: none;
 }
 .text-box {
-  padding: 48px;
+  padding: 24px;
   width: 100%;
   position: relative;
   box-sizing: border-box;
   border-top: none; /* убираем стандартный border */
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .text-box::before {
@@ -156,6 +157,7 @@ onMounted(() => {
   list-style: none; /* убираем стандартные маркеры */
   padding: 0;
   margin: 0;
+  padding-top: 24px;
 }
 
 /* общий маркер — точка слева */
@@ -192,7 +194,7 @@ onMounted(() => {
   padding: 0 8px;
   display: flex;
   align-items: center;
-  font-size: 27px;
+  font-size: 1.8rem;
 }
 
 /* ромб у заголовка */
@@ -258,16 +260,10 @@ onMounted(() => {
 .image-box {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* по умолчанию картинка у линии */
+  justify-content: center;
   width: 100%;
-  min-height: 50px;
   box-sizing: border-box;
-  padding: 48px;
-}
-
-/* справа прижимается к линии */
-.row.reverse .image-box {
-  justify-content: flex-end;
+  padding: 24px;
 }
 
 .image-box img {
@@ -275,16 +271,7 @@ onMounted(() => {
   max-height: 200px;
   height: auto;
   object-fit: contain;
-  margin-left: 80px;  /* отступ от линии в обычных блоках */
-  margin-bottom: 50px;
 }
-
-.row.reverse .image-box img {
-  margin-left: 0;
-  margin-right: 80px; /* отступ от линии в reverse-блоках */
-  margin-bottom: 50px;
-}
-
 
 .center-line {
   position: absolute;
@@ -304,4 +291,112 @@ onMounted(() => {
   background: black;
   transform: translate(-50%, 0) rotate(45deg);
 }
+
+
+
+
+@media (max-width: 768px) {
+  .row,
+  .row.reverse {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* Убираем margin-left отсюда */
+  }
+
+  .col,
+  .left-col,
+  .right-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .text-box {
+    margin: 0;
+    text-align: center;
+    max-width: 90%;
+    position: relative;
+    padding: 0;
+  }
+
+  .text-box .title {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: static;
+    transform: none;
+    margin-bottom: 12px;
+
+
+
+  }
+  .text-box .title::before {
+    display: none;
+  }
+
+  .text-box::before {
+    display: none;
+  }
+
+  .text-box ul {
+    text-align: left;
+  }
+
+  .text-box li {
+    padding-left: 1.2em;
+    text-align: left;
+  }
+
+  .text-box li::before {
+    left: 0;
+    right: auto;
+  }
+
+  .image-box {
+    padding: 12px;
+    justify-content: center;
+  }
+
+  .image-box img {
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .center-line {
+    display: block;
+    position: absolute;
+    left: 24px; /* Отступ для линии */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: black;
+    transform: translateX(-50%);
+  }
+
+
+  .row:first-child .diamond {
+    display: none;
+  }
+
+  .row:last-child .col {
+    display: flex;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 </style>

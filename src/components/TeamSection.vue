@@ -22,17 +22,17 @@
       <div class="team-cards-grid">
         <div class="team-card team-card-1">
           <div class="card-number">1</div>
-          <h3 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-          <p class="card-text"><strong>задачи управления....</strong> <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h3 class="card-title">Цифровые решения для организации образовательного процесса</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="team-card team-card-2">
           <div class="card-number">2</div>
-          <h3 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+          <h3 class="card-title">Оптимизация использования аудиторного фонда в образовательном процессе</h3>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="team-card team-card-3">
           <div class="card-number">3</div>
-          <h3 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+          <h3 class="card-title">Обеспечение учебного процесса актуальными программными решениями</h3>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>

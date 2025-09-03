@@ -28,7 +28,7 @@ defineProps({
    ======================================================= */
 .epigraph-section {
   padding: 40px 0;
-  background-color: #f0f4f7;
+  background-color: transparent;
 }
 
 .container {

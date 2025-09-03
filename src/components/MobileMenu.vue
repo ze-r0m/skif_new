@@ -11,7 +11,16 @@
     <div class="mobile-header-separator"></div>
 
     <nav class="mobile-nav">
-      <a href="#" v-for="item in navItems" :key="item">{{ item }}</a>
+
+      <a
+          v-for="item in navItems"
+          :key="item.id"
+          :href="`#${item.id}`"
+          @click="emit('close')"
+      >
+        {{ item.title }}
+      </a>
+
 
       <div class="additional-links">
         <a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a>
@@ -36,6 +45,7 @@ const props = defineProps({
   isMobileMenuOpen: Boolean,
   navItems: Array
 });
+const emit = defineEmits(['close']); // событие закрытия
 </script>
 
 <style scoped>
