@@ -10,7 +10,7 @@
       <SkifsSection id="systems" />
 
 
-      <TwoColumnsRows  />
+      <CreatingCoursesSection  />
     </main>
 
     <TheFooter />
@@ -25,7 +25,7 @@ import TeamSection from "@/components/TeamSection.vue";
 import SkifsSection from "@/components/SkifsSection.vue";
 import TheFooter from './components/TheFooter.vue';
 import TheEpigraph from "@/components/TheEpigraph.vue";
-import TwoColumnsRows from "@/components/TwoColumnsRows.vue";
+import CreatingCoursesSection from "@/components/CreatingCoursesSection.vue";
 </script>
 
 <style>
@@ -38,7 +38,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f9f9f9;
 }
-
 .container {
   width: 100%;
   max-width: 1300px;

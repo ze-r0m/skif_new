@@ -1,7 +1,7 @@
 <template>
   <div class="template">
     <div class="container">
-      <TheEpigraph id="creating_courses" :show-icon="false" text="РАЗРАБОТКА МАССОВЫХ ОТКРЫТЫХ ОНЛАЙН-КУРСОВ МООК" />
+      <TheEpigraph class="h-creating-courses" id="creating_courses" :show-icon="false" text="РАЗРАБОТКА МАССОВЫХ ОТКРЫТЫХ ОНЛАЙН-КУРСОВ МООК" />
       <section class="two-col">
 
         <div
@@ -85,7 +85,10 @@ onMounted(() => {
   max-width: 1300px;
   margin: 0 auto;
   padding: 20px 20px;
+}
 
+.h-creating-courses{
+  margin: 0;
 }
 
 .two-col {
@@ -292,111 +295,80 @@ onMounted(() => {
   transform: translate(-50%, 0) rotate(45deg);
 }
 
-
-
-
 @media (max-width: 768px) {
-  .row,
-  .row.reverse {
+
+  .center-line{
+    display: none;
+  }
+
+  .row  {
     flex-direction: column;
     align-items: center;
     position: relative;
     /* Убираем margin-left отсюда */
   }
-
-  .col,
-  .left-col,
-  .right-col {
-    width: 100%;
-    display: flex;
+  .row.reverse{
     flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
   }
 
-  .text-box {
-    margin: 0;
-    text-align: center;
-    max-width: 90%;
-    position: relative;
+  /* первый блок — убираем линию и ромб */
+  .row:first-child {
+    display: none;
+  }
+
+  .col {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  .text-box .title{
+    font-size: 1.1rem;
     padding: 0;
   }
 
-  .text-box .title {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: static;
-    transform: none;
-    margin-bottom: 12px;
-
-
-
-  }
-  .text-box .title::before {
-    display: none;
+  .text-box{
+    font-size: 0.88rem;
+    padding: 0;
+    margin: 10px;
   }
 
   .text-box::before {
-    display: none;
+    content: "";
+    position: absolute;
+    top: 0; /* оставляем вертикально как было */
+    height: 1px;
+    background: black;
   }
 
   .text-box ul {
-    text-align: left;
+    list-style: none; /* убираем стандартные маркеры */
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
   }
 
-  .text-box li {
-    padding-left: 1.2em;
-    text-align: left;
-  }
-
-  .text-box li::before {
-    left: 0;
-    right: auto;
-  }
-
-  .image-box {
-    padding: 12px;
-    justify-content: center;
+  .image-box{
+    padding: 10px;
   }
 
   .image-box img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
     height: auto;
     object-fit: contain;
+
+  }
+  /* по умолчанию — заголовок слева, ромб справа */
+  .row:not(.reverse) .text-box .title {
+    left: 0;
   }
 
-  .center-line {
-    display: block;
-    position: absolute;
-    left: 24px; /* Отступ для линии */
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: black;
-    transform: translateX(-50%);
-  }
-
-
-  .row:first-child .diamond {
-    display: none;
-  }
-
-  .row:last-child .col {
-    display: flex;
+  /* если row.reverse — заголовок справа, ромб слева */
+  .row.reverse .text-box .title {
+    right: 0;
   }
 }
-
-
-
-
-
-
-
-
-
 
 </style>

@@ -29,14 +29,15 @@ defineProps({
 .epigraph-section {
   padding: 40px 0;
   background-color: transparent;
+  margin: 20px;
 }
 
 .container {
   max-width: 1300px;
-  margin: 0 auto;
   background: linear-gradient(215deg, #0E468B 0%, #1370B9 100%, #1370B9 100%);
   border-radius: 3.2rem;
   padding: 50px 30px;
+
 }
 
 .epigraph-text {
