@@ -70,7 +70,7 @@ const navItems = ref([
   { id: 'about', title: 'О нас' },
   { id: 'systems', title: 'Системы' },
   { id: 'creating_courses', title: 'Разработка курсов' },
-  { id: 'feedback', title: 'Обратная связь' }
+  // { id: 'feedback', title: 'Обратная связь' }
 ]);
 
 const isMobileMenuOpen = ref(false);
@@ -219,8 +219,7 @@ const toggleMobileMenu = () => {
     display: flex;
   }
 
-  .mobile-menu-toggle,
-  .mobile-menu-overlay {
+  .mobile-menu-toggle{
     display: none;
   }
 

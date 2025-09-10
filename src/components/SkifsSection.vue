@@ -6,7 +6,7 @@
       </div>
       <p class="description-short">
         <strong>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consectetur dolor, doloribus error natus nulla odio omnis pariatur perspiciatis praesentium quas quidem quo reiciendis rem sequi sit sunt tempore veritatis!
+          Наши цифровые системы объединяют все образовательные процессы ДГТУ, обеспечивают электронное обучение, контроль успеваемости, тестирование и доступ к образовательным ресурсам, создавая единое информационное пространство для студентов и преподавателей.
         </strong>
       </p>
       <div class="features-grid">
@@ -29,12 +29,29 @@ import { ref } from 'vue';
 import AppButton from "@/components/AppButton.vue";
 
 const features = ref([
-  { heading: 'ДО<br>СКИФ', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://do.skif.donstu.ru/' },
-  { heading: 'СКИФ<br>ТЕСТ', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://skif.donstu.ru/test/' },
-  { heading: 'СКИФ<br>БИБЛИОТЕКА', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://de.donstu.ru/zaoch/organizations/1' },
-  { heading: 'СКИФ<br>СПЕЦ', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://skif.donstu.ru/spec/' },
-  { heading: 'СКИФ<br>МЕЖДУНАРОДНЫЙ', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://int.skif.donstu.ru/' },
-  { heading: 'ПРОФ<br>СКИФ', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', link: 'https://prof.skif.donstu.ru/' },
+  { heading: 'ДО<br>СКИФ',
+    text: 'Система для дистанционного обучения и электронных курсов. Позволяет студентам и преподавателям участвовать в онлайн-занятиях, использовать актуальные учебные материалы и контролировать прогресс.',
+    link: 'https://do.skif.donstu.ru/' },
+
+  { heading: 'СКИФ<br>ТЕСТ',
+    text: 'Система для проведения массового тестирования студентов, дней навигации, анкетирования и государственных итоговых аттестаций. Обеспечивает интеграцию с другими платформами и централизованный учет пользователей.',
+    link: 'https://skif.donstu.ru/test/' },
+
+  { heading: 'СКИФ<br>БИБЛИОТЕКА',
+    text: 'Система для обеспечения материалами только заочной формы обучения. Содержит учебные пособия, методические указания и материалы для заочной формы обучения, обеспечивая доступ к ресурсам в любое время.',
+    link: 'https://de.donstu.ru/zaoch/organizations/1' },
+
+  { heading: 'СКИФ<br>СПЕЦ',
+    text: 'Система для проведения вступительных испытаний абитуриентов, конкурсов, олимпиад и разовых мероприятий. Обеспечивает организацию учета пользователей совместно с приемной комиссией вуза.',
+    link: 'https://skif.donstu.ru/spec/' },
+
+  { heading: 'СКИФ<br>МЕЖДУНАРОДНЫЙ',
+    text: 'Система для факультета «Международный» и подфакультетов. Позволяет вести специализированные курсы и обеспечивает смешанную авторизацию пользователей с интеграцией в единую цифровую среду.',
+    link: 'https://int.skif.donstu.ru/' },
+
+  { heading: 'ПРОФ<br>СКИФ',
+    text: '',
+    link: 'https://prof.skif.donstu.ru/' },
 ]);
 </script>
 

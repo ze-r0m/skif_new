@@ -4,8 +4,8 @@
     <main>
       <HeroSection />
       <TeamSection id="about" />
-      <TheEpigraph text="На факультетах и институтах Университета формируется система ответственных лиц по развитию ЭО и ДОТ, обладающих определенными
-        компетенциями по созданию онлайн курсов, работе в системе LMS, обеспечивающих консультационную и организационную поддержку преподавателей."/>
+      <TheEpigraph text="LMS Moodle используется в различных направлениях работы ВУЗа: работа с абитуриентами, приемная комиссия, дни навигации, входной контроль знаний, образовательный процесс,
+       ГИА."/>
 
       <SkifsSection id="systems" />
       <CreatingCoursesSection  />
@@ -37,29 +37,5 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f9f9f9;
 }
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
-/* Стили для секций */
-.news-section {
-  padding: 80px 0;
-}
-
-.section-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #004a8f;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
 </style>
