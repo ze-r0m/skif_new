@@ -4,8 +4,8 @@
     <main>
       <HeroSection />
       <TeamSection id="about" />
-      <TheEpigraph text="На факультетах и институтах Университета формируется система ответственных лиц по развитию ЭО и ДОТ, обладающих определенными
-        компетенциями по созданию онлайн курсов, работе в системе LMS, обеспечивающих консультационную и организационную поддержку преподавателей."/>
+      <TheEpigraph text="Системы СКИФ на базе исходного кода LMS Moodle используются в различных направлениях работы ВУЗа: работа с абитуриентами, приемная комиссия, дни навигации, входной контроль знаний, образовательный процесс,
+       ГИА."/>
 
       <SkifsSection id="systems" />
       <CreatingCoursesSection  />
@@ -26,40 +26,3 @@ import TheEpigraph from "@/components/TheEpigraph.vue";
 import CreatingCoursesSection from "@/components/CreatingCoursesSection.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
 </script>
-
-<style>
-/* Глобальные стили */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-@import url('https://globalfonts.pro/font/nekst');
-
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f9f9f9;
-}
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Стили для секций */
-.news-section {
-  padding: 80px 0;
-}
-
-.section-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #004a8f;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-</style>

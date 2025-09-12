@@ -43,6 +43,7 @@ html,body,#app { height:100%; margin:0;
 
 html {
     scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
 }
 
 @font-face {
@@ -54,3 +55,50 @@ html {
     font-weight: 600;
     font-style: normal;
 }
+
+/* ----- обычные ----- */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ----- italic ----- */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/static/Montserrat-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+

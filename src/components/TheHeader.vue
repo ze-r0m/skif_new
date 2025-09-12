@@ -11,6 +11,9 @@
           <a href="https://prof.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ПРОФ.СКИФ</a>
         </div>
         <div class="dstu-link">
+          <a href="https://skif.donstu.ru/old" target="_blank" rel="noopener noreferrer" class="link-button">
+            Старая версия сайта
+          </a>
           <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" class="link-button">
             Сайт ДГТУ
           </a>
@@ -70,7 +73,7 @@ const navItems = ref([
   { id: 'about', title: 'О нас' },
   { id: 'systems', title: 'Системы' },
   { id: 'creating_courses', title: 'Разработка курсов' },
-  { id: 'feedback', title: 'Обратная связь' }
+  // { id: 'feedback', title: 'Обратная связь' }
 ]);
 
 const isMobileMenuOpen = ref(false);
@@ -219,8 +222,7 @@ const toggleMobileMenu = () => {
     display: flex;
   }
 
-  .mobile-menu-toggle,
-  .mobile-menu-overlay {
+  .mobile-menu-toggle{
     display: none;
   }
 
