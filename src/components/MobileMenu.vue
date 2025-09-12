@@ -31,7 +31,10 @@
         <a href="https://do.skif.donstu.ru/">ДО.СКИФ</a>
       </div>
 
-      <a href="https://donstu.ru/" class="dstu-link">Сайт ДГТУ</a>
+      <div class="bottom-links">
+        <a href="https://skif.donstu.ru/old" class="dstu-link">Старая версия сайта</a>
+        <a href="https://donstu.ru/" class="dstu-link">Сайт ДГТУ</a>
+      </div>
     </nav>
   </div>
 </template>
@@ -39,7 +42,6 @@
 <script setup>
 import { defineProps } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
-import IconUcotHorizont from "@/components/icons/IconUcotHorizont.vue";
 
 const props = defineProps({
   isMobileMenuOpen: Boolean,
@@ -124,10 +126,13 @@ const emit = defineEmits(['close']); // событие закрытия
   margin-top: auto;
   margin-bottom: 22px;
 }
-
-.dstu-link {
-  margin-top: auto;
+.bottom-links {
+  margin-top: auto;       /* прижимает к низу */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
+
 
 /* Скрываем на десктопе */
 @media (min-width: 992px) {

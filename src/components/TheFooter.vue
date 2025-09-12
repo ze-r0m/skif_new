@@ -38,6 +38,10 @@
           <li><a href="https://int.skif.donstu.ru/">СКИФ.Международный</a></li>
           <li><a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a></li>
         </ul>
+
+        <a href="https://skif.donstu.ru/old" target="_blank" rel="noopener noreferrer" class="old-site-link">
+          Старый сайт
+        </a>
       </div>
     </div>
 
@@ -54,7 +58,6 @@
 <script setup>
 // статичный компонент, только иконки
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
-import IconDstu95 from "@/components/icons/IconDstu95.vue";
 import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 </script>
 
@@ -74,6 +77,15 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 
 /* Добавляем класс, чтобы можно было выбрать этот блок */
 .footer-skif-services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.old-site-link {
+  margin-top: auto;
+  margin-bottom: auto ;
 }
 
 .footer-logos {

@@ -87,6 +87,7 @@ const backgroundColor = computed(() => props.slide.color || "#34495e");
 .slide-link {
   margin: 2rem 0 0;
   max-width: 320px;
+  background-color: rgba(248, 248, 248, 0.09);
 }
 
 /* 💻 ПК — твои родные отступы */
