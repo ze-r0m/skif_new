@@ -2,22 +2,40 @@
   <header class="site-header">
     <div class="top-bar">
       <div class="container top-bar-content">
-        <div class="top-links">
-          <a href="https://do.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ДО.СКИФ</a>
-          <a href="https://skif.donstu.ru/test/" target="_blank" rel="noopener noreferrer">СКИФ.ТЕСТ</a>
-          <a href="https://de.donstu.ru/zaoch/organizations/1" target="_blank" rel="noopener noreferrer">СКИФ.Библиотека</a>
-          <a href="https://skif.donstu.ru/spec/" target="_blank" rel="noopener noreferrer">СКИФ.СПЕЦ</a>
-          <a href="https://int.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">СКИФ.Международный</a>
-          <a href="https://prof.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ПРОФ.СКИФ</a>
+
+
+
+
+        <div class="top-links-left">
+          <a href="https://donstu.ru/">Главный сайт</a>
+          <a href="https://skif.donstu.ru/old">Старая версия сайта</a>
         </div>
-        <div class="dstu-link">
-          <a href="https://skif.donstu.ru/old" target="_blank" rel="noopener noreferrer" class="link-button">
-            Старая версия сайта
-          </a>
-          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" class="link-button">
-            Сайт ДГТУ
-          </a>
+
+        <div class="top-links-right">
+          <a href="https://do.skif.donstu.ru/">ДО.СКИФ</a>
+          <a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a>
+          <a href="https://de.donstu.ru/zaoch/organizations/1">СКИФ.Библиотека</a>
+          <a href="https://skif.donstu.ru/spec/">СКИФ.СПЕЦ</a>
+          <a href="https://int.skif.donstu.ru/">СКИФ.Международный</a>
+          <a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a>
         </div>
+
+
+<!--        <div class="top-links">-->
+<!--          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">Главный сайт</a>-->
+<!--          <a href="https://skif.donstu.ru/old" target="_blank" rel="noopener noreferrer">Старая версия сайта</a>-->
+
+<!--          <div class="top-links-right">-->
+<!--            <a href="https://do.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ДО.СКИФ</a>-->
+<!--            <a href="https://skif.donstu.ru/test/" target="_blank" rel="noopener noreferrer">СКИФ.ТЕСТ</a>-->
+<!--            <a href="https://de.donstu.ru/zaoch/organizations/1" target="_blank" rel="noopener noreferrer">СКИФ.Библиотека</a>-->
+<!--            <a href="https://skif.donstu.ru/spec/" target="_blank" rel="noopener noreferrer">СКИФ.СПЕЦ</a>-->
+<!--            <a href="https://int.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">СКИФ.Международный</a>-->
+<!--            <a href="https://prof.skif.donstu.ru/" target="_blank" rel="noopener noreferrer">ПРОФ.СКИФ</a>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
       </div>
     </div>
 
@@ -25,10 +43,10 @@
       <div class="container main-header-content">
         <div class="header-logos">
           <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
-            <IconSkifSquare class="logo-skif-square" />
+            <IconSkifSquare class="logo-skif-square"/>
           </a>
           <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
-            <IconDstu95 class="logo-dstu" />
+            <IconDstuUcotBrandBlue class="logo-dstu"  />
           </a>
         </div>
 
@@ -36,9 +54,9 @@
           <a v-for="item in navItems" :key="item.id" :href="`#${item.id}`">{{ item.title }}</a>
         </nav>
 
-        <div class="header-contacts">
-          <AppButton text="+7 (863) 273-84-73" :showArrow="false" class="is-hovered" />
-        </div>
+<!--        <div class="header-contacts">-->
+<!--          <AppButton text="+7 (863) 273-84-73" :showArrow="false" class="is-hovered" />-->
+<!--        </div>-->
 
         <div
             class="mobile-menu-toggle"
@@ -68,6 +86,7 @@ import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import MobileMenu from './MobileMenu.vue';
 import IconMenu from "@/components/icons/IconMenu.vue";
 import IconClose from "@/components/icons/IconClose.vue";
+import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
 
 const navItems = ref([
   { id: 'about', title: 'О нас' },
@@ -87,13 +106,15 @@ const toggleMobileMenu = () => {
 <style scoped>
 /* ==================== Общие ==================== */
 .site-header {
-  border-bottom: 1px solid #e5e5e5;
   position: relative;
   z-index: 100;
+  height: 157px;
 }
 
 .top-bar {
   display: none;
+  border-bottom: 1px solid #e5e5e5;
+  height: 69px;
 }
 
 .container {
@@ -120,13 +141,13 @@ const toggleMobileMenu = () => {
 }
 
 .logo-skif-square {
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
 }
 
 .logo-dstu {
-  height: 35px;
-  width: auto;
+  width: 200px;
+  height: 40px;
 }
 
 .main-nav,
@@ -164,62 +185,81 @@ const toggleMobileMenu = () => {
 
 /* ===================== Десктоп ===================== */
 @media (min-width: 992px) {
+  .main-header{
+    padding-top: 32px;
+  }
+
+  .logo-skif-square {
+    height: 56px;
+    width: 56px;
+  }
+
+  .logo-dstu {
+    width: 269px;
+    height: 56px;
+  }
+
   .top-bar {
     display: block;
+    height: 69px;
   }
 
   .top-bar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 20px;
+    height: 100%;
+    padding: 0 20px;
+
+
+
+    font-weight: 500;
     font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
   }
 
-  .top-links a {
-    margin-right: 20px;
+  .top-links {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 3.2rem;
+  }
+
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-links-left,
+  .top-links-right {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  /* общий стиль ссылок */
+  .top-bar a {
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
+    color: #80889D;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+    transition: opacity .35s ease, color .35s ease;
   }
 
-  .top-links a:hover {
-    color: #004a8f;
+  .top-bar a:hover {
+    color: #C7C9CF;
   }
 
-  .link-button {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    padding: 4px 12px;
-    border-radius: 8px;
-    position: relative;
-    transition: all 0.3s ease;
-    z-index: 0;
-  }
 
-  .link-button::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    background: linear-gradient(208.61deg, rgb(15, 72, 143) 0%, rgb(23, 117, 191) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .link-button:hover::before {
-    opacity: 1;
-  }
-
-  .link-button:hover {
-    color: #fff;
-  }
 
   .main-nav,
   .header-contacts {
     display: flex;
+    gap: 2.4rem;
   }
 
   .mobile-menu-toggle{
@@ -227,15 +267,19 @@ const toggleMobileMenu = () => {
   }
 
   .main-nav a {
-    margin: 0 15px;
     font-size: 16px;
-    font-weight: 600;
-    color: #333;
+    font-weight: 500;
+    letter-spacing: -.24px;
+    line-height: 2.4rem;
+
+
+    color: #38424F;
     text-decoration: none;
   }
 
   .main-nav a:hover {
-    color: #004a8f;
+    color: #C7C9CF;
+    transition: opacity .35s ease, color .35s ease, background-color .35s ease, border-color .35s ease;
   }
 }
 </style>

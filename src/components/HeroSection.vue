@@ -1,44 +1,101 @@
 <template>
   <section class="hero-section">
-    <div class="container hero-grid">
-      <!-- Слайдер -->
-      <div class="grid-item grid-slider">
-        <HeroSlider />
+    <div class="container">
+      <div class="banner-card">
+        <div class="banner-card__content">
+          <h1 class="banner-card-title">Управление цифровых образовательных технологий</h1>
+          <p class="banner-card-text">
+            Команда УЦОТ координирует разработку и внедрение электронного обучения в ДГТУ, обеспечивает технологический аудит проектов и аналитическое сопровождение учебного процесса.
+            Мы интегрируем информационные системы университета для динамического управления образовательной средой, автоматизируя планирование, контроль и анализ вовлеченности, тестирования и МООК-курсов,
+            а также мониторинг результатов обучения. Цифровые технологии обеспечивают эффективное планирование и использование аудиторий и ресурсов,
+            учет занятости и расписаний, прогнозирование загрузки учебных помещений. Современные электронные образовательные технологии и программные решения позволяют создавать авторские курсы,
+            аудио- и видеоматериалы, а также системы контроля и статистического анализа, обеспечивая качество образовательного процесса и удовлетворение потребностей студентов и преподавателей.
+          </p>
+          <div class="banner-card__footer">
+            <a href="https://donstu.ru/university/struktura/priyemnaya-prorektora-po-strat-i-tsifrovomu-razvitiyu/upravleniye-tsifrovykh-obrazovatelnykh-tekhnologiy/">
+              <MainButton text="Узнать больше" variant="light" />
+            </a>
+
+          </div>
+        </div>
+
+        <div class="banner-card__img">
+        <img :src="edu_banner">
+
       </div>
-
-      <!-- Мобильная пагинация -->
-      <div class="swiper-pagination-mobile"></div>
-
-      <!-- Правая колонка с карточками -->
-      <div class="hero-grid-right">
-        <a href="https://news.donstu.ru/">
-          <div class="card card-1">
-            <div class="card-content">
-              <h3 class="card-title">События ДГТУ</h3>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="card card-2">
-            <div class="card-content">
-              <h3 class="card-title">Наши достижения</h3>
-            </div>
-          </div>
-        </a>
-        <a href="https://do.skif.donstu.ru/course/view.php?id=418">
-          <div class="card card-3">
-            <div class="card-content">
-              <h3 class="card-title">Инструкции по работе с&nbsp;системами</h3>
-            </div>
-          </div>
-        </a>
       </div>
     </div>
+    
+    <!-- Демонстрация кнопок main типа -->
+    <div class="container">
+      <div class="buttons-demo">
+        <h3>Кнопки Main типа - все состояния:</h3>
+        
+        <!-- Светлый фон -->
+        <div class="demo-group">
+          <h4>Для светлого фона:</h4>
+          <div class="buttons-row">
+            <MainButton text="Default" variant="dark" />
+            <MainButton text="Hover" variant="dark" />
+            <MainButton text="Pressed" variant="dark" />
+            <MainButton text="Disabled" variant="dark" disabled />
+          </div>
+        </div>
+        
+        <!-- Темный фон -->
+        <div class="demo-group dark-bg">
+          <h4>Для темного фона:</h4>
+          <div class="buttons-row">
+            <MainButton text="Default" variant="light" />
+            <MainButton text="Hover" variant="light" />
+            <MainButton text="Pressed" variant="light" />
+            <MainButton text="Disabled" variant="light" disabled />
+          </div>
+        </div>
+      </div>
+    </div>
+<!--    <div class="container hero-grid">-->
+<!--      &lt;!&ndash; Слайдер &ndash;&gt;-->
+<!--      <div class="grid-item grid-slider">-->
+<!--        <HeroSlider />-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Мобильная пагинация &ndash;&gt;-->
+<!--      <div class="swiper-pagination-mobile"></div>-->
+
+<!--      &lt;!&ndash; Правая колонка с карточками &ndash;&gt;-->
+<!--      <div class="hero-grid-right">-->
+<!--        <a href="https://news.donstu.ru/">-->
+<!--          <div class="card card-1">-->
+<!--            <div class="card-content">-->
+<!--              <h3 class="card-title">События ДГТУ</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--        <a href="">-->
+<!--          <div class="card card-2">-->
+<!--            <div class="card-content">-->
+<!--              <h3 class="card-title">Наши достижения</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--        <a href="https://do.skif.donstu.ru/course/view.php?id=418">-->
+<!--          <div class="card card-3">-->
+<!--            <div class="card-content">-->
+<!--              <h3 class="card-title">Инструкции по работе с&nbsp;системами</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
   </section>
 </template>
 
+
 <script setup>
 import HeroSlider from "./HeroSlider.vue";
+import edu_banner from '@/assets/edu_banner.png';
+import MainButton from "./MainButton.vue";
 </script>
 
 <style scoped>
@@ -49,122 +106,133 @@ import HeroSlider from "./HeroSlider.vue";
   padding: 0 20px;
 }
 
-.hero-section {
-  padding: 24px 0;
-}
+.banner-card {
+  background: linear-gradient(215deg, #0E468B 0%, #1370B9 100%, #1370B9 100%);
+  color: #FFFFFF;
+  padding: 56px;
+  border-radius: 32px;
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  position: relative;     /* как info-icon-card__body */
+  overflow: hidden;
 }
-
-.hero-grid a {
-  text-decoration: none;
-}
-
-.grid-slider {
+.banner-card__content{
   position: relative;
-  min-height: 20rem;
-  border-radius: 12px;
-  overflow: hidden;
-  min-width: 0;
-}
-
-.hero-grid-right {
-  display: grid;
-  grid-auto-flow: row;
-  gap: 20px;
-}
-
-/* карточки */
-.hero-grid-right .card {
-  position: relative;       /* чтобы ::before был внутри карточки */
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  padding: 32px;
-  box-sizing: border-box;
-  min-height: 10rem;
-}
-
-/* затемнение */
-.hero-grid-right .card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #000;
-  opacity: 0.3;
-  transition: opacity 0.35s ease;
   z-index: 1;
-}
 
-/* контент над затемнением */
-.hero-grid-right .card-content {
-  position: relative;
-  z-index: 2;
+
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  row-gap: 40px;
+
+
+
+  gap: 40px;
+  max-width: 660px;
+}
+.banner-card__img {
+
+  position: absolute;
+  right: -50px;      /* как -2.4rem */
+  bottom: 10px;
+  z-index: 0;
+  opacity: 0.25;     /* как в оригинале */
+
 }
 
-.card-title {
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: 700;
+.banner-card__img img {
+  width: 520px;      /* аналог 24rem */
+  height: auto;
+  max-width: none;
+}
+
+.banner-card-title{
   margin: 0;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 52px;
+  letter-spacing: -1.5px;
 }
 
-.card-content h3 {
+.banner-card-text {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.25;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
 }
 
-/* hover — уменьшение затемнения */
-.hero-grid-right .card:hover::before {
-  opacity: 0;
+
+
+.buttons-demo {
+  margin-top: 40px;
+  padding: 32px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* фоновые картинки */
-.card-1 {
-  background: url("../assets/fasad.jpg") center/cover no-repeat;
+.buttons-demo h3 {
+  margin: 0 0 24px 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #38424F;
+  text-align: center;
 }
 
-.card-2 {
-  background: url("../assets/achievements.png") center/cover no-repeat;
+.demo-group {
+  margin-bottom: 32px;
 }
 
-.card-3 {
-  background: url("../assets/instructions.jpg") center/cover no-repeat;
+.demo-group:last-child {
+  margin-bottom: 0;
+}
+
+.demo-group h4 {
+  margin: 0 0 16px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #38424F;
+}
+
+.demo-group.dark-bg {
+  padding: 24px;
+  background: linear-gradient(215deg, #0E468B 0%, #1370B9 100%);
+  border-radius: 12px;
+}
+
+.demo-group.dark-bg h4 {
+  color: #FFFFFF;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    padding: 28px 0;
+    margin-top: 48px;
+    padding-bottom: 28px;
   }
-
-  .hero-grid {
-    grid-template-columns: 2fr 1fr;
-    align-items: stretch;
-    height: 600px;
+  
+  .buttons-demo {
+    margin-top: 60px;
   }
+}
 
-  .grid-slider {
-    border-radius: 32px;
-    min-height: 0;
-    height: 100%;
+@media (max-width: 767px) {
+  .buttons-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
-
-  .hero-grid-right {
-    grid-template-rows: repeat(3, 1fr);
-    height: 100%;
-  }
-
-  .hero-grid-right .card {
-    border-radius: 32px;
-    height: 100%;
+  
+  .main-button {
+    width: 100%;
+    max-width: 317px;
   }
 }
 </style>

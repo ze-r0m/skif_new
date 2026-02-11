@@ -5,7 +5,8 @@
         <IconSkifSquare class="logo-skif-square" />
       </a>
       <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
-        <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />
+        <IconDstuUcotBrandWhite class="logo-dstu" />
+<!--        <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />-->
       </a>
     </div>
     <div class="mobile-header-separator"></div>
@@ -42,6 +43,8 @@
 <script setup>
 import { defineProps } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
+import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
+import IconDstuUcotBrandWhite from "@/components/icons/IconDstuUcotBrandWhite.vue";
 
 const props = defineProps({
   isMobileMenuOpen: Boolean,
@@ -88,13 +91,13 @@ const emit = defineEmits(['close']); // событие закрытия
 }
 
 .logo-skif-square {
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
 }
 
 .logo-dstu {
-  height: 35px;
-  width: auto;
+  width: 200px;
+  height: 40px;
 }
 
 .mobile-nav {

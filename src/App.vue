@@ -3,11 +3,12 @@
     <TheHeader />
     <main>
       <HeroSection />
-      <TeamSection id="about" />
+      <SkifsSection id="systems" />
+<!--      <TeamSection id="about" />-->
       <TheEpigraph text="Системы СКИФ на базе исходного кода LMS Moodle используются в различных направлениях работы ВУЗа: работа с абитуриентами, приемная комиссия, дни навигации, входной контроль знаний, образовательный процесс,
        ГИА."/>
 
-      <SkifsSection id="systems" />
+
       <CreatingCoursesSection  />
     </main>
 
