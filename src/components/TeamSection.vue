@@ -50,15 +50,8 @@
    Стили для всех устройств (Mobile-first подход)
    ======================================================= */
 .team-section {
-  padding: 40px 0; /* Уменьшаем отступы на мобильных */
+  padding: 40px 0;
   background-color: #fff;
-}
-
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .team-container {
@@ -140,10 +133,61 @@
    Медиа-запросы для планшетов и десктопов
    ======================================================= */
 
-/* От 768px и выше (планшеты и десктопы) */
-@media (min-width: 768px) {
+/* Tablet (744px - 1023px) */
+@media (min-width: 744px) and (max-width: 1023px) {
   .team-section {
-    padding: 80px 0; /* Возвращаем стандартные отступы */
+    padding: 60px 0;
+  }
+
+  .team-container {
+    gap: 32px;
+  }
+
+  .team-header-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .team-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .team-description-short,
+  .team-description-long {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .team-cards-grid {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .team-card {
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .card-number {
+    font-size: 28px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .card-text {
+    font-size: 13px;
+  }
+}
+
+/* Desktop (от 1024px) */
+@media (min-width: 1024px) {
+  .team-section {
+    padding: 80px 0;
   }
 
   .team-container {
@@ -151,43 +195,43 @@
   }
 
   .team-header-grid {
-    grid-template-columns: 1fr 1fr; /* Возвращаем две колонки для заголовка */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 
   .team-title {
-    font-size: 2.5rem; /* Увеличиваем размер шрифта */
+    font-size: 32px;
     margin-bottom: 10px;
   }
 
   .team-description-short,
   .team-description-long {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
   }
 
   .team-cards-grid {
-    flex-direction: row; /* Возвращаем карточки в ряд */
+    flex-direction: row;
     gap: 20px;
   }
 
   .team-card {
-    border-radius: 32px; /* Возвращаем стандартное скругление */
-    padding: 30px;
+    border-radius: 32px;
+    padding: 32px;
   }
 
   .card-number {
-    font-size: 2.5rem;
+    font-size: 32px;
   }
 
   .card-title {
-    font-size: 1.2rem;
+    font-size: 20px;
     margin-top: 15px;
     margin-bottom: 10px;
   }
 
   .card-text {
-    font-size: 0.9rem;
+    font-size: 15px;
   }
 }
 </style>

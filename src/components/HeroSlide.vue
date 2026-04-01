@@ -90,17 +90,24 @@ const backgroundColor = computed(() => props.slide.color || "#34495e");
   background-color: rgba(248, 248, 248, 0.09);
 }
 
-/* 💻 ПК — твои родные отступы */
-@media (min-width: 992px) {
+/* 💻 Desktop (от 1024px) */
+@media (min-width: 1024px) {
   .hero-slide {
-    padding: 3.2rem 3.2rem 5rem;
+    padding: 56px 56px 70px;
   }
 }
 
-/* 📱 Телефоны */
-@media (max-width: 576px) {
+/* 📱 Tablet (744px - 1023px) */
+@media (min-width: 744px) and (max-width: 1023px) {
   .hero-slide {
-    padding: 1.2rem 1rem 2rem; /* компактные отступы */
+    padding: 40px 32px 50px;
+  }
+}
+
+/* 📱 Phones (до 743px) */
+@media (max-width: 743px) {
+  .hero-slide {
+    padding: 20px 12px 30px;
   }
 
   .slide-content {
@@ -123,34 +130,6 @@ const backgroundColor = computed(() => props.slide.color || "#34495e");
     margin: 0;
     width: 100%;
     max-width: none;
-  }
-}
-
-/* 📲 Планшеты */
-@media (min-width: 577px) and (max-width: 991px) {
-  .hero-slide {
-    padding: 2rem 2rem 3rem; /* чуть больше воздуха */
-  }
-
-  .slide-content {
-    max-width: 90%;
-  }
-
-  .slide-content h2 {
-    font-size: 1.6rem;
-    line-height: 1.35;
-    margin-bottom: 12px;
-  }
-
-  .slide-actions {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .slide-link {
-    margin-top: 1rem;
-    width: auto;
-    max-width: 260px;
   }
 }
 </style>

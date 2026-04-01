@@ -3,13 +3,10 @@
     <TheHeader />
     <main>
       <HeroSection />
-      <SkifsSection id="systems" />
-<!--      <TeamSection id="about" />-->
-      <TheEpigraph text="Системы СКИФ на базе исходного кода LMS Moodle используются в различных направлениях работы ВУЗа: работа с абитуриентами, приемная комиссия, дни навигации, входной контроль знаний, образовательный процесс,
-       ГИА."/>
-
-
-      <CreatingCoursesSection  />
+      <ServicesSection />
+      <TheEpigraph text="СКИФ — Электронная образовательная среда вуза. Команда УЦОТ координирует разработку и внедрение электронного обучения в ДГТУ, обеспечивает технологический аудит проектов и аналитическое сопровождение учебного процесса."/>
+      <CreatingCoursesSection />
+      <GridDemo />
     </main>
 
     <TheFooter />
@@ -20,10 +17,11 @@
 <script setup>
 import TheHeader from "./components/TheHeader.vue";
 import HeroSection from "./components/HeroSection.vue";
+import ServicesSection from "./components/ServicesSection.vue";
 import TeamSection from "@/components/TeamSection.vue";
-import SkifsSection from "@/components/SkifsSection.vue";
 import TheFooter from "./components/TheFooter.vue";
 import TheEpigraph from "@/components/TheEpigraph.vue";
 import CreatingCoursesSection from "@/components/CreatingCoursesSection.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
+import GridDemo from "@/components/GridDemo.vue";
 </script>

@@ -68,7 +68,7 @@ const emit = defineEmits(['close']); // событие закрытия
   flex-direction: column;
   box-sizing: border-box;
   z-index: 100;
-  padding: 10px 20px 20px;
+  padding: 20px 12px;
 }
 
 .mobile-menu-overlay.is-active {
@@ -78,14 +78,15 @@ const emit = defineEmits(['close']); // событие закрытия
 .mobile-header-logos {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
+
 .mobile-header-separator {
   width: 100vw;
   height: 1px;
   background-color: #e5e5e5;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   position: relative;
   left: calc(-50vw + 50%);
 }
@@ -96,7 +97,7 @@ const emit = defineEmits(['close']); // событие закрытия
 }
 
 .logo-dstu {
-  width: 200px;
+  width: 140px;
   height: 40px;
 }
 
@@ -109,36 +110,41 @@ const emit = defineEmits(['close']); // событие закрытия
 }
 
 .mobile-nav a {
-  font-size: 1.4rem;
+  font-size: 16px;
   font-weight: 600;
   color: #e5e5e5;
   text-decoration: none;
   transition: color 0.3s ease;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .mobile-nav a:hover {
-  color: #004a8f;
+  color: #9bb7d3;
 }
 
 .additional-links {
-  font-size: 1.4rem;
+  font-size: 16px;
   font-weight: 600;
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
+
 .bottom-links {
-  margin-top: auto;       /* прижимает к низу */
+  margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
+.bottom-links a {
+  font-size: 14px;
+  font-weight: 500;
+}
 
-/* Скрываем на десктопе */
-@media (min-width: 992px) {
+/* Скрываем на desktop (от 1024px) */
+@media (min-width: 1024px) {
   .mobile-menu-overlay {
     display: none;
   }

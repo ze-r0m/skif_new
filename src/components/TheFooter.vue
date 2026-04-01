@@ -70,9 +70,13 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
   padding-bottom: 60px;
+}
+
+.footer-column {
+  grid-column: span 12;
 }
 
 /* Добавляем класс, чтобы можно было выбрать этот блок */
@@ -159,10 +163,35 @@ import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
 }
 
 /* =======================================================
-   Медиа-запрос для скрытия блока на маленьких экранах
+   Tablet (8 колонок)
    ======================================================= */
-@media (max-width: 480px) {
-  /* Скрываем колонку с сервисами СКИФ */
+@media (min-width: 744px) and (max-width: 1023px) {
+  .footer-column {
+    grid-column: span 4;
+  }
+  
+  .footer-grid {
+    gap: 20px;
+  }
+}
+
+/* =======================================================
+   Desktop (12 колонок) - 3 колонки по 4/12
+   ======================================================= */
+@media (min-width: 1024px) {
+  .footer-column {
+    grid-column: span 4;
+  }
+  
+  .footer-grid {
+    gap: 20px;
+  }
+}
+
+/* =======================================================
+   Mobile - скрываем сервисы на маленьких экранах
+   ======================================================= */
+@media (max-width: 743px) {
   .footer-skif-services {
     display: none;
   }

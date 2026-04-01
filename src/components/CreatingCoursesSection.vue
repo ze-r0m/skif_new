@@ -75,20 +75,10 @@ onMounted(() => {
   width: 100%;
   background-image: url('@/assets/bg-timeline.jpg');
   background-repeat: no-repeat;
-  background-position: center; /* центрирование картинки */
+  background-position: center;
   background-size: cover;
-  background-attachment: fixed; /* опционально — фиксированный фон при скролле */
-}
-
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px 20px;
-}
-
-.h-creating-courses{
-  margin: 0;
+  background-attachment: fixed;
+  padding: 80px 0;
 }
 
 .two-col {
@@ -295,7 +285,8 @@ onMounted(() => {
   transform: translate(-50%, 0) rotate(45deg);
 }
 
-@media (max-width: 768px) {
+/* Mobile (до 743px) */
+@media (max-width: 743px) {
 
   .center-line{
     display: none;

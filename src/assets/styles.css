@@ -39,12 +39,586 @@
 * { box-sizing: border-box; }
 html,body,#app { height:100%; margin:0;
     background:var(--app-bg); color:var(--text-color); }
-.container { max-width:1100px; margin:0 auto; padding:0 16px; }
+
+/* ========================================
+   Grid System - Design System СКИФ
+   ========================================
+   Desktop (1440x900):  12 колонок, container 1328px, padding 56px, gap 20px
+   Tablet  (744x1133):   8 колонок, container 680px,  padding 32px, gap 20px
+   Mobile  (375x812):    2 колонки, container 351px,  padding 12px, gap 12px
+   ======================================== */
+
+/* Desktop (default) - 12 колонок */
+.container {
+  width: 100%;
+  max-width: 1328px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.grid-gap-92 {
+  gap: 92px;
+}
+
+.grid-gap-56 {
+  gap: 56px;
+}
+
+.grid-gap-40 {
+  gap: 40px;
+}
+
+.grid-gap-20 {
+  gap: 20px;
+}
+
+.grid-gap-12 {
+  gap: 12px;
+}
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Offset classes - Desktop */
+.offset-1 { margin-left: calc((100% + 20px) / 12 * 1); }
+.offset-2 { margin-left: calc((100% + 20px) / 12 * 2); }
+.offset-3 { margin-left: calc((100% + 20px) / 12 * 3); }
+.offset-4 { margin-left: calc((100% + 20px) / 12 * 4); }
+.offset-5 { margin-left: calc((100% + 20px) / 12 * 5); }
+.offset-6 { margin-left: calc((100% + 20px) / 12 * 6); }
+.offset-7 { margin-left: calc((100% + 20px) / 12 * 7); }
+.offset-8 { margin-left: calc((100% + 20px) / 12 * 8); }
+.offset-9 { margin-left: calc((100% + 20px) / 12 * 9); }
+.offset-10 { margin-left: calc((100% + 20px) / 12 * 10); }
+.offset-11 { margin-left: calc((100% + 20px) / 12 * 11); }
+
+/* Tablet (744px) - 8 колонок */
+@media (max-width: 1023px) and (min-width: 744px) {
+  .container {
+    max-width: 680px;
+    padding: 0 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+
+  .grid-gap-40 {
+    gap: 20px;
+  }
+
+  .col-md-1 { grid-column: span 1; }
+  .col-md-2 { grid-column: span 2; }
+  .col-md-3 { grid-column: span 3; }
+  .col-md-4 { grid-column: span 4; }
+  .col-md-5 { grid-column: span 5; }
+  .col-md-6 { grid-column: span 6; }
+  .col-md-7 { grid-column: span 7; }
+  .col-md-8 { grid-column: span 8; }
+
+  /* Offset classes - Tablet */
+  .offset-md-1 { margin-left: calc((100% + 20px) / 8 * 1); }
+  .offset-md-2 { margin-left: calc((100% + 20px) / 8 * 2); }
+  .offset-md-3 { margin-left: calc((100% + 20px) / 8 * 3); }
+  .offset-md-4 { margin-left: calc((100% + 20px) / 8 * 4); }
+  .offset-md-5 { margin-left: calc((100% + 20px) / 8 * 5); }
+  .offset-md-6 { margin-left: calc((100% + 20px) / 8 * 6); }
+  .offset-md-7 { margin-left: calc((100% + 20px) / 8 * 7); }
+}
+
+/* Mobile (375px) - 2 колонки */
+@media (max-width: 743px) {
+  .container {
+    max-width: 351px;
+    padding: 0 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .grid-gap-40 {
+    gap: 12px;
+  }
+
+  .col-sm-1 { grid-column: span 1; }
+  .col-sm-2 { grid-column: span 2; }
+
+  /* Offset classes - Mobile */
+  .offset-sm-1 { margin-left: calc((100% + 12px) / 2 * 1); }
+
+  /* Stack columns on mobile by default */
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: span 2;
+  }
+
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+  .col-md-7, .col-md-8 {
+    grid-column: span 2;
+  }
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-none { display: none; }
 
 html {
     scroll-behavior: smooth;
     /*font-family: 'Montserrat', sans-serif;*/
     font-family: 'GolosText', sans-serif;
+}
+
+/* ========================================
+   Typography Styles - Design System СКИФ
+   Все стили используют GolosText
+   ======================================== */
+
+/* =======================================================
+   DESKTOP TYPOGRAPHY (от 744px)
+   ======================================================= */
+
+/* H1 - Desktop */
+.text-h1-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -1.5px;
+}
+
+/* H2 - Desktop */
+.text-h2-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
+}
+
+/* H3 - Desktop */
+.text-h3-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.9px;
+}
+
+/* H4 - Desktop */
+.text-h4-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+}
+
+/* Button - Desktop */
+.text-button-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Button Small - Desktop */
+.text-button-small-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.14px;
+}
+
+/* Accent - Desktop */
+.text-accent-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.9px;
+}
+
+/* Body - Desktop */
+.text-body-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Body Bold - Desktop */
+.text-body-bold-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Body Small - Desktop */
+.text-body-small-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+}
+
+/* Body Small Bold - Desktop */
+.text-body-small-bold-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+}
+
+/* Caption - Desktop */
+.text-caption-desktop {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.12px;
+}
+
+/* =======================================================
+   MOBILE TYPOGRAPHY (до 743px)
+   ======================================================= */
+
+@media (max-width: 743px) {
+    /* H1 - Mobile */
+    .text-h1-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 34px;
+        letter-spacing: -1.5px;
+    }
+
+    /* H2 - Mobile */
+    .text-h2-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: -0.65px;
+    }
+
+    /* H3 - Mobile */
+    .text-h3-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -0.7px;
+    }
+
+    /* H4 - Mobile */
+    .text-h4-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.55px;
+    }
+
+    /* Button - Mobile */
+    .text-button-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    /* Button Small - Mobile */
+    .text-button-small-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.12px;
+    }
+
+    /* Accent - Mobile */
+    .text-accent-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.55px;
+    }
+
+    /* Body - Mobile */
+    .text-body-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    /* Body Bold - Mobile */
+    .text-body-bold-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    /* Body Small - Mobile */
+    .text-body-small-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.12px;
+    }
+
+    /* Body Small Bold - Mobile */
+    .text-body-small-bold-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.12px;
+    }
+
+    /* Caption - Mobile */
+    .text-caption-mobile {
+        font-family: 'GolosText', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: -0.12px;
+    }
+}
+
+/* =======================================================
+   Universal Typography Classes (адаптивные)
+   Автоматически переключаются между desktop/mobile
+   ======================================================= */
+
+/* H1 - адаптивный */
+.text-h1 {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -1.5px;
+}
+
+/* H2 - адаптивный */
+.text-h2 {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
+}
+
+/* H3 - адаптивный */
+.text-h3 {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.9px;
+}
+
+/* H4 - адаптивный */
+.text-h4 {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+}
+
+/* Button - адаптивный */
+.text-button {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Button Small - адаптивный */
+.text-button-small {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.14px;
+}
+
+/* Accent - адаптивный */
+.text-accent {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.9px;
+}
+
+/* Body - адаптивный */
+.text-body {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Body Bold - адаптивный */
+.text-body-bold {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+}
+
+/* Body Small - адаптивный */
+.text-body-small {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+}
+
+/* Body Small Bold - адаптивный */
+.text-body-small-bold {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.14px;
+}
+
+/* Caption - адаптивный */
+.text-caption {
+    font-family: 'GolosText', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.12px;
+}
+
+/* Mobile breakpoints для универсальных классов */
+@media (max-width: 743px) {
+    .text-h1 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .text-h2 {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: -0.65px;
+    }
+
+    .text-h3 {
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: -0.7px;
+    }
+
+    .text-h4 {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.55px;
+    }
+
+    .text-button {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    .text-button-small {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.12px;
+    }
+
+    .text-accent {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.55px;
+    }
+
+    .text-body {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    .text-body-bold {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.21px;
+    }
+
+    .text-body-small {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.12px;
+    }
+
+    .text-body-small-bold {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.12px;
+    }
+
+    .text-caption {
+        font-size: 10px;
+        line-height: 16px;
+    }
 }
 
 @font-face {
@@ -158,6 +732,21 @@ html {
     font-weight: 900;
     font-style: normal;
     font-display: swap;
+}
+
+/* ========================================
+   Section Spacing - глобальные отступы
+   ======================================== */
+
+/* Все секции имеют нижний margin 80px */
+section {
+  margin-bottom: 80px;
+}
+
+@media (max-width: 743px) {
+  section {
+    margin-bottom: 40px;
+  }
 }
 
 

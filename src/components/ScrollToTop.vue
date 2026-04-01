@@ -126,8 +126,8 @@ onUnmounted(() => {
   color: #FFFFFF;
 }
 
-/* Планшеты 768px–1024px — кнопка снизу, но размер как на ПК */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Tablet (744px–1023px) — кнопка снизу, но размер как на ПК */
+@media (min-width: 744px) and (max-width: 1023px) {
   .scroll-to-top {
     top: auto;
     bottom: 20px;
@@ -144,14 +144,14 @@ onUnmounted(() => {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 743px) {
   .scroll-to-top {
     top: auto;
     bottom: 20px;
     right: 20px;
     transform: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
 
   .scroll-to-top:hover {

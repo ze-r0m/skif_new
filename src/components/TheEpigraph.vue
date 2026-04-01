@@ -1,10 +1,12 @@
 <template>
   <section class="epigraph-section">
     <div class="container">
-      <p class="epigraph-text">
-        <span v-if="showIcon" class="epigraph-icon">❝</span>
-        {{ text }}
-      </p>
+      <div class="epigraph-container">
+        <p class="epigraph-text">
+          <span v-if="showIcon" class="epigraph-icon">❝</span>
+          {{ text }}
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -29,15 +31,12 @@ defineProps({
 .epigraph-section {
   padding: 40px 0;
   background-color: transparent;
-  margin: 20px;
 }
 
-.container {
-  max-width: 1300px;
+.epigraph-container {
   background: linear-gradient(215deg, #0E468B 0%, #1370B9 100%, #1370B9 100%);
   border-radius: 3.2rem;
   padding: 50px 30px;
-
 }
 
 .epigraph-text {
@@ -58,8 +57,8 @@ defineProps({
   fill: #FFFFFF;
 }
 
-/* ====== Для планшетов ====== */
-@media (min-width: 768px) {
+/* ====== Для планшетов (744px - 1023px) ====== */
+@media (min-width: 744px) and (max-width: 1023px) {
   .epigraph-text {
     font-size: 1.6rem;
     line-height: 3rem;
@@ -69,13 +68,13 @@ defineProps({
     font-size: 2.4rem;
   }
 
-  .container {
+  .epigraph-container {
     padding: 60px 50px;
   }
 }
 
-/* ====== Для десктопа ====== */
-@media (min-width: 1200px) {
+/* ====== Для десктопа (от 1024px) ====== */
+@media (min-width: 1024px) {
   .epigraph-text {
     font-size: 1.8rem;
     line-height: 3.8rem;
@@ -85,7 +84,7 @@ defineProps({
     font-size: 2.8rem;
   }
 
-  .container {
+  .epigraph-container {
     padding: 70px 90px 63px 90px;
   }
 }

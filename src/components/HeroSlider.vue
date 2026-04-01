@@ -138,8 +138,8 @@ onUnmounted(() => {
   transition: width 4.9s linear;
 }
 
-/* 💻 ПК */
-@media (min-width: 768px) {
+/* 💻 Desktop (от 1024px) */
+@media (min-width: 1024px) {
   .swiper-pagination-pc {
     display: flex !important;
     justify-content: start !important;
@@ -157,8 +157,8 @@ onUnmounted(() => {
   }
 }
 
-/* 📱 Телефоны */
-@media (max-width: 767px) {
+/* 📱 Tablet и Mobile (до 1023px) */
+@media (max-width: 1023px) {
   .swiper-pagination-pc {
     display: none ;
   }

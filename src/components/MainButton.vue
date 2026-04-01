@@ -153,6 +153,16 @@ export default {
   /* убран сдвиг квадрата - только изменение цвета */
 }
 
+/* Изменение цвета текста для light варианта в hover */
+.main-button--light:hover .main-button__text {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Изменение цвета текста для dark варианта в hover */
+.main-button--dark:hover .main-button__text {
+  color: rgba(255, 255, 255, 1);
+}
+
 /* Hover effect for icon square */
 .main-button__icon:hover {
   background: rgba(255, 255, 255, 0.1) !important; /* приоритетный эффект при наведении на квадрат */
@@ -190,5 +200,36 @@ export default {
 
 .main-button.is-hovered .main-button__icon {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* =======================================================
+   Mobile (до 743px)
+   ======================================================= */
+@media (max-width: 743px) {
+  .main-button {
+    height: 44px;
+    min-width: 109px;
+    width: auto;
+    padding: 8px 8px 8px 12px;
+    gap: 16px;
+  }
+
+  .main-button__text {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.21px;
+    width: auto;
+  }
+
+  .main-button__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .main-button__icon svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 </style>
