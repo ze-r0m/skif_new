@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+qwen --resume c651127e-b03b-43c1-a821-229d08551660

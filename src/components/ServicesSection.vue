@@ -2,7 +2,7 @@
   <section class="services-section" id="services">
     <div class="container">
       <div class="services-section__header">
-        <h2 class="services-section__title text-h2">СКИФ — Электронная образовательная среда вуза</h2>
+        <h2 class="services-section__title text-h2">Управлением координируется <br> электронная образовательная среда вуза&nbsp;—&nbsp;СКИФ</h2>
       </div>
 
       <div class="grid">
@@ -35,7 +35,7 @@ const services = ref([
     title: 'СКИФ ТЕСТ',
     description: 'Система для проведения массового тестирования студентов, дней навигации, анкетирования и государственных итоговых аттестаций.',
     link: 'https://skif.donstu.ru/test/',
-    variant: 'primary-light',
+    variant: 'white',
     width: 'col-6'
   },
   {
@@ -49,21 +49,21 @@ const services = ref([
     title: 'СКИФ СПЕЦ',
     description: 'Система для проведения вступительных испытаний абитуриентов, конкурсов, олимпиад и разовых мероприятий. Обеспечивает организацию учета пользователей совместно с приемной комиссией вуза.',
     link: 'https://skif.donstu.ru/spec/',
-    variant: 'white',
+    variant: 'gradient',
     width: 'col-4'
   },
   {
     title: 'СКИФ МЕЖДУНАРОДНЫЙ',
     description: 'Система для факультета «Международный» и подфакультетов. Позволяет вести специализированные курсы и обеспечивает смешанную авторизацию пользователей с интеграцией в единую цифровую среду.',
     link: 'https://int.skif.donstu.ru/',
-    variant: 'white',
+    variant: 'primary-light',
     width: 'col-6'
   },
   {
     title: 'ПРОФ СКИФ',
     description: 'Система для программ профессионального обучения.',
     link: 'https://prof.skif.donstu.ru/',
-    variant: 'primary-light',
+    variant: 'white',
     width: 'col-6'
   }
 ]);
@@ -106,6 +106,15 @@ const getServiceGridClass = (index) => {
   .services-section__header {
     margin-bottom: 24px;
   }
+  .services-section .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-section [class*="col-"],
+  .services-section [class*="col-md-"],
+  .services-section [class*="col-sm-"] {
+    grid-column: 1 / -1;
+  }
 }
 
 /* =======================================================
@@ -119,5 +128,7 @@ const getServiceGridClass = (index) => {
   .services-section__header {
     margin-bottom: 24px;
   }
+
+
 }
 </style>

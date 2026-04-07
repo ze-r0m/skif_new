@@ -50,10 +50,11 @@ html,body,#app { height:100%; margin:0;
 
 /* Desktop (default) - 12 колонок */
 .container {
-  width: 100%;
+    display: block;
+    width: calc(100% - 40px);
   max-width: 1328px;
   margin: 0 auto;
-  padding: 0 56px;
+
 }
 
 .grid {
@@ -111,8 +112,8 @@ html,body,#app { height:100%; margin:0;
 /* Tablet (744px) - 8 колонок */
 @media (max-width: 1023px) and (min-width: 744px) {
   .container {
-    max-width: 680px;
-    padding: 0 32px;
+    width: calc(100% - 40px);
+    margin: 0 20px;
   }
 
   .grid {
@@ -144,10 +145,11 @@ html,body,#app { height:100%; margin:0;
 }
 
 /* Mobile (375px) - 2 колонки */
-@media (max-width: 743px) {
+@media (max-width: 767px) {
   .container {
-    max-width: 351px;
-    padding: 0 12px;
+      width: calc(100% - 40px);
+    /*max-width: 351px;*/
+    /*padding: 0 12px;*/
   }
 
   .grid {
