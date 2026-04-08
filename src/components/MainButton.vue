@@ -47,7 +47,7 @@ export default {
 .main-button {
   --divider-contrast-color: rgba(210, 218, 227, 0.48);
   --text-contrast-color: #FFFFFF;
-  
+
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -61,7 +61,6 @@ export default {
   color: var(--text-contrast-color);
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.35s ease;
   box-shadow: inset 0 0 0 1px var(--divider-contrast-color);
   background-color: transparent;
   gap: 20px;
@@ -87,6 +86,7 @@ export default {
   font-weight: 500;
   text-decoration: none;
   font-size: 16px;
+  transition: color .35s ease;
 }
 
 .main-button__icon {
