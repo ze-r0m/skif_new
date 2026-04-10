@@ -29,4 +29,6 @@ npm run build
 ```
 
 
-qwen --resume c651127e-b03b-43c1-a821-229d08551660
+    qwen --resume c651127e-b03b-43c1-a821-229d08551660
+    qwen --resume 905d6c86-823c-4e6e-8d77-08851b1e47bf 07.04.2026-08.04
+    qwen --resume 2544e3d7-5911-4a75-bbdd-a66517075a43 09.04.2026

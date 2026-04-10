@@ -1,199 +1,320 @@
 <template>
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-column">
-        <div class="footer-logos">
-          <a href="https://donstu.ru/university/struktura/priyemnaya-prorektora-po-strat-i-tsifrovomu-razvitiyu/upravleniye-tsifrovykh-obrazovatelnykh-tekhnologiy/" target="_blank" rel="noopener noreferrer">
-            <IconUcotSquare class="logo-skif-square" />
+  <footer class="footer" id="js-footer">
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__head">
+          <div class="footer__logos">
+          <a class="footer__logo" href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
+            <IconSkifSquare class="logo-icon--skif" />
           </a>
-
-          <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
-            <IconSkifSquare class="logo-skif-square" />
+          <a class="footer__logo footer__logo--dstu" href="https://donstu.ru/university/struktura/priyemnaya-prorektora-po-strat-i-tsifrovomu-razvitiyu/upravleniye-tsifrovykh-obrazovatelnykh-tekhnologiy/" target="_blank" rel="noopener noreferrer">
+            <IconDstuUcotBrandWhite class="logo-icon--dstu" />
           </a>
+          </div>
+          <div class="footer__links">
+            <a class="footer__link text-h4-desktop" href="https://do.skif.donstu.ru/" target="_blank">ДО.СКИФ</a>
+            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/spec/" target="_blank">СКИФ.СПЕЦ</a>
+            <a class="footer__link text-h4-desktop" href="https://donstu.ru/" target="_blank">Главный сайт</a>
+            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/test/" target="_blank">СКИФ.ТЕСТ</a>
+            <a class="footer__link text-h4-desktop" href="https://int.skif.donstu.ru/" target="_blank">СКИФ.Международный</a>
+            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/old" target="_blank">Старая версия сайта</a>
+            <a class="footer__link text-h4-desktop" href="https://de.donstu.ru/zaoch/organizations/1" target="_blank">СКИФ.Библиотека</a>
+            <a class="footer__link text-h4-desktop" href="https://prof.skif.donstu.ru/" target="_blank">ПРОФ.СКИФ</a>
 
-          <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
-            <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />
+          </div>
+        </div>
+        <div class="footer__contacts">
+          <div class="footer__tagline-wrapper">
+            <div class="footer__tagline">
+              <img src="@/assets/slogan.png" alt="Слоган" />
+            </div>
+          </div>
+          <div class="footer__contact-items">
+            <div class="footer__contact-item">
+              <p class="text-body-small-bold">Приёмная ректора</p>
+              <time class="text-body-small">Пн. - Пт.: 8:30 - 17:00</time>
+              <a class="footer__contact-link text-body-small" href="tel:88632738525">8 863 273 85 25</a>
+              <address class="text-body-small">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 250</address>
+              <a class="footer__contact-link text-body-small" href="mailto:reception@donstu.ru">reception@donstu.ru</a>
+            </div>
+            <div class="footer__contact-item">
+              <p class="text-body-small-bold">Приёмная комиссия</p>
+              <time class="text-body-small">Пн. - Пт.: 8:30 - 17:00</time>
+              <a class="footer__contact-link text-body-small" href="tel:88001001930">8 800 100 19 30</a>
+              <address class="text-body-small">344003, г. Ростов-на-Дону, пл. Гагарина, 1, главный корпус, ауд. 143а, 102</address>
+              <a class="footer__contact-link text-body-small" href="mailto:spu-33@donstu.ru">spu-33@donstu.ru</a>
+            </div>
+            <div class="footer__contact-item">
+              <p class="text-body-small-bold">Пресс-служба</p>
+              <time class="text-body-small">Пн. - Пт.: 8:30 - 17:00</time>
+              <a class="footer__contact-link text-body-small" href="tel:88632381700">8 863 238 17 00</a>
+              <address class="text-body-small">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 7-329</address>
+              <a class="footer__contact-link text-body-small" href="mailto:isdstu@mail.ru">isdstu@mail.ru</a>
+            </div>
+            <div class="footer__contact-item">
+              <p class="text-body-small-bold">Начальник УЦОТ</p>
+              <p class="text-body-small footer__person">Шлыкова Алла Ивановна</p>
+              <a class="footer__contact-link text-body-small" href="tel:+78632381583">+7 (863) 238-15-83 (внутр. 3583)</a>
+              <address class="text-body-small">г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-420а</address>
+            </div>
+            <div class="footer__contact-item">
+              <p class="text-body-small-bold">Отдел сопровождения дистанционного образования</p>
+              <p class="text-body-small footer__person">Начальник отдела — Ачаров Борис Фёдорович</p>
+              <a class="footer__contact-link text-body-small" href="tel:+78632738473">+7 (863) 273-84-73 (внутр. 2473)</a>
+              <address class="text-body-small">г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-423</address>
+              <a class="footer__contact-link text-body-small" href="mailto:spu-06.1@donstu.ru">spu-06.1@donstu.ru</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__foot">
+          <p class="text-body-small footer__copyright">Донской государственный технический университет ©&nbsp;{{ currentYear }}</p>
+          <a class="footer__paraweb" href="https://paraweb.me/" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/parawe-logo-xs.png" alt="paraweb" />
           </a>
         </div>
-        <p><strong>Начальник Управления цифровых образовательных технологий</strong></p>
-        <p><strong>Шлыкова Алла Ивановна</strong><br>+7 (863) 238-15-83 (внутр. 3583)</p>
-        <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-420а</p>
-      </div>
-
-      <div class="footer-column">
-        <h4><strong>Отдел сопровождения дистанционного образования</strong></h4>
-        <p><strong>Начальник Отдела сопровождения дистанционного образования</strong></p>
-        <p>Ачаров Борис Фёдорович<br>+7 (863) 273-84-73 (внутр. 2473)</p>
-        <p>г. Ростов-на-Дону, пл. Гагарина, 1,<br>ауд 1-423</p>
-        <p><strong>Email:</strong><br>spu-06.1@donstu.ru</p>
-      </div>
-
-      <div class="footer-column footer-skif-services">
-        <h4><strong>Сервисы СКИФ</strong></h4>
-        <ul>
-          <li><a href="https://do.skif.donstu.ru/">ДО.СКИФ</a></li>
-          <li><a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a></li>
-          <li><a href="https://de.donstu.ru/zaoch/organizations/1">СКИФ.Библиотека</a></li>
-          <li><a href="https://skif.donstu.ru/spec/">СКИФ.СПЕЦ</a></li>
-          <li><a href="https://int.skif.donstu.ru/">СКИФ.Международный</a></li>
-          <li><a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a></li>
-        </ul>
-
-        <a href="https://skif.donstu.ru/old" target="_blank" rel="noopener noreferrer" class="old-site-link">
-          Старый сайт
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2025</p>
-        <p>Управление цифровых образовательных технологий</p>
-        <p>Донской государственный технический университет</p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup>
-// статичный компонент, только иконки
+import { computed } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
-import IconUcotSquare from "@/components/icons/IconUcotSquare.vue";
+import IconDstuUcotBrandWhite from "@/components/icons/IconDstuUcotBrandWhite.vue";
+
+const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <style scoped>
-.site-footer {
+/* ==================== Общие ==================== */
+.footer {
   background-color: #0E468B;
-  color: #e5e5e5;
-  padding-top: 60px;
+  color: #ffffff;
 }
 
-.footer-grid {
+
+/* ==================== footer__head ==================== */
+.footer__head {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 4fr 8fr;
+  gap: 60px;
+  align-items: flex-start;
+  padding-top: 80px;
+  padding-bottom: 56px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 65px;
+}
+.footer__logos{
   gap: 20px;
-  padding-bottom: 60px;
+  display: flex;
+  height: 34px;
+  width: 320px;
 }
 
-.footer-column {
-  grid-column: span 12;
+.logo-icon--skif {
+  width: 65px;
+  height: 65px;
 }
 
-/* Добавляем класс, чтобы можно было выбрать этот блок */
-.footer-skif-services {
+.logo-icon--dstu {
+  width: auto;
+  height: 65px;
+}
+
+.footer__links {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer__link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.7;
+}
+
+/* ==================== footer__contacts ==================== */
+.footer__contacts {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 40px 0;
+  border-top: 1px solid rgba(210, 218, 227, 0.30);
+}
+
+.footer__tagline {
+  height: 34px;
+  width: 320px;
+}
+
+.footer__tagline img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.footer__contact-items {
+  display: grid;
+  gap: 3.2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer__contact-item {
   display: flex;
   flex-direction: column;
+  gap: 6px;
+}
+
+.footer__contact-item > .text-body-small-bold {
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer__person {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.footer__contact-item time {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__contact-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer__contact-link:hover {
+  opacity: 0.7;
+}
+
+.footer__contact-item address {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==================== footer__foot ==================== */
+.footer__foot {
+  display: flex;
   justify-content: space-between;
-  min-height: 100%;
-}
-
-.old-site-link {
-  margin-top: auto;
-  margin-bottom: auto ;
-}
-
-.footer-logos {
   align-items: center;
-  gap: 30px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(210, 218, 227, 0.30);
 }
 
-.logo-skif-square {
-  height: 90px;
-  width: 90px;
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }
 
-.logo-dstu {
-  height: 50px;
+.footer__paraweb img {
+  height: 20px;
   width: auto;
-  fill: #FFFFFF !important;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
-.footer-column h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.footer-column p {
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 12px;
-}
-
-.footer-column a {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-column a:hover {
-  color: #9bb7d3;
-  text-decoration: none;
-}
-
-.social-links a {
-  display: inline-block;
-  margin-right: 15px;
-  font-weight: bold;
-}
-
-.footer-bottom {
-  border-top: 1px solid #1370B9;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-bottom p {
-  margin: 0;
-  font-size: 14px;
-  color: #a0b4c8;
+.footer__paraweb:hover img {
+  opacity: 1;
 }
 
 /* =======================================================
-   Tablet (8 колонок)
+   Tablet (744px – 1023px)
    ======================================================= */
 @media (min-width: 744px) and (max-width: 1023px) {
-  .footer-column {
-    grid-column: span 4;
+  .footer__bottom {
+    padding-top: 40px;
   }
-  
-  .footer-grid {
+
+  .footer__head {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+
+  .footer__contacts {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 40px ;
+  }
+
+  .footer__contact-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 /* =======================================================
-   Desktop (12 колонок) - 3 колонки по 4/12
-   ======================================================= */
-@media (min-width: 1024px) {
-  .footer-column {
-    grid-column: span 4;
-  }
-  
-  .footer-grid {
-    gap: 20px;
-  }
-}
-
-/* =======================================================
-   Mobile - скрываем сервисы на маленьких экранах
+   Mobile (до 743px)
    ======================================================= */
 @media (max-width: 743px) {
-  .footer-skif-services {
-    display: none;
+  .footer__bottom {
+    padding-top: 32px;
+  }
+
+  .footer__head {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+
+  .footer__links {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .logo-icon--skif {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-icon--dstu {
+    height: 32px;
+  }
+
+  .footer__contacts {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  .footer__tagline {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer__tagline img {
+    height: 28px;
+    width: auto;
+  }
+
+  .footer__contact-items {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer__foot {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 24px;
+    padding: 16px 0;
   }
 }
 </style>
