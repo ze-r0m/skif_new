@@ -1,31 +1,85 @@
-# skif_new
+# СКИФ — Портал УЦОТ ДГТУ
 
-This template should help get you started developing with Vue 3 in Vite.
+Лендинг-портал **Управления цифровых образовательных технологий (УЦОТ)** ДГТУ. Реализован на Vue 3 + Vite по дизайн-системе вуза.
 
-## Recommended IDE Setup
+## Просмотр
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+| Версия | Ссылка |
+|--------|--------|
+| v1 | https://ze-r0m.github.io/skif_new/ |
+| v2 | https://ze-r0m.github.io/skif_new/v2/ |
 
-## Customize configuration
+## Что сейчас на сайте
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Сайт состоит из четырёх блоков:
 
-## Project Setup
+**Шапка** — верхняя панель со ссылками на подсайты СКИФ (ДО.СКИФ, СКИФ.ТЕСТ, СКИФ.Библиотека, СКИФ.СПЕЦ, СКИФ.Международный, ПРОФ.СКИФ), логотипы, навигация «О нас / Системы / Разработка курсов» и мобильное меню.
 
-```sh
+**Hero-баннер** — карточка с описанием УЦОТ: отдел координирует внедрение электронного обучения в ДГТУ, автоматизацию учёта успеваемости, формирование расписаний, создание электронных курсов. Кнопка «Узнать больше» ведёт на страницу УЦОТ.
+
+**Карточки подсистем СКИФ** — шесть карточек:
+
+- <span style="background:#0e468b; color:#fff; padding:2px 8px; border-radius:3px;">ДО</span> **ДО СКИФ** — дистанционное обучение и электронные курсы → do.skif.donstu.ru
+- <span style="background:#343a40; color:#fff; padding:2px 8px; border-radius:3px;">ТЕСТ</span> **СКИФ ТЕСТ** — массовое тестирование и аттестация → skif.donstu.ru/test/
+- <span style="background:#ac2f4d; color:#fff; padding:2px 8px; border-radius:3px;">БИБЛ</span> **СКИФ БИБЛИОТЕКА** — учебные материалы для заочного обучения → de.donstu.ru/zaoch/organizations/1
+- <span style="background:#126d51; color:#fff; padding:2px 8px; border-radius:3px;">СПЕЦ</span> **СКИФ СПЕЦ** — вступительные испытания, олимпиады, конкурсы → skif.donstu.ru/spec/
+- 🌍 <span style="background:#1370B9; color:#fff; padding:2px 8px; border-radius:3px;">INT</span> **СКИФ МЕЖДУНАРОДНЫЙ** — курсы факультета «Международный» → int.skif.donstu.ru
+- <span style="background:#000; color:#fff; padding:2px 8px; border-radius:3px;">ПРОФ</span> **ПРОФ СКИФ** — профессиональная переподготовка → prof.skif.donstu.ru
+
+**Футер** — логотипы, ссылки на все подсистемы, три блока контактов отделов (УЦОТ, отдел дистанционного образования, отдел образовательной логистики) с телефонами, адресами и email, копирайт ДГТУ 2026.
+
+## В разработке (закомментировано)
+
+Следующие компоненты готовы, но пока не отображаются на странице:
+- **HeroSlider** — слайдер с видеоинструкциями (создание тестов, импорт вопросов, студия записи)
+- **CreatingCoursesSection** — таймлайн создания МОК (7 этапов: Идея → Подготовка → Заявка → Экспертиза → Апробация → Сертификация → Реализация)
+- **TeamSection** — три карточки о направлениях работы УЦОТ
+- **TheEpigraph** — декоративная цитата
+- **GridDemo** — демо grid-системы
+
+## Дизайн-система
+
+Проект следует дизайн-системе ДГТУ (`design-system/`):
+- **Шрифт:** GolosText (основной), Montserrat (дополнительный)
+- **Сетка:** 12 / 8 / 2 колонки (Desktop / Tablet / Mobile)
+- **Цвета:** Primary `#11519C`, Accent `#FDC51F`, Text `#38424F`
+- Документация в `design-system/` (PDF/PNG макеты футера, сетки, типографики)
+
+## Запуск
+
+```bash
 npm install
+npm run dev          # dev-сервер :5173
+npm run build        # продакшен-сборка
+npm run build:v2     # сборка v2 (для деплоя в /v2)
+npm run deploy       # сборка → GitHub Pages
 ```
 
-### Compile and Hot-Reload for Development
+## Структура
 
-```sh
-npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
+src/
+├── assets/
+│   ├── fonts/          # GolosText, Montserrat, Nekst
+│   ├── sliderImg/      # картинки слайдера
+│   ├── TimeLineImg/    # иконки этапов таймлайна
+│   └── styles.css      # grid-система + типографика дизайн-системы
+├── components/
+│   ├── icons/          # 13 SVG-иконок (логотипы, бургер, стрелки)
+│   ├── TheHeader.vue   # шапка с навигацией
+│   ├── HeroSection.vue # hero-баннер
+│   ├── ServicesSection # карточки подсистем
+│   ├── TheFooter.vue   # футер с контактами
+│   ├── ScrollToTop.vue # кнопка «наверх»
+│   ├── MobileMenu.vue  # мобильное меню
+│   ├── HeroSlider.vue  # слайдер (закомментирован)
+│   ├── CreatingCoursesSection  # таймлайн курсов (закомментирован)
+│   ├── TeamSection.vue         # направления работы (закомментирован)
+│   ├── TheEpigraph.vue         # цитата (закомментирована)
+│   └── GridDemo.vue            # демо сетки (закомментирован)
+├── data/
+│   ├── slides.js       # данные слайдера
+│   └── rows.js         # этапы создания МОК
+├── App.vue
+└── main.js
 ```
-
-
