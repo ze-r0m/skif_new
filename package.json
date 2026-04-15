@@ -9,8 +9,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:v2": "vite build --config vite.config.v2.js",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist",
+    "deploy:v2": "vite build --config vite.config.v2.js && gh-pages -d dist --dest v2"
   },
   "dependencies": {
     "swiper": "^11.2.10",
