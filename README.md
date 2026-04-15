@@ -19,12 +19,16 @@
 
 **Карточки подсистем СКИФ** — шесть карточек:
 
-- <span style="background:#0e468b; color:#fff; padding:2px 8px; border-radius:3px;">ДО</span> **ДО СКИФ** — дистанционное обучение и электронные курсы → do.skif.donstu.ru
-- <span style="background:#343a40; color:#fff; padding:2px 8px; border-radius:3px;">ТЕСТ</span> **СКИФ ТЕСТ** — массовое тестирование и аттестация → skif.donstu.ru/test/
-- <span style="background:#ac2f4d; color:#fff; padding:2px 8px; border-radius:3px;">БИБЛ</span> **СКИФ БИБЛИОТЕКА** — учебные материалы для заочного обучения → de.donstu.ru/zaoch/organizations/1
-- <span style="background:#126d51; color:#fff; padding:2px 8px; border-radius:3px;">СПЕЦ</span> **СКИФ СПЕЦ** — вступительные испытания, олимпиады, конкурсы → skif.donstu.ru/spec/
-- 🌍 <span style="background:#1370B9; color:#fff; padding:2px 8px; border-radius:3px;">INT</span> **СКИФ МЕЖДУНАРОДНЫЙ** — курсы факультета «Международный» → int.skif.donstu.ru
-- <span style="background:#000; color:#fff; padding:2px 8px; border-radius:3px;">ПРОФ</span> **ПРОФ СКИФ** — профессиональная переподготовка → prof.skif.donstu.ru
+| | Карточка | Описание | Ссылка |
+|--|----------|----------|--------|
+| 🟦 | **ДО СКИФ** | Дистанционное обучение и электронные курсы | [do.skif.donstu.ru](https://do.skif.donstu.ru) |
+| ◼️ | **СКИФ ТЕСТ** | Массовое тестирование и аттестация | [skif.donstu.ru/test/](https://skif.donstu.ru/test/) |
+| 🟥 | **СКИФ БИБЛИОТЕКА** | Учебные материалы для заочного обучения | [de.donstu.ru](https://de.donstu.ru/zaoch/organizations/1) |
+| 🟩 | **СКИФ СПЕЦ** | Вступительные испытания, олимпиады, конкурсы | [skif.donstu.ru/spec/](https://skif.donstu.ru/spec/) |
+| 🌍 | **СКИФ МЕЖДУНАРОДНЫЙ** | Курсы факультета «Международный» | [int.skif.donstu.ru](https://int.skif.donstu.ru) |
+| ⬛ | **ПРОФ СКИФ** | Профессиональная переподготовка | [prof.skif.donstu.ru](https://prof.skif.donstu.ru) |
+
+
 
 **Футер** — логотипы, ссылки на все подсистемы, три блока контактов отделов (УЦОТ, отдел дистанционного образования, отдел образовательной логистики) с телефонами, адресами и email, копирайт ДГТУ 2026.
 
