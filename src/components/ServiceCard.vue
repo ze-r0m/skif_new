@@ -1,5 +1,12 @@
 <template>
-  <a :class="['info-icon-card', `info-icon-card--${variant}`]" :href="link" target="_blank" rel="noopener noreferrer">
+  <component
+    :is="isExternal ? 'a' : 'router-link'"
+    :class="['info-icon-card', `info-icon-card--${variant}`]"
+    :to="isExternal ? undefined : link"
+    :href="isExternal ? link : undefined"
+    :target="isExternal ? '_blank' : undefined"
+    :rel="isExternal ? 'noopener noreferrer' : undefined"
+  >
     <div class="info-icon-card__body">
       <div class="info-icon-card__content">
         <h3 class="info-icon-card__title text-h3">{{ title }}</h3>
@@ -16,11 +23,13 @@
         </span>
       </div>
     </div>
-  </a>
+  </component>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   title: {
     type: String,
     required: true
@@ -39,6 +48,8 @@ defineProps({
     validator: (value) => ['white', 'primary', 'primary-light', 'gradient'].includes(value)
   }
 })
+
+const isExternal = computed(() => props.link && (props.link.startsWith('http://') || props.link.startsWith('https://')))
 </script>
 
 <style scoped>

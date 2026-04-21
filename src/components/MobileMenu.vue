@@ -13,14 +13,14 @@
 
     <nav class="mobile-nav">
 
-      <a
+      <router-link
           v-for="item in navItems"
           :key="item.id"
-          :href="`#${item.id}`"
+          :to="item.to"
           @click="emit('close')"
       >
         {{ item.title }}
-      </a>
+      </router-link>
 
 
       <div class="additional-links">
@@ -109,7 +109,8 @@ const emit = defineEmits(['close']); // событие закрытия
   padding-bottom: 20px;
 }
 
-.mobile-nav a {
+.mobile-nav a,
+.mobile-nav router-link {
   font-size: 16px;
   font-weight: 600;
   color: #e5e5e5;
@@ -118,7 +119,8 @@ const emit = defineEmits(['close']); // событие закрытия
   margin-bottom: 16px;
 }
 
-.mobile-nav a:hover {
+.mobile-nav a:hover,
+.mobile-nav router-link:hover {
   color: #9bb7d3;
 }
 

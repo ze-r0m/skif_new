@@ -33,7 +33,7 @@
           </div>
 
           <nav class="main-nav">
-            <a v-for="item in navItems" :key="item.id" :href="`#${item.id}`">{{ item.title }}</a>
+            <router-link v-for="item in navItems" :key="item.id" :to="item.to" class="nav-link">{{ item.title }}</router-link>
           </nav>
 
           <!-- Кнопка меню для Tablet -->
@@ -85,9 +85,10 @@ import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue"
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 
 const navItems = ref([
-  { id: 'about', title: 'О нас' },
-  { id: 'systems', title: 'Системы' },
-  { id: 'creating_courses', title: 'Разработка курсов' },
+  { id: 'home', title: 'Главная', to: '/' },
+  { id: 'about', title: 'Об управлении', to: '/about' },
+  { id: 'systems', title: 'Системы', to: '/#systems' },
+  { id: 'creating_courses', title: 'Разработка курсов', to: '/#creating_courses' },
 ]);
 
 const isMobileMenuOpen = ref(false);
@@ -109,7 +110,7 @@ const toggleMobileMenu = () => {
 .top-bar {
   display: block;
   border-bottom: 1px solid #e5e5e5;
-  height: 69px;
+  height: 68px;
   width: 100%;
 }
 
@@ -190,9 +191,7 @@ const toggleMobileMenu = () => {
 }
 
 /* Main header */
-.main-header {
-  padding: 16px 0;
-}
+
 
 .main-header-content {
   display: flex;
@@ -548,7 +547,8 @@ const toggleMobileMenu = () => {
     display: none;
   }
 
-  .main-nav a {
+  .main-nav a,
+  .main-nav .nav-link {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.24px;
@@ -557,7 +557,8 @@ const toggleMobileMenu = () => {
     text-decoration: none;
   }
 
-  .main-nav a:hover {
+  .main-nav a:hover,
+  .main-nav .nav-link:hover {
     color: #C7C9CF;
     transition: opacity 0.35s ease, color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
   }

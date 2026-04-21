@@ -206,6 +206,9 @@ html {
     font-family: 'GolosText', sans-serif;
 }
 
+main {
+    margin-top: 48px;
+}
 /* ========================================
    Typography Styles - Design System СКИФ
    Все стили используют GolosText
