@@ -65,7 +65,7 @@ const breadcrumbs = ref([
 
 <style scoped>
 .app-section {
-  margin-bottom: 80px;
+  margin-bottom: 56px;
 }
 
 .app-section__head {
