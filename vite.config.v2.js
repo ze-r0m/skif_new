@@ -19,5 +19,5 @@ export default defineConfig({
         host: '0.0.0.0',
         port: 5173,
     },
-    base: '/v2/',
+    base: '/skif_new/v2/',
 })
