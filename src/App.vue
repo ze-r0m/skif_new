@@ -24,11 +24,16 @@ import ScrollToTop from "@/components/ScrollToTop.vue";
 
 main {
   flex: 1;
+  padding-top: 48px;
 }
-
-@media (max-width: 743px) {
+@media (max-width: 1023px) {
   main {
-    margin-top: 32px;
+    padding-top: 36px;
+  }
+}
+@media (max-width: 767px) {
+  main {
+    padding-top: 36px;
   }
 }
 </style>

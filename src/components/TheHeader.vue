@@ -319,7 +319,7 @@ const toggleMobileMenu = () => {
 /* ===================== Tablet (8 колонок) ===================== */
 @media (min-width: 744px) and (max-width: 1023px) {
   .main-header {
-    padding: 20px 0;
+    padding-top: 32px;
   }
 
   .logo-skif-square {
@@ -375,7 +375,7 @@ const toggleMobileMenu = () => {
 /* ===================== Mobile (до 743px) ===================== */
 @media (max-width: 743px) {
   .main-header {
-    padding: 16px 0;
+    padding-top: 20px;
   }
 
   .logo-skif-square {

@@ -59,7 +59,7 @@ import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
 const breadcrumbs = ref([
   { title: 'Главная', to: '/' },
   { title: 'Об управлении', to: '/about' },
-  { title: 'Отдел дистанционного образования', to: null }
+  { title: 'Отдел сопровождения дистанционного образования', to: null }
 ])
 </script>
 
