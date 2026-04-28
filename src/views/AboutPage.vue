@@ -164,7 +164,9 @@ const features = ref([
   }
 
   ._columns-2-1 {
-    grid-template-columns: 1fr;
+    //grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
