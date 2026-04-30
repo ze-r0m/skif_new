@@ -49,17 +49,110 @@
         </div>
       </div>
     </section>
+
+    <section class="container app-section _gutter-sm">
+      <div class="app-section__head">
+        <h1 class="text-h1">Сотрудники</h1>
+      </div>
+      <div class="app-section__content">
+        <div class="employees-section">
+          <ContactCardLarge
+            :fullName="manager.fullName"
+            :avatar="manager.avatar"
+            :post="manager.post"
+            :additionalPost="manager.additionalPost"
+            :phone="manager.phone"
+            :email="manager.email"
+            :detailsLink="manager.detailsLink"
+          />
+          <div class="employees-grid">
+            <ContactCard
+              v-for="employee in employees"
+              :key="employee.fullName"
+              :fullName="employee.fullName"
+              :avatar="employee.avatar"
+              :post="employee.post"
+              :detailsLink="employee.detailsLink"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
+import ContactCard from "@/components/ContactCard.vue";
+import ContactCardLarge from "@/components/ContactCardLarge.vue";
 
 const breadcrumbs = ref([
   { title: 'Главная', to: '/' },
   { title: 'Об управлении', to: '/about' },
   { title: 'Отдел сопровождения дистанционного образования', to: null }
+])
+
+const manager = {
+  fullName: 'Ачаров Борис Федорович',
+  avatar: 'https://lk.donstu.ru/PhotoP/9124.jpeg',
+  post: 'начальник отдела',
+  additionalPost: '',
+  phone: '+8 (863) 273-84-73',
+  email: 'bacharov@donstu.ru',
+  detailsLink: 'https://donstu.ru/employees/acharov-boris-fedorovich/'
+}
+
+const employees = ref([
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
 ])
 </script>
 
@@ -96,12 +189,7 @@ const breadcrumbs = ref([
   color: #11519C;
 }
 
-.contact-card {
-  background: #11519C;
-  border-radius: 32px;
-  padding: 32px;
-  color: #FFFFFF;
-}
+
 
 .contact-card h3 {
   color: #FFFFFF;
@@ -136,9 +224,24 @@ const breadcrumbs = ref([
   font-style: normal;
 }
 
+.employees-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.employees-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @media (max-width: 1023px) {
   .app-section {
     margin-bottom: 60px;
+  }
+  .employees-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

@@ -52,11 +52,11 @@
               class="_span-1"
               title="Сектор ресурсного обеспечения образовательной деятельности"
               description="Сбор и анализ данных об оснащенности аудиторного фонда, требуемом оборудовании и программном обеспечении"
-              link="/about/logistics"
+              link="/about/resource"
               variant="white"
             />
           </div>
-        </div>
+</div>
       </div>
     </section>
 
@@ -65,7 +65,27 @@
         <h1 class="text-h1">Сотрудники</h1>
       </div>
       <div class="app-section__content">
-
+        <div class="employees-section">
+          <ContactCardLarge
+            :fullName="manager.fullName"
+            :avatar="manager.avatar"
+            :post="manager.post"
+            :additionalPost="manager.additionalPost"
+            :phone="manager.phone"
+            :email="manager.email"
+            :detailsLink="manager.detailsLink"
+          />
+          <div class="employees-grid">
+            <ContactCard
+              v-for="employee in employees"
+              :key="employee.fullName"
+              :fullName="employee.fullName"
+              :avatar="employee.avatar"
+              :post="employee.post"
+              :detailsLink="employee.detailsLink"
+            />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -74,11 +94,12 @@
 
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
 import ServiceCard from "@/components/ServiceCard.vue";
+import ContactCard from "@/components/ContactCard.vue";
+import ContactCardLarge from "@/components/ContactCardLarge.vue";
 import BulletListSection from "@/components/BulletListSection.vue";
 
 const breadcrumbs = ref([
@@ -95,6 +116,43 @@ const features = ref([
   'Разработка и администрирование систем тестирования и МООК-курсов',
   'Формирование системы методического обеспечения и сопровождения ДО',
   'Поддержка и обучение преподавателей работе с ЭИОС'
+])
+
+const manager = {
+  fullName: 'Шлыкова Алла Ивановна',
+  avatar: 'https://lk.donstu.ru/PhotoP/4818.jpeg',
+  post: 'начальник управления',
+  additionalPost: 'доцент',
+  phone: '+8 (863) 238-15-83',
+  email: 'ashlykova@donstu.ru',
+  detailsLink: 'https://donstu.ru/employees/shlykova-alla-ivanovna/'
+}
+
+const employees = ref([
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
+  {
+    fullName: 'Иванов Иван Иванович',
+    avatar: '',
+    post: 'Специалист',
+    detailsLink: '/employees/ivanov-ivan/'
+  },
 ])
 </script>
 
@@ -129,6 +187,18 @@ const features = ref([
   grid-column: 2 / 3;
 }
 
+.employees-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.employees-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .text-content ul {
   list-style: none;
   padding: 0;
@@ -152,6 +222,11 @@ const features = ref([
   .app-section {
     margin-bottom: 60px;
   }
+
+  .employees-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
 }
 
 @media (max-width: 743px) {
