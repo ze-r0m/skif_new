@@ -96,7 +96,7 @@ const breadcrumbs = ref([
 
 const manager = {
   fullName: 'Ачаров Борис Федорович',
-  avatar: 'https://lk.donstu.ru/PhotoP/9124.jpeg',
+  avatar: new URL('@/assets/avatars/cdo/acharov.jpeg', import.meta.url).href,
   post: 'начальник отдела',
   additionalPost: '',
   phone: '+8 (863) 273-84-73',
@@ -105,54 +105,12 @@ const manager = {
 }
 
 const employees = ref([
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
+  // {
+  //   fullName: 'Иванов Иван Иванович',
+  //   avatar: '',
+  //   post: 'Специалист',
+  //   detailsLink: '/employees/ivanov-ivan/'
+  // },
 ])
 </script>
 
@@ -188,8 +146,6 @@ const employees = ref([
   left: 0;
   color: #11519C;
 }
-
-
 
 .contact-card h3 {
   color: #FFFFFF;

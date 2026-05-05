@@ -97,7 +97,7 @@ const breadcrumbs = ref([
 
 const manager = {
   fullName: 'Гнедина Ольга Александровна',
-  avatar: 'https://lk.donstu.ru/PhotoP/2503.jpeg',
+  avatar: new URL('@/assets/avatars/ool/gnedina.jpeg', import.meta.url).href,
   post: 'начальник отдела',
   additionalPost: 'старший преподаватель',
   phone: '+8 (863) 273-84-41',
@@ -107,47 +107,23 @@ const manager = {
 
 const employees = ref([
   {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
+    fullName: 'Жевагина Аза Юрьевна',
+    avatar: new URL('@/assets/avatars/ool/zhevagina.jpg', import.meta.url).href,
+    post: 'ведущий документовед',
+    detailsLink: 'https://donstu.ru/employees/zhevagina-aza-yurevna/'
   },
   {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
+    fullName: 'Коханюк Наталья Алексеевна',
+    avatar: new URL('@/assets/avatars/ool/kohaniyk.jpg', import.meta.url).href,
+    post: 'ведущий документовед',
+    detailsLink: 'https://donstu.ru/employees/kokhanyuk-natalya-alekseevna/'
   },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
+  // {
+  //   fullName: 'Иванов Иван Иванович',
+  //   avatar: '',
+  //   post: 'Специалист',
+  //   detailsLink: '/employees/ivanov-ivan/'
+  // },
 ])
 </script>
 
@@ -183,8 +159,6 @@ const employees = ref([
   left: 0;
   color: #11519C;
 }
-
-
 
 .contact-card h3 {
   color: #FFFFFF;

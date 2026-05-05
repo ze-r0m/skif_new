@@ -12,14 +12,10 @@
           <p class="text-body">Управление цифровых образовательных технологий Донского государственного технического университета обеспечивает системное внедрение и развитие современных цифровых решений в образовательный процесс вуза.</p>
           <p class="text-body">Внедрение цифровой среды учебного процесса — одна из ключевых задач Управления цифровых образовательных технологий.</p>
           <!--        <p class="text-body">Команда УЦОТ координирует разработку и внедрение электронного обучения в ДГТУ, обеспечивает технологический аудит проектов, аналитическое сопровождение учебного процесса. Мы интегрируем различные информационные системы университета для динамического управления образовательной средой, повышая эффективность работы всех подразделений и удовлетворенность студентов и преподавателей.</p>-->
-
           <p class="text-body">
             Деятельностью управления является автоматизация и цифровизация образовательной деятельности, внедрение в учебный процесс ДГТУ цифровых образовательных технологий, в том числе электронного обучения и дистанционных образовательных технологий, которые направлены на повышение эффективности профессионального обучения и образовательной деятельности ДГТУ, а так же обеспечение законности внедрения и реализации в ДГТУ электронного обучения.
           </p>
         </div>
-
-
-
     </section>
 
     <section class="container app-section _gutter-sm">
@@ -89,9 +85,6 @@
       </div>
     </section>
 
-
-
-
   </div>
 </template>
 <script setup>
@@ -120,7 +113,7 @@ const features = ref([
 
 const manager = {
   fullName: 'Шлыкова Алла Ивановна',
-  avatar: 'https://lk.donstu.ru/PhotoP/4818.jpeg',
+  avatar: new URL('@/assets/avatars/shlykova.jpeg', import.meta.url).href ,
   post: 'начальник управления',
   additionalPost: 'доцент',
   phone: '+8 (863) 238-15-83',
@@ -130,29 +123,25 @@ const manager = {
 
 const employees = ref([
   {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
+    fullName: 'Поркшеян Маркос Витальевич',
+    avatar: new URL('@/assets/avatars/porksheyan.jpeg', import.meta.url).href,
+    post: 'заместитель начальника',
+    detailsLink: 'https://donstu.ru/employees/porksheyan-markos-vitalevich/'
   },
   {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
+    fullName: 'Степанян Сурен Давидович',
+    avatar: new URL('@/assets/avatars/stepanyan.jpeg', import.meta.url).href,
+    post: 'ведущий эксперт',
+    detailsLink: 'https://donstu.ru/employees/stepanyan-suren-davidovich/'
   },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
+
+  // {
+  //   fullName: 'Иванов Иван Иванович',
+  //   avatar: '',
+  //   post: 'Специалист',
+  //   detailsLink: '/employees/ivanov-ivan/'
+  // },
+
 ])
 </script>
 
@@ -225,6 +214,7 @@ const employees = ref([
 
   .employees-grid {
     grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
   }
 
 }

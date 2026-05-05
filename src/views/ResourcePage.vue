@@ -96,7 +96,7 @@ const breadcrumbs = ref([
 
 const manager = {
   fullName: 'Недоступ Евгений Александрович',
-  avatar: 'https://lk.donstu.ru/PhotoP/8293.jpeg',
+  avatar: new URL('@/assets/avatars/resourse/nedostup.jpeg', import.meta.url).href,
   post: 'заведующий сектором',
   additionalPost: 'преподаватель',
   phone: '+8 (863) 273-84-41',
@@ -106,17 +106,17 @@ const manager = {
 
 const employees = ref([
   {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
+    fullName: 'Великдань Дарья Алексеевна',
+    avatar: new URL('@/assets/avatars/resourse/velikdan.jpeg', import.meta.url).href,
+    post: 'аналитик',
+    detailsLink: 'https://donstu.ru/employees/velikdan-darya-alekseevna/'
   },
-  {
-    fullName: 'Иванов Иван Иванович',
-    avatar: '',
-    post: 'Специалист',
-    detailsLink: '/employees/ivanov-ivan/'
-  },
+  // {
+  //   fullName: 'Иванов Иван Иванович',
+  //   avatar: '',
+  //   post: 'Специалист',
+  //   detailsLink: '/employees/ivanov-ivan/'
+  // },
 
 ])
 </script>
@@ -153,7 +153,6 @@ const employees = ref([
   left: 0;
   color: #11519C;
 }
-
 
 .employees-grid {
   display: grid;

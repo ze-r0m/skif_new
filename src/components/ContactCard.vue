@@ -153,6 +153,28 @@ const props = defineProps({
   color: #FFFFFF;
 }
 
+@media (max-width: 1023px) {
+  .contact-card-small {
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    padding: 12px;
+  }
+
+  .contact-card-small__avatar {
+    height: 117px;
+    width: 90px;
+  }
+
+  .contact-card-small__content {
+    padding: 0;
+    row-gap: 24px;
+  }
+
+  .contact-card-small__titles {
+    row-gap: 12px;
+  }
+}
+
 @media (max-width: 743px) {
   .contact-card-small {
     padding: 12px 16px 12px 12px;
@@ -161,19 +183,25 @@ const props = defineProps({
   .contact-card-small__avatar {
     height: 100px;
     width: 80px;
-    border-radius: 14px;
   }
 
   .contact-card-small__content {
     row-gap: 16px;
   }
 
-  .contact-card-small__titles {
-    row-gap: 8px;
-  }
-
   .contact-card-small__full-name {
     font-size: 16px;
   }
+  .btn-secondary__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btn-secondary__icon svg {
+    width: 12px;
+    height: 12px;
+
+  }
+
 }
 </style>

@@ -178,7 +178,6 @@ const props = defineProps({
   color: #1370B9;
 }
 
-
 .contact-icon-card__footer {
   margin-top: 0;
 }
@@ -286,11 +285,31 @@ const props = defineProps({
 
 @media (max-width: 743px) {
   .contact-card {
-    padding: 24px;
+    padding: 12px 12px 24px;
   }
 
   .contact-card__avatar {
     height: 200px;
   }
+
+  .contact-card__icon{
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-card__contact{
+    font-size: 14px;
+  }
+
+  .btn-secondary__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-text svg, .link svg {
+    height: 20px;
+    width: 20px;
+  }
+
 }
 </style>
