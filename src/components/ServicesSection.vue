@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import ServiceCard from './ServiceCard.vue';
+import ServiceCard from './cards/ServiceCard.vue';
 
 const services = ref([
   {

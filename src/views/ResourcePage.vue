@@ -6,44 +6,28 @@
 
     <section class="app-section _gutter-md">
       <div class="container">
-        <div class="app-section__head">
-          <h1 class="text-h1">Сектор ресурсного обеспечения образовательной деятельности</h1>
-        </div>
         <div class="app-section text-content _center">
           <div class="grid">
-            <div class="col-7">
+            <div class="col-8">
+              <div class="app-section__head">
+                <h1 class="text-h1">Сектор ресурсного обеспечения образовательной деятельности</h1>
+              </div>
               <div class="text-content">
-                <p class="text-body" style="margin-top: 0">Сектор ресурсного обеспечения образовательной деятельности координирует вопросы оснащенности аудиторного фонда и программного обеспечения.</p>
+                <p class="text-body" style="margin-top: 0;">Сектор ресурсного обеспечения образовательной деятельности (СРООД) отвечает за материально‑техническую и организационную поддержку учебного процесса в университете.</p>
                 <p class="text-body">Основные направления работы сектора:</p>
-                <ul class="text-body">
-                  <li>Сбор и анализ данных об оснащенности аудиторного фонда</li>
-                  <li>Планирование требуемого оборудования</li>
-                  <li>Обеспечение программным обеспечением</li>
-                  <li>Учет и инвентаризация ресурсов</li>
-                </ul>
+                <FeatureList :items="features"/>
               </div>
             </div>
-            <div class="col-5">
-              <div class="contact-card-no-image">
-                <h3 class="text-h4">Контакты сектора</h3>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Телефон:</span>
-                  <a class="text-body contact-link" href="tel:88632738473">8 863 273 84 73</a>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Email:</span>
-                  <a class="text-body contact-link" href="mailto:resource@donstu.ru">resource@donstu.ru</a>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Адрес:</span>
-                  <address class="text-body">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-423</address>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Режим работы:</span>
-                  <time class="text-body">Пн. - Пт.: 8:30 - 17:00</time>
-                </div>
+            <aside class="col-4">
+              <div class="inner-wrapper-sticky">
+                <ContactCardNoImage
+                    :phones="contactData.phones"
+                    :emails="contactData.emails"
+                    :addresses="contactData.addresses"
+                    :schedule="contactData.schedule"
+                />
               </div>
-            </div>
+            </aside>
           </div>
         </div>
 
@@ -85,14 +69,33 @@
 <script setup>
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
-import ContactCard from "@/components/ContactCard.vue";
-import ContactCardLarge from "@/components/ContactCardLarge.vue";
+import ContactCard from "@/components/cards/ContactCard.vue";
+import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
+import FeatureList from "@/components/FeatureList.vue";
+import ContactCardNoImage from "@/components/cards/ContactCardNoImage.vue";
 
 const breadcrumbs = ref([
   { title: 'Главная', to: '/' },
   { title: 'Об управлении', to: '/about' },
   { title: 'Сектор ресурсного обеспечения', to: null }
 ])
+
+const features = [
+  'формирование предложений по модернизации аудиторного фонда университета;',
+  'оптимизация расписания и графика использования аудиторного фонда университета;',
+  'формирование и актуализация сведений об аудиторном фонде университета и его материально-техническом обеспечении;',
+  'формирование аналитических отчетов в рамках деятельности сектора.'
+]
+
+const contactData = {
+  phones: [
+    { number: '273-86-70 (26-70)', caption: 'Сектор РООД, Почасовка (кабинет 1-418)'},
+
+  ],
+  emails: ['spu-06.1@donstu.ru'],
+  addresses: ['344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-418',],
+  schedule: 'Пн-Пт 08:30 - 17:00 (обед с 12:30 по 13:00)'
+}
 
 const manager = {
   fullName: 'Недоступ Евгений Александрович',
@@ -135,25 +138,6 @@ const employees = ref([
   margin: 0;
 }
 
-.text-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-}
-
-.text-content ul li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-}
-
-.text-content ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #11519C;
-}
-
 .employees-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -166,13 +150,27 @@ const employees = ref([
   gap: 20px;
 }
 
+.grid{
+  gap: 88px;
+}
+
 @media (max-width: 1023px) {
   .app-section {
     margin-bottom: 60px;
   }
+
   .employees-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid > .col-8 { order: 2; }
+  .grid > .col-4 { order: 1; }
+
 }
 
 @media (max-width: 743px) {
@@ -182,10 +180,6 @@ const employees = ref([
 
   .app-section__head {
     margin-bottom: 24px;
-  }
-
-  .contact-card {
-    margin-top: 24px;
   }
 }
 </style>

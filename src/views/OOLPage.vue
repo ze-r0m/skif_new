@@ -6,45 +6,30 @@
 
     <section class="app-section _gutter-md">
       <div class="container">
-        <div class="app-section__head">
-          <h1 class="text-h1">Отдел сопровождения образовательной логистики</h1>
-        </div>
         <div class="app-section text-content _center">
           <div class="grid">
-            <div class="col-7">
+            <div class="col-8">
+              <div class="app-section__head">
+                <h1 class="text-h1">Отдел сопровождения образовательной логистики</h1>
+              </div>
               <div class="text-content">
-                <p class="text-body" style="margin-top: 0">Отдел сопровождения образовательной логистики (ОСОЛ) обеспечивает планирование, организацию и координацию учебного процесса в Донском государственном техническом университете.</p>
+                <p class="text-body" style="margin-top: 0;">ООЛ занимается сбором исходной информации, необходимой для создания проекта расписания учебных занятий. Отвечает за разработку и составление расписания для различных учебных групп, включая распределение учебных занятий и промежуточных аттестаций.</p>
                 <p class="text-body">Основные направления работы отдела:</p>
-                <ul class="text-body">
-                  <li>Формирование расписания учебных занятий</li>
-                  <li>Координация учебных нагрузок</li>
-                  <li>Планирование академических календарей</li>
-                  <li>Управление аудиторным фондом</li>
-                </ul>
-                <p class="text-body">В структуре отдела также функционирует сектор, курирующий вопросы заочного обучения.</p>
+                <FeatureList :items="features"/>
+                <p class="text-body"> При внедрении образовательных траекторий отдел формирует расписание для обучающихся и направлений профессионального роста, обеспечивая логическую последовательность и взаимосвязи между различными модулями в расписании.</p>
               </div>
             </div>
-            <div class="col-5">
-              <div class="contact-card-no-image">
-                <h3 class="text-h4">Контакты отдела</h3>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Телефон:</span>
-                  <a class="text-body contact-link" href="tel:88632738441">8 863 273 84 41</a>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Email:</span>
-                  <a class="text-body contact-link" href="mailto:ognedina@donstu.ru">ognedina@donstu.ru</a>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Адрес:</span>
-                  <address class="text-body">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-420</address>
-                </div>
-                <div class="contact-item">
-                  <span class="text-body-small contact-label">Режим работы:</span>
-                  <time class="text-body">Пн. - Пт.: 8:30 - 17:00</time>
-                </div>
+
+            <aside class="col-4">
+              <div class="inner-wrapper-sticky">
+              <ContactCardNoImage
+                :phones="contactData.phones"
+                :emails="contactData.emails"
+                :addresses="contactData.addresses"
+                :schedule="contactData.schedule"
+              />
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </div>
@@ -85,14 +70,43 @@
 <script setup>
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
-import ContactCard from "@/components/ContactCard.vue";
-import ContactCardLarge from "@/components/ContactCardLarge.vue";
+import ContactCard from "@/components/cards/ContactCard.vue";
+import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
+import ContactCardNoImage from "@/components/cards/ContactCardNoImage.vue";
+import FeatureList from "@/components/FeatureList.vue";
 
 const breadcrumbs = ref([
   { title: 'Главная', to: '/' },
   { title: 'Об управлении', to: '/about' },
   { title: 'Отдел образовательной логистики', to: null }
 ])
+
+const features = [
+  'сбор исходной информации для построения проекта расписания;',
+  'разработка и формирование для учебных групп расписания учебных занятий обучающихся;',
+  'разработка и формирование для учебных групп расписания промежуточной аттестации обучающихся;',
+  'формирование расписания обучающихся и направлении профессионального роста при внедрении образовательных траекторий;',
+  'реализация взаимосвязей встреч между модулями в расписании;',
+  'оптимизация расписания и графика использования аудиторного фонда университета;',
+  'формирование отчетных форм по разработанному расписанию;',
+  'формирование отчета о недостатках в системе составления расписания и реализация мероприятий по оптимизации учебного расписания при внедрении индивидуальных образовательных траекторий;',
+  'участие в разработке годового плана УЦОТ в области оптимизации расписания и учебного аудиторного фонда.',
+]
+
+const contactData = {
+  phones: [
+    { number: '273-84-41 (24-41)', caption: 'Расписание ПИШ, Т-университет (кабинет 1-420)' },
+    { number: '273-83-82 (23-82)', caption: 'Классическое расписание (кабинет 1-422)' },
+    { number: '201-90-58 (40-58)', caption: 'Классическое расписание (кабинет 21-321а)' }
+  ],
+  emails: ['spu-06.1@donstu.ru'],
+  addresses: [
+    '344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-420',
+    '344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-422',
+    '344022, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 21-321а',
+  ],
+  schedule: 'Пн-Пт 08:30 - 17:00 (обед с 12:30 по 13:00)'
+}
 
 const manager = {
   fullName: 'Гнедина Ольга Александровна',
@@ -140,58 +154,6 @@ const employees = ref([
   margin: 0;
 }
 
-.text-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-}
-
-.text-content ul li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-}
-
-.text-content ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #11519C;
-}
-
-.contact-card h3 {
-  color: #FFFFFF;
-  margin: 0 0 24px;
-}
-
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 16px;
-}
-
-.contact-item:last-child {
-  margin-bottom: 0;
-}
-
-.contact-label {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-link {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.contact-link:hover {
-  text-decoration: underline;
-}
-
-.contact-item address {
-  font-style: normal;
-}
-
 .employees-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -204,13 +166,27 @@ const employees = ref([
   gap: 20px;
 }
 
+.grid{
+  gap: 88px;
+}
+
 @media (max-width: 1023px) {
   .app-section {
     margin-bottom: 60px;
   }
+
   .employees-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .grid > .col-8 { order: 2; }
+  .grid > .col-4 { order: 1; }
 }
 
 @media (max-width: 743px) {
@@ -220,10 +196,6 @@ const employees = ref([
 
   .app-section__head {
     margin-bottom: 24px;
-  }
-
-  .contact-card {
-    margin-top: 24px;
   }
 }
 </style>

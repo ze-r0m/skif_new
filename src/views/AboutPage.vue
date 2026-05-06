@@ -11,9 +11,8 @@
         <div class="app-section__content text-content">
           <p class="text-body" style="margin-top: 0">Управление цифровых образовательных технологий Донского государственного технического университета обеспечивает системное внедрение и развитие современных цифровых решений в образовательный процесс вуза.</p>
           <p class="text-body">Внедрение цифровой среды учебного процесса — одна из ключевых задач Управления цифровых образовательных технологий.</p>
-          <!--        <p class="text-body">Команда УЦОТ координирует разработку и внедрение электронного обучения в ДГТУ, обеспечивает технологический аудит проектов, аналитическое сопровождение учебного процесса. Мы интегрируем различные информационные системы университета для динамического управления образовательной средой, повышая эффективность работы всех подразделений и удовлетворенность студентов и преподавателей.</p>-->
           <p class="text-body">
-            Деятельностью управления является автоматизация и цифровизация образовательной деятельности, внедрение в учебный процесс ДГТУ цифровых образовательных технологий, в том числе электронного обучения и дистанционных образовательных технологий, которые направлены на повышение эффективности профессионального обучения и образовательной деятельности ДГТУ, а так же обеспечение законности внедрения и реализации в ДГТУ электронного обучения.
+            Деятельностью управления является автоматизация и цифровизация образовательной деятельности, внедрение в учебный процесс ДГТУ цифровых образовательных технологий, в том числе электронного обучения и дистанционных образовательных технологий, которые направлены на повышение эффективности профессионального обучения и образовательной деятельности ДГТУ.
           </p>
         </div>
     </section>
@@ -34,13 +33,13 @@
           <div class="app-grid _columns-2-1">
             <ServiceCard
               title="Отдел сопровождения дистанционного образования (СДО)"
-              description="Координация сопровождение и техническая поддержка пользователей на портале электронного обучения СКИФ ДГТУ — LMS Moodle"
+              description="Координация сопровождение и техническая поддержка пользователей на портале электронного обучения СКИФ ДГТУ"
               link="/about/department"
               variant="gradient"
             />
             <ServiceCard
               title="Отдел сопровождения образовательной логистики (ООЛ)"
-              description="Формирование расписания занятий по программам высшего образования на территории г. Ростова-на-Дону"
+              description="Формирование расписания занятий по программам высшего образования"
               link="/about/logistics"
               variant="primary-light"
             />
@@ -90,9 +89,9 @@
 <script setup>
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
-import ServiceCard from "@/components/ServiceCard.vue";
-import ContactCard from "@/components/ContactCard.vue";
-import ContactCardLarge from "@/components/ContactCardLarge.vue";
+import ServiceCard from "@/components/cards/ServiceCard.vue";
+import ContactCard from "@/components/cards/ContactCard.vue";
+import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import BulletListSection from "@/components/BulletListSection.vue";
 
 const breadcrumbs = ref([
@@ -186,25 +185,6 @@ const employees = ref([
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.text-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-}
-
-.text-content ul li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-}
-
-.text-content ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #11519C;
 }
 
 @media (max-width: 1023px) {
