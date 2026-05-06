@@ -9,42 +9,41 @@
         <div class="app-section__head">
           <h1 class="text-h1">Отдел сопровождения образовательной логистики</h1>
         </div>
-      </div>
-    </section>
-
-    <section class="container app-section _center">
-      <div class="grid">
-        <div class="col-7">
-          <div class="text-content">
-            <p class="text-body">Отдел сопровождения образовательной логистики (ОСОЛ) обеспечивает планирование, организацию и координацию учебного процесса в Донском государственном техническом университете.</p>
-            <p class="text-body">Основные направления работы отдела:</p>
-            <ul class="text-body">
-              <li>Формирование расписания учебных занятий</li>
-              <li>Координация учебных нагрузок</li>
-              <li>Планирование академических календарей</li>
-              <li>Управление аудиторным фондом</li>
-            </ul>
-            <p class="text-body">В структуре отдела также функционирует сектор, курирующий вопросы заочного обучения.</p>
-          </div>
-        </div>
-        <div class="col-5">
-          <div class="contact-card-no-image">
-            <h3 class="text-h4">Контакты отдела</h3>
-            <div class="contact-item">
-              <span class="text-body-small contact-label">Телефон:</span>
-              <a class="text-body contact-link" href="tel:88632738441">8 863 273 84 41</a>
+        <div class="app-section text-content _center">
+          <div class="grid">
+            <div class="col-7">
+              <div class="text-content">
+                <p class="text-body" style="margin-top: 0">Отдел сопровождения образовательной логистики (ОСОЛ) обеспечивает планирование, организацию и координацию учебного процесса в Донском государственном техническом университете.</p>
+                <p class="text-body">Основные направления работы отдела:</p>
+                <ul class="text-body">
+                  <li>Формирование расписания учебных занятий</li>
+                  <li>Координация учебных нагрузок</li>
+                  <li>Планирование академических календарей</li>
+                  <li>Управление аудиторным фондом</li>
+                </ul>
+                <p class="text-body">В структуре отдела также функционирует сектор, курирующий вопросы заочного обучения.</p>
+              </div>
             </div>
-            <div class="contact-item">
-              <span class="text-body-small contact-label">Email:</span>
-              <a class="text-body contact-link" href="mailto:ognedina@donstu.ru">ognedina@donstu.ru</a>
-            </div>
-            <div class="contact-item">
-              <span class="text-body-small contact-label">Адрес:</span>
-              <address class="text-body">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-420</address>
-            </div>
-            <div class="contact-item">
-              <span class="text-body-small contact-label">Режим работы:</span>
-              <time class="text-body">Пн. - Пт.: 8:30 - 17:00</time>
+            <div class="col-5">
+              <div class="contact-card-no-image">
+                <h3 class="text-h4">Контакты отдела</h3>
+                <div class="contact-item">
+                  <span class="text-body-small contact-label">Телефон:</span>
+                  <a class="text-body contact-link" href="tel:88632738441">8 863 273 84 41</a>
+                </div>
+                <div class="contact-item">
+                  <span class="text-body-small contact-label">Email:</span>
+                  <a class="text-body contact-link" href="mailto:ognedina@donstu.ru">ognedina@donstu.ru</a>
+                </div>
+                <div class="contact-item">
+                  <span class="text-body-small contact-label">Адрес:</span>
+                  <address class="text-body">344003, г. Ростов-на-Дону, пл. Гагарина, 1, ауд. 1-420</address>
+                </div>
+                <div class="contact-item">
+                  <span class="text-body-small contact-label">Режим работы:</span>
+                  <time class="text-body">Пн. - Пт.: 8:30 - 17:00</time>
+                </div>
+              </div>
             </div>
           </div>
         </div>
