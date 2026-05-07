@@ -31,23 +31,24 @@
       <div class="app-section__content">
         <div class="app-grid _columns-1-1">
           <div class="app-grid _columns-2-1">
-            <ServiceCard
+<!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
+<ServiceCard
               title="Отдел сопровождения дистанционного образования (СДО)"
               description="Координация сопровождение и техническая поддержка пользователей на портале электронного обучения СКИФ ДГТУ"
-              link="/about/department"
+              link="/skif_new/v2/about/cdo/"
               variant="gradient"
             />
             <ServiceCard
               title="Отдел сопровождения образовательной логистики (ООЛ)"
               description="Формирование расписания занятий по программам высшего образования"
-              link="/about/logistics"
+              link="/skif_new/v2/about/ool/"
               variant="primary-light"
             />
             <ServiceCard
               class="_span-1"
               title="Сектор ресурсного обеспечения образовательной деятельности"
               description="Сбор и анализ данных об оснащенности аудиторного фонда, требуемом оборудовании и программном обеспечении"
-              link="/about/resource"
+              link="/skif_new/v2/about/rood/"
               variant="white"
             />
           </div>
@@ -95,7 +96,7 @@ import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import BulletListSection from "@/components/BulletListSection.vue";
 
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/' },
+  { title: 'Главная', to: '/skif_new/v2/' },
   { title: 'Об управлении', to: null }
 ])
 

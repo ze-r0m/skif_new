@@ -2,7 +2,7 @@
   <div id="app-wrapper">
     <TheHeader />
     <main>
-      <router-view />
+      <component :is="currentPageComponent" />
     </main>
     <TheFooter />
     <ScrollToTop footer-selector="footer" />
@@ -10,9 +10,36 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
+import HomePage from "@/views/HomePage.vue";
+import AboutPage from "@/views/AboutPage.vue";
+import CDOPage from "@/views/CDOPage.vue";
+import OOLPage from "@/views/OOLPage.vue";
+import ResourcePage from "@/views/ResourcePage.vue";
+import InstructionsPage from "@/views/InstructionsPage.vue";
+
+// <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
+const base = '/skif_new/v2/'
+
+const pages = {
+  '': HomePage,
+  'index': HomePage,
+  'about': AboutPage,
+  'about/index': AboutPage,
+  'about/cdo': CDOPage,
+  'about/ool': OOLPage,
+  'about/rood': ResourcePage,
+  'instructions': InstructionsPage,
+}
+
+const currentPageComponent = computed(() => {
+  const path = window.location.pathname
+  let cleanPath = path.replace(base, '').replace(/\/$/, '')
+  return pages[cleanPath] || HomePage
+})
 </script>
 
 <style>

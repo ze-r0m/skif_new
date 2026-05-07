@@ -20,4 +20,17 @@ export default defineConfig({
         port: 5173,
     },
     base: '/skif_new/v2/',
+    build: {
+        outDir: 'dist',
+        rollupOptions: {
+            input: {
+                main: 'index.html',
+                about: 'about/index.html',
+                cdo: 'about/cdo/index.html',
+                ool: 'about/ool/index.html',
+                rood: 'about/rood/index.html',
+                instructions: 'instructions/index.html',
+            }
+        }
+    },
 })

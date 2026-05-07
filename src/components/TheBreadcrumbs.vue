@@ -9,16 +9,16 @@
       itemscope
       itemtype="https://schema.org/ListItem"
     >
-      <router-link
+      <a
         v-if="item.to"
         class="breadcrumbs__item-link"
-        :to="item.to"
+        :href="item.to"
         itemprop="item"
       >
         <IconHome v-if="index === 0" />
         <span v-else class="breadcrumbs__link-text text-body">{{ item.title }}</span>
         <meta itemprop="position" :content="index + 1">
-      </router-link>
+      </a>
       <span v-else class="breadcrumbs__item-text text-body">
         {{ item.title }}
         <meta itemprop="position" :content="index + 1">

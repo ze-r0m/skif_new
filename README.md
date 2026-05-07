@@ -84,9 +84,70 @@ src/
 ├── data/
 │   ├── slides.js       # данные слайдера
 │   └── rows.js         # этапы создания МОК
-├── App.vue
-└── main.js
+├── views/              # страницы (HomePage, AboutPage, CDOPage, OOLPage, ResourcePage, InstructionsPage)
+├── router/             # роутер (удален при миграции на MPA)
+├── App.vue             # корневой компонент с layout (header/footer)
+├── main.js             # точка входа SPA (старый)
+└── main-multipages.js  # точка входа MPA
 ```
+
+## Мультистраничность (MPA)
+
+Проект использует Vite с несколькими точками входа (multiple entry points) для реализации MPA-архитектуры. Каждая страница — отдельный HTML-файл, при переходе браузер загружает страницу полностью (full page reload).
+
+### Структура URL
+
+| Страница | URL | HTML |
+|----------|-----|------|
+| Главная | `/skif_new/v2/` | `dist/index.html` |
+| Об управлении | `/skif_new/v2/about/` | `dist/about/index.html` |
+| Отдел СДО | `/skif_new/v2/about/cdo/` | `dist/about/cdo.html` |
+| Отдел ООЛ | `/skif_new/v2/about/ool/` | `dist/about/ool.html` |
+| Сектор РООД | `/skif_new/v2/about/ool/rood/` | `dist/about/ool/rood.html` |
+| Инструкции | `/skif_new/v2/instructions/` | `dist/instructions.html` |
+
+### Как добавить новую страницу
+
+1. **Создать Vue компонент** в `src/views/`
+2. **Добавить entry в vite.config.v2.js** → `build.rollupOptions.input`:
+   ```js
+   build: {
+     rollupOptions: {
+       input: {
+         mypage: 'mypage.html', // новый ключ и имя файла
+       }
+     }
+   }
+   ```
+3. **Создать HTML файл** в корне проекта:
+   ```html
+   <!DOCTYPE html>
+   <html lang="ru">
+   <head>
+     <title>Моя страница — СКИФ ДГТУ</title>
+   </head>
+   <body>
+     <div id="app"></div>
+     <script type="module" src="/src/main-multipages.js"></script>
+   </body>
+   </html>
+   ```
+4. **Добавить страницу в App.vue** → в объект `pages`:
+   ```js
+   const pages = {
+     '': HomePage,
+     'mypage': MyPageComponent, // добавить новую страницу
+     // ...
+   }
+   ```
+5. **Добавить ссылку в навигацию** — в `TheHeader.vue` и `MobileMenu.vue`
+
+### Технические детали
+
+- **Base URL:** `/skif_new/v2/` (настраивается в `vite.config.v2.js`)
+- **Роутинг:** отсутствует, URL определяется по pathname в браузере
+- **Layout:** единый App.vue (header + footer) для всех страниц
+- **Сборка:** `npm run build:v2` генерирует отдельные HTML для каждой страницы
 
     qwen --resume c651127e-b03b-43c1-a821-229d08551660
     qwen --resume 905d6c86-823c-4e6e-8d77-08851b1e47bf 07.04.2026-08.04

@@ -1,9 +1,7 @@
 <template>
-  <component
-    :is="isExternal ? 'a' : 'router-link'"
+  <a
     :class="['info-icon-card', `info-icon-card--${variant}`]"
-    :to="isExternal ? undefined : link"
-    :href="isExternal ? link : undefined"
+    :href="link"
     :target="isExternal ? '_blank' : undefined"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
   >
@@ -23,7 +21,7 @@
         </span>
       </div>
     </div>
-  </component>
+  </a>
 </template>
 
 <script setup>

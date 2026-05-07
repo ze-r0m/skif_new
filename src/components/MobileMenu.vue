@@ -13,14 +13,14 @@
 
     <nav class="mobile-nav">
 
-      <router-link
+      <a
           v-for="item in navItems"
           :key="item.id"
-          :to="item.to"
+          :href="item.to"
           @click="emit('close')"
       >
         {{ item.title }}
-      </router-link>
+      </a>
 
 
       <div class="additional-links">

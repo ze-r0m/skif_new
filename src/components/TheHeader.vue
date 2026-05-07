@@ -33,7 +33,7 @@
           </div>
 
           <nav class="main-nav">
-            <router-link v-for="item in navItems" :key="item.id" :to="item.to" class="nav-link">{{ item.title }}</router-link>
+            <a v-for="item in navItems" :key="item.id" :href="item.to" class="nav-link">{{ item.title }}</a>
           </nav>
 
           <!-- Кнопка меню для Tablet -->
@@ -84,11 +84,13 @@ import IconClose from "@/components/icons/IconClose.vue";
 import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 
+// <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
 const navItems = ref([
-  { id: 'home', title: 'Главная', to: '/' },
-  { id: 'about', title: 'Об управлении', to: '/about' },
-  { id: 'systems', title: 'Системы', to: '/#systems' },
-  { id: 'creating_courses', title: 'Разработка курсов', to: '/#creating_courses' },
+  { id: 'home', title: 'Главная', to: '/skif_new/v2/' },
+  { id: 'about', title: 'Об управлении', to: '/skif_new/v2/about/' },
+  { id: 'instructions', title: 'Инструкции', to: '/skif_new/v2/instructions/' },
+  { id: 'systems', title: 'Системы', to: '/skif_new/v2/#systems' },
+  { id: 'creating_courses', title: 'Разработка курсов', to: '/skif_new/v2/#creating_courses' },
 ]);
 
 const isMobileMenuOpen = ref(false);

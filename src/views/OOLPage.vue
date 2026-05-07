@@ -75,10 +75,11 @@ import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import ContactCardNoImage from "@/components/cards/ContactCardNoImage.vue";
 import FeatureList from "@/components/FeatureList.vue";
 
+// <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/' },
-  { title: 'Об управлении', to: '/about' },
-  { title: 'Отдел образовательной логистики', to: null }
+  { title: 'Главная', to: '/skif_new/v2/' },
+  { title: 'Об управлении', to: '/skif_new/v2/about/' },
+  { title: 'Отдел сопровождения образовательной логистики', to: null }
 ])
 
 const features = [
