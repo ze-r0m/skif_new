@@ -252,7 +252,6 @@ import MainButton from "./MainButton.vue";
    ======================================================= */
 @media (min-width: 1024px) {
   .hero-section {
-    margin-top: 48px;
     padding-bottom: 0;
   }
 

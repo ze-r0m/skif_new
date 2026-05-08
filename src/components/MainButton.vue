@@ -205,7 +205,7 @@ export default {
 /* =======================================================
    Mobile (до 743px)
    ======================================================= */
-@media (max-width: 743px) {
+@media (max-width: 767px) {
   .main-button {
     height: 44px;
     min-width: 109px;
