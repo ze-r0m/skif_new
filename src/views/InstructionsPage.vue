@@ -13,7 +13,6 @@
         buttonText="Открыть инструкции"
         buttonHref="https://do.skif.donstu.ru/course/view.php?id=418"
       />
-
     </section>
 
     <section class="container app-section _center _gutter-md">
@@ -24,35 +23,33 @@
         <p class="text-body" style="margin-top: 0">Наглядные обучающие ролики пошагово демонстрируют ключевые функции системы: от регистрации и входа в личный кабинет до составления тестов и проверки результатов, настройки параметров тестирования и анализа результатов. Видеоматериалы структурированы по темам, выберите необходимый их них и получите ответы на возникающие вами вопросы.</p>
 
         <div class="app-grid _columns-3-1">
-<!--//TODO: вынести карточку в отдельный элемент, доработать нажатие и наведение на карточку, js скрипт и всплывающее окно с плеером-->
-          <div class="media-card">
-            <div class="media-card__media">
-              <div class="media-card__video">
-                <img src="@/assets/fasad.jpg" alt="инструкция1">
-
-              </div>
-              <div class="media-card__play">
-                <button class="btn-secondary text-button media-card__play-btn   _contrast _outline" type="button" style="">
-                  <span class="btn-secondary__icon _no-bg">
-                    <IconPlay class="_icon-play"></IconPlay>
-                  </span>
-                </button>
-              </div>
-
-            </div>
-            <h4 class="text-h4-desktop media-card__title" style="margin: 0">Видеоинструкция №1</h4>
-          </div>
-
-
+          <MediaCard
+            title="Запрос на создание курса&nbsp;&mdash;&nbsp;заполнение карточки дисциплины"
+            :image="previewInstr1"
+            videoUrl="https://do.skif.donstu.ru/pluginfile.php/347801/mod_resource/content/7/2023-03-14%2012-01-57.mp4"
+            @open="openVideo"
+          />
+          <MediaCard
+              title="Работа в режиме конструктора&nbsp;&mdash;&nbsp;создание тестовых вопросов"
+              :image="previewInstr2"
+              videoUrl="https://do.skif.donstu.ru/pluginfile.php/347802/mod_resource/content/2/2023-03-14%2013-33-34.mp4"
+              @open="openVideo"
+          />
+          <MediaCard
+              title="Импорт заданий в текстовой форме&nbsp;&mdash;&nbsp;работа с текстовым файлом"
+              :image="previewInstr3"
+              videoUrl="https://do.skif.donstu.ru/pluginfile.php/472002/mod_resource/content/2/Инструкция_по_созданию_курса_на_скиф_тест.mp4"
+              @open="openVideo"
+          />
         </div>
-
-
-
-
       </div>
     </section>
 
-
+    <VideoPopup
+      :videoUrl="currentVideoUrl"
+      :isOpen="isPopupOpen"
+      @close="closePopup"
+    />
   </div>
 </template>
 
@@ -60,14 +57,30 @@
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
 import BannerCard from "@/components/cards/BannerCard.vue";
-import documentsImg from '@/assets/documents.png';
+import MediaCard from "@/components/cards/MediaCard.vue";
+import VideoPopup from "@/components/VideoPopup.vue";
 import mascotQue from '@/assets/maskot_question.png'
-import IconPlay from "@/components/icons/IconPlay.vue";
+import previewInstr1 from '@/assets/preview_instuctions/pre_vid_instr1.png'
+import previewInstr2 from '@/assets/preview_instuctions/pre_vid_instr2.png'
+import previewInstr3 from '@/assets/preview_instuctions/pre_vid_instr3.png'
 
 const breadcrumbs = ref([
   { title: 'Главная', to: '/' },
   { title: 'Инструкции', to: null }
 ])
+
+const isPopupOpen = ref(false)
+const currentVideoUrl = ref('')
+
+const openVideo = (url) => {
+  currentVideoUrl.value = url
+  isPopupOpen.value = true
+}
+
+const closePopup = () => {
+  isPopupOpen.value = false
+  currentVideoUrl.value = ''
+}
 </script>
 
 <style scoped>
@@ -98,144 +111,12 @@ const breadcrumbs = ref([
   grid-template-columns: repeat(3, 1fr);
 }
 
-.media-card {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-}
-
-.media-card__media {
-  border-radius: 32px;
-  height: 300px;
-  margin-bottom: 4px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-.media-card._video .media-card__media {
-  cursor: pointer;
-  position: relative;
-}
-.media-card__video {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.media-card__play, .media-card__play:before {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.media-card__play {
-  pointer-events: none;
-}
-.media-card__play, .media-card__play-btn {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.btn-secondary._outline._contrast {
-  background-color: rgba(255, 255, 255, 0.20);;
-  border-color: var(--divider-contrast-color);
-  color: var(--text-contrast-color);
-}
-.btn-secondary._outline {
-  border: 1px solid #D2DAE3;
-  border-radius: 12px;
-  color: var(--text-2-color);
-  font-size: 1.4rem;
-  font-weight: 500;
-  gap: 8px;
-  line-height: 20px;
-  padding: 8px 16px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.media-card__play-btn {
-  z-index: 2;
-}
-
-.btn-secondary._contrast .btn-secondary__icon._no-bg {
-  background-color: transparent;
-  color: var(--text-contrast-color);
-}
-.btn-secondary._outline .btn-secondary__icon {
-  height: 20px;
-  width: 20px;
-}
-.btn-secondary._outline._contrast svg {
-  color: var(--text-contrast-color);
-}
-
-.btn-secondary._outline._contrast .btn-secondary__icon._no-bg {
-  color: var(--text-contrast-color);
-}
-
-.media-card__media iframe, .media-card__media img, .media-card__media video {
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  width: 100%;
-}
-img, picture img {
-  display: block;
-}
-img {
-  border-style: none;
-}
-*, :after, :before {
-  box-sizing: border-box;
-  outline: none;
-}
-.btn-secondary__icon {
-  align-items: center;
-  background-color: #1370b9;
-  border-radius: 8px;
-  color: var(--text-contrast-color);
-  display: flex;
-  flex-shrink: 0;
-  height: 24px;
-  justify-content: center;
-  transition: background-color .35s ease;
-  width: 24px;
-}
-
-.media-card__play:before {
-  background-color: rgba(0, 0, 0, .4);
-  content: "";
-}
-
-.media-card__play, .media-card__play:before {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-*, :after, :before {
-  box-sizing: border-box;
-  outline: none;
-}
-
-.media-card__title {
-  color: #38424F;
-  transition: color .35s ease;
-}
-
 @media (max-width: 1023px) {
   .app-section {
     margin-bottom: 60px;
+  }
+  .app-grid._columns-3-1{
+    grid-template-columns: 1fr;
   }
 }
 

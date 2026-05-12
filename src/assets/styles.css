@@ -207,6 +207,23 @@ html {
     font-family: 'GolosText', sans-serif;
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background-color: #1370b9;
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 main {
     /*margin-top: 48px;*/
     /*padding-top: 205px;*/
