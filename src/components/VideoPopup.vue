@@ -145,7 +145,4 @@ onUnmounted(() => {
   height: 100%;
 }
 
-.video-popup__link:hover {
-  color: #ffffff;
-}
 </style>

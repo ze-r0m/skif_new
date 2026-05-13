@@ -1,7 +1,8 @@
 <template>
   <button
-      v-show="visible"
+      ref="buttonRef"
       class="scroll-to-top"
+      :class="{ 'is-visible': visible }"
       @click="scrollToTop"
   >
     <IconArrowUp />
@@ -15,29 +16,36 @@ import IconArrowUp from "@/components/icons/IconArrowUp.vue";
 const props = defineProps({
   footerSelector: {
     type: String,
-    default: "footer" // можно указать любой селектор футера
+    default: "footer"
   },
   offset: {
     type: Number,
-    default: 300 // через сколько пикселей появляется кнопка
+    default: 200
+  },
+  hideDistance: {
+    type: Number,
+    default: 40
   }
 });
 
 const visible = ref(false);
+const buttonRef = ref(null);
+const lastDistanceToFooter = ref(9999);
 
 const handleScroll = () => {
   const scrolledEnough = window.scrollY > props.offset;
 
   const footer = document.querySelector(props.footerSelector);
-  let footerVisible = false;
+  let distanceToFooter = 9999;
 
-  if (footer) {
-    const footerTop = footer.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    footerVisible = footerTop <= windowHeight;
+  if (footer && buttonRef.value) {
+    const buttonRect = buttonRef.value.getBoundingClientRect();
+    const footerRect = footer.getBoundingClientRect();
+    distanceToFooter = footerRect.top - buttonRect.bottom;
+    lastDistanceToFooter.value = distanceToFooter;
   }
 
-  visible.value = scrolledEnough && !footerVisible;
+  visible.value = scrolledEnough && lastDistanceToFooter.value > props.hideDistance;
 };
 
 const scrollToTop = () => {
@@ -55,46 +63,31 @@ onUnmounted(() => {
 
 <style scoped>
 .scroll-to-top {
-  position: fixed;
-  top: 50%;        /* середина экрана по вертикали */
-  right: 20px;     /* прижимаем к правому краю */
-  transform: translateY(-50%); /* чтобы центр совпадал */
-  width: 56px;
-  height: 56px;
+  align-items: center;
+  background-color: #FFFFFF;
   border: none;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  box-shadow: -2px 2px 4px rgba(56, 66, 79, 0.1);
   color: #38424f;
   display: flex;
-  align-items: center;
+  height: 56px;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, transform 0.3s, color 0.3s;
-}
-
-.scroll-to-top:hover {
-  background-color: #1370b9;
-  color: #FFFFFF;
-}
-
-.scroll-to-top {
   position: fixed;
+  right: 28px;
   top: 50%;
-  right: 20px;
   transform: translateY(-50%);
+  transition: background-color 0.35s ease, color 0.35s ease;
   width: 56px;
-  height: 56px;
-  border: none;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  color: #38424f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .scroll-to-top:hover {
@@ -102,39 +95,12 @@ onUnmounted(() => {
   color: #FFFFFF;
 }
 
-.scroll-to-top {
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
-  border: none;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  color: #38424f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, transform 0.3s, color 0.3s;
-}
-
-.scroll-to-top:hover {
-  background-color: #1370b9;
-  color: #FFFFFF;
-}
-
-/* Tablet (744px–1023px) — кнопка снизу, но размер как на ПК */
 @media (min-width: 744px) and (max-width: 1023px) {
   .scroll-to-top {
     top: auto;
     bottom: 20px;
     right: 20px;
     transform: none;
-    width: 56px;
-    height: 56px;
   }
 
   .scroll-to-top:hover {
@@ -142,7 +108,6 @@ onUnmounted(() => {
     color: #38424f;
   }
 }
-
 
 @media (max-width: 743px) {
   .scroll-to-top {
@@ -159,6 +124,4 @@ onUnmounted(() => {
     color: #38424f;
   }
 }
-
-
 </style>
