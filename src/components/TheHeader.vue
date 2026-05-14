@@ -1,39 +1,39 @@
 <template>
-  <header class="site-header">
-    <div class="top-bar">
+  <header class="site-header" id="js-header">
+    <div class="top-bar" data-animate="slide">
       <div class="container">
         <div class="top-bar-content">
           <div class="top-links-left">
-            <a href="https://donstu.ru/" class="link-always-mobile">Главный сайт</a>
-            <a href="https://skif.donstu.ru/old" class="link-hide-mobile link-hide-1">Старая версия сайта</a>
+            <a href="https://donstu.ru/" class="link-always-mobile" data-animate="data-animate">Главный сайт</a>
+            <a href="https://skif.donstu.ru/old" class="link-hide-mobile link-hide-1" data-animate="data-animate">Старая версия сайта</a>
           </div>
 
           <div class="top-links-right">
-            <a href="https://do.skif.donstu.ru/" class="link-always">ДО.СКИФ</a>
-            <a href="https://skif.donstu.ru/test/" class="link-always">СКИФ.ТЕСТ</a>
-            <a href="https://de.donstu.ru/zaoch/organizations/1" class="link-hide-tablet link-hide-5">СКИФ.Библиотека</a>
-            <a href="https://skif.donstu.ru/spec/" class="link-hide-tablet link-hide-4">СКИФ.СПЕЦ</a>
-            <a href="https://int.skif.donstu.ru/" class="link-hide-tablet link-hide-3">СКИФ.Международный</a>
-            <a href="https://prof.skif.donstu.ru/" class="link-hide-tablet link-hide-2">ПРОФ.СКИФ</a>
+            <a href="https://do.skif.donstu.ru/" class="link-always" data-animate="data-animate">ДО.СКИФ</a>
+            <a href="https://skif.donstu.ru/test/" class="link-always" data-animate="data-animate">СКИФ.ТЕСТ</a>
+            <a href="https://de.donstu.ru/zaoch/organizations/1" class="link-hide-tablet link-hide-5" data-animate="data-animate">СКИФ.Библиотека</a>
+            <a href="https://skif.donstu.ru/spec/" class="link-hide-tablet link-hide-4" data-animate="data-animate">СКИФ.СПЕЦ</a>
+            <a href="https://int.skif.donstu.ru/" class="link-hide-tablet link-hide-3" data-animate="data-animate">СКИФ.Международный</a>
+            <a href="https://prof.skif.donstu.ru/" class="link-hide-tablet link-hide-2" data-animate="data-animate">ПРОФ.СКИФ</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="main-header">
+    <div class="main-header" data-animate="slide">
       <div class="container">
         <div class="main-header-content">
           <div class="header-logos">
-            <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
+            <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer" data-animate>
               <IconSkifSquare class="logo-skif-square"/>
             </a>
-            <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
+            <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer" data-animate>
               <IconDstuUcotBrandBlue class="logo-dstu"  />
             </a>
           </div>
 
           <nav class="main-nav">
-            <a v-for="item in navItems" :key="item.id" :href="item.to" class="nav-link">{{ item.title }}</a>
+            <a v-for="item in navItems" :key="item.id" :href="item.to" class="nav-link" data-animate="data-animate">{{ item.title }}</a>
           </nav>
 
           <!-- Кнопка меню для Tablet -->
@@ -41,6 +41,7 @@
               class="menu-button menu-button--tablet"
               :class="{ 'is-active': isMobileMenuOpen }"
               @click="toggleMobileMenu"
+              data-animate="data-animate"
           >
             <span class="menu-button__text">Меню</span>
             <IconBurgerMenu class="menu-button__icon" />
@@ -51,6 +52,7 @@
               class="menu-button menu-button--mobile"
               :class="{ 'is-active': isMobileMenuOpen }"
               @click="toggleMobileMenu"
+              data-animate="data-animate"
           >
             <IconBurgerMenu class="menu-button__icon" />
           </button>
@@ -60,6 +62,7 @@
               class="close-button"
               :class="{ 'is-visible': isMobileMenuOpen }"
               @click="toggleMobileMenu"
+              data-animate="data-animate"
           >
             <IconClose />
           </button>
@@ -89,8 +92,8 @@ const navItems = ref([
   { id: 'home', title: 'Главная', to: '/skif_new/v2/' },
   { id: 'about', title: 'Об управлении', to: '/skif_new/v2/about/' },
   { id: 'instructions', title: 'Инструкции', to: '/skif_new/v2/instructions/' },
-  { id: 'systems', title: 'Системы', to: '/skif_new/v2/#systems' },
-  { id: 'creating_courses', title: 'Разработка курсов', to: '/skif_new/v2/#creating_courses' },
+  // { id: 'systems', title: 'Системы', to: '/skif_new/v2/#systems' },
+  // { id: 'creating_courses', title: 'Разработка курсов', to: '/skif_new/v2/#creating_courses' },
 ]);
 
 const isMobileMenuOpen = ref(false);

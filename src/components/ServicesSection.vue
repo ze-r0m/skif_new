@@ -2,7 +2,7 @@
   <section class="services-section" id="services">
     <div class="container">
       <div class="services-section__header">
-        <h2 class="services-section__title text-h2">Управлением координируется <br> электронная образовательная среда вуза&nbsp;—&nbsp;СКИФ</h2>
+        <h2 class="services-section__title text-h2">Управлением координируется <br> электронная образовательная среда вуза — СКИФ</h2>
       </div>
 
       <div class="grid">
@@ -12,6 +12,7 @@
             :description="service.description"
             :link="service.link"
             :variant="service.variant"
+            data-animate="data-animate"
           />
         </div>
       </div>

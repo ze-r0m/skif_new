@@ -1,11 +1,11 @@
 <template>
-  <div class="banner-card card_lg">
+  <div class="banner-card card_lg" data-animate="data-animate">
     <div class="banner-card__content">
       <div class="banner-card__text">
-        <h2 class="banner-card__title text-h2-desktop">{{ title }}</h2>
-        <p class="banner-card__subtitle text-body">{{ text }}</p>
+        <h2 class="banner-card__title text-h2-desktop" data-animate="title">{{ title }}</h2>
+        <p class="banner-card__subtitle text-body" data-animate="text">{{ text }}</p>
       </div>
-      <div class="banner-card__button">
+      <div class="banner-card__button" data-animate="data-animate">
         <MainButton
           v-if="buttonText && buttonHref"
           :text="buttonText"

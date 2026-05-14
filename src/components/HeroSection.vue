@@ -3,13 +3,13 @@
     <div class="container">
       <div class="banner-card">
         <div class="banner-card__content">
-          <h1 class="banner-card-title">Управление цифровых образовательных технологий</h1>
-          <p class="banner-card-text">
+          <h1 class="banner-card-title" data-animate="title">Управление цифровых образовательных технологий</h1>
+          <p class="banner-card-text" data-animate="text">
             Управление цифровых образовательных технологий координирует внедрение электронного обучения в ДГТУ, обеспечивая на базе единой информационной системы автоматизацию планирования,
             контроль успеваемости и аналитическое сопровождение учебного процесса. Деятельность управления направлена на эффективное использование аудиторного фонда и ресурсов университета,
             включая формирование расписания и прогнозирование загрузки помещений, а также на создание современных электронных курсов и программных решений для повышения качества образования.
           </p>
-          <div class="banner-card__footer">
+          <div class="banner-card__footer" data-animate="data-animate">
             <MainButton 
               text="Узнать больше" 
               variant="light"
@@ -18,7 +18,7 @@
           </div>
         </div>
 
-        <div class="banner-card__img">
+        <div class="banner-card__img" data-animate="data-animate">
           <img :src="edu_banner" alt="Образовательные технологии">
         </div>
       </div>

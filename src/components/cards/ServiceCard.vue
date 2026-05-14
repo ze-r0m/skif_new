@@ -4,6 +4,7 @@
     :href="link"
     :target="isExternal ? '_blank' : undefined"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
+    data-animate="data-animate"
   >
     <div class="info-icon-card__body">
       <div class="info-icon-card__content">

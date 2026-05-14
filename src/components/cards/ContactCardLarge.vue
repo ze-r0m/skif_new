@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-card">
+  <div class="contact-card" data-animate="data-animate">
     <div class="contact-card__avatar">
       <img :src="avatar" :alt="fullName">
     </div>
@@ -33,7 +33,6 @@
             </svg>
           </span>
         </a>
-
       </div>
     </div>
   </div>

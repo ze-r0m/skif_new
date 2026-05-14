@@ -1,0 +1,234 @@
+/* ========================================
+   Animations CSS - Design System СКИФ
+   ======================================== */
+
+/* Initial states for animated elements */
+[data-animate],
+[data-animate="fade"],
+[data-animate="slide"],
+[data-animate="title"],
+[data-animate="text"] {
+    will-change: transform, opacity;
+}
+
+/* Stagger animation for child elements */
+[data-animate="data-animate"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Fade animation initial state */
+[data-animate="fade"] {
+    opacity: 0;
+}
+
+/* Slide animation initial states */
+[data-animate="slide"][data-animate-slide-direction="right"] {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+[data-animate="slide"][data-animate-slide-direction="left"] {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+[data-animate="slide"]:not([data-animate-slide-direction]) {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Title animation initial state - handled by JS now */
+[data-animate="title"] {
+    visibility: hidden;
+}
+
+/* Text animation initial state */
+[data-animate="text"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Full screen animation - для элементов которые должны появляться раньше */
+[data-animate-full-screen] {
+    opacity: 0;
+}
+
+/* Button fill animation */
+[data-animate="fill"] {
+    position: relative;
+    overflow: hidden;
+}
+
+[data-animate="fill"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+[data-animate="fill-direction-right"]::before {
+    left: auto;
+    right: 0;
+}
+
+.btn-primary:hover [data-animate="fill"]::before,
+[data-animate="fill"].is-hovered::before {
+    width: 100%;
+}
+
+/* Hover effects for animated cards */
+.animated-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.animated-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon animations */
+.animated-icon {
+    transition: transform 0.35s ease;
+}
+
+.animated-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Arrow slide animation for buttons */
+.animated-arrow {
+    transition: transform 0.3s ease;
+}
+
+.animated-arrow:hover {
+    transform: translateX(4px);
+}
+
+/* Link underline animation */
+.animated-link {
+    position: relative;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.35s ease;
+}
+
+.animated-link:hover::after {
+    width: 100%;
+}
+
+/* Image zoom on hover */
+.animated-image {
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.animated-image img {
+    transition: transform 0.5s ease;
+}
+
+.animated-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Play button pulse animation */
+.play-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(17, 81, 156, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(17, 81, 156, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(17, 81, 156, 0);
+    }
+}
+
+/* Gradient background animation */
+.animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Smooth reveal for sections */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Fade in animation class (applied by GSAP after animation) */
+.is-animated {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Responsive animation settings */
+@media (max-width: 1023px) {
+    [data-animate="slide"] {
+        transform: translateY(30px) !important;
+    }
+
+    [data-animate="data-animate"] {
+        transform: translateY(20px) !important;
+    }
+}
+
+@media (max-width: 767px) {
+    [data-animate="slide"] {
+        transform: translateY(20px) !important;
+    }
+
+    [data-animate="data-animate"] {
+        transform: translateY(15px) !important;
+    }
+}

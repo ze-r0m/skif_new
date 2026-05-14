@@ -1,5 +1,5 @@
 <template>
-  <ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" data-animate="slide" data-animate-slide-direction="right">
     <li
       v-for="(item, index) in items"
       :key="index"

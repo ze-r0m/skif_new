@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-card-small">
+  <div class="contact-card-small" data-animate="data-animate">
     <div class="contact-card-small__avatar">
       <img :src="avatar" :alt="fullName">
     </div>
