@@ -74,4 +74,8 @@ main {
     padding-top: 36px;
   }
 }
+
+body.menu-open .scroll-to-top {
+  display: none !important;
+}
 </style>

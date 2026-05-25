@@ -1,154 +1,343 @@
 <template>
-  <div class="mobile-menu-overlay" :class="{ 'is-active': isMobileMenuOpen }">
-    <div class="mobile-header-logos">
-      <a href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer">
-        <IconSkifSquare class="logo-skif-square" />
-      </a>
-      <a href="https://donstu.ru/" target="_blank" rel="noopener noreferrer">
-        <IconDstuUcotBrandWhite class="logo-dstu" />
-<!--        <img src="@/assets/DstuLogo95.png" alt="ДГТУ" class="logo-dstu" />-->
-      </a>
+  <div class="app-menu-cons js-app-menu" :class="{ '_menu-opened': isMobileMenuOpen }">
+    <div class="app-menu-cons__bg" @click="emit('close')"></div>
+    <div class="app-menu-cons__content">
+      <div class="app-menu__top">
+        <div class="container">
+          <div class="app-menu-cons__inner _top">
+            <a class="app-menu-cons__sites-menu" href="https://donstu.ru">Главный сайт</a>
+            <a class="app-menu-cons__sites-menu" href="https://skif.donstu.ru/old">Старая версия сайта</a>
+          </div>
+        </div>
+      </div>
+      <div class="app-menu-cons__bottom">
+        <div class="container">
+          <div class="app-menu-cons__inner _bottom">
+            <div class="app-menu-cons__logo">
+              <a href="https://skif.donstu.ru/">
+                <IconSkifSquare class="_icon-logo-skif" />
+              </a>
+              <a href="https://donstu.ru/">
+                <IconDstuUcotBrandWhite class="_icon-logo-dstu" />
+              </a>
+              <button class="btn-primary text-button _menu js-menu-close" type="button" @click="emit('close')">
+                <span class="btn-primary__background"></span>
+                <span>Меню</span>
+                <span class="btn-primary__icon">
+                  <IconClose />
+                </span>
+              </button>
+            </div>
+            <div class="app-menu-cons__nav">
+              <nav>
+                <ul class="app-menu__nav-list">
+                  <li v-for="item in navItems" :key="item.id">
+                    <a :href="item.to" @click="emit('close')">{{ item.title }}</a>
+                  </li>
+                  <li><a href="https://do.skif.donstu.ru/" @click="emit('close')">ДО.СКИФ</a></li>
+                  <li><a href="https://skif.donstu.ru/test/" @click="emit('close')">СКИФ.ТЕСТ</a></li>
+                  <li><a href="https://de.donstu.ru/zaoch/organizations/1" @click="emit('close')">СКИФ.Библиотека</a></li>
+                  <li><a href="https://skif.donstu.ru/spec/" @click="emit('close')">СКИФ.СПЕЦ</a></li>
+                  <li><a href="https://prof.skif.donstu.ru/" @click="emit('close')">ПРОФ.СКИФ</a></li>
+                  <li><a href="https://int.skif.donstu.ru/" @click="emit('close')">СКИФ.Международный</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mobile-header-separator"></div>
-
-    <nav class="mobile-nav">
-
-      <a
-          v-for="item in navItems"
-          :key="item.id"
-          :href="item.to"
-          @click="emit('close')"
-      >
-        {{ item.title }}
-      </a>
-
-
-      <div class="additional-links">
-        <a href="https://skif.donstu.ru/test/">СКИФ.ТЕСТ</a>
-        <a href="https://de.donstu.ru/zaoch/organizations/1">СКИФ.Библиотека</a>
-        <a href="https://skif.donstu.ru/spec/">СКИФ.СПЕЦ</a>
-        <a href="https://prof.skif.donstu.ru/">ПРОФ.СКИФ</a>
-        <a href="https://int.skif.donstu.ru/">СКИФ.Международный</a>
-        <a href="https://do.skif.donstu.ru/">ДО.СКИФ</a>
-      </div>
-
-      <div class="bottom-links">
-        <a href="https://skif.donstu.ru/old" class="dstu-link">Старая версия сайта</a>
-        <a href="https://donstu.ru/" class="dstu-link">Сайт ДГТУ</a>
-      </div>
-    </nav>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
-import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
-import IconDstuUcotBrandWhite from "@/components/icons/IconDstuUcotBrandWhite.vue";
+import { defineProps } from 'vue'
+import IconSkifSquare from '@/components/icons/IconSkifSquare.vue'
+import IconDstuUcotBrandWhite from '@/components/icons/IconDstuUcotBrandWhite.vue'
+import IconClose from '@/components/icons/IconClose.vue'
 
 const props = defineProps({
   isMobileMenuOpen: Boolean,
   navItems: Array
-});
-const emit = defineEmits(['close']); // событие закрытия
+})
+const emit = defineEmits(['close'])
 </script>
 
 <style scoped>
-/* Стили для мобильного меню */
-.mobile-menu-overlay {
+/* ==================== Базовые ==================== */
+.app-menu-cons {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #11519c;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
+  z-index: 200;
+  display: none;
+  overflow: hidden;
+}
+
+.app-menu-cons._menu-opened {
+  display: block;
+}
+
+.app-menu-cons__bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.app-menu-cons__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color, #11519C);
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-  z-index: 100;
-  padding: 20px 12px;
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+  overflow-y: auto;
 }
 
-.mobile-menu-overlay.is-active {
-  transform: translateX(0);
+._menu-opened .app-menu-cons__content {
+  transform: translateY(0);
 }
 
-.mobile-header-logos {
+/* ==================== Top section ==================== */
+.app-menu__top {
+  height: 68px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.app-menu-cons__inner._top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.app-menu-cons__sites-menu {
+  font-family: 'GolosText', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.app-menu-cons__sites-menu:hover {
+  color: #fff;
+}
+
+.app-menu__top .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* ==================== Bottom section ==================== */
+.app-menu-cons__bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-menu-cons__inner._bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-bottom: 24px;
+}
+
+/* Logo row + close button */
+.app-menu-cons__logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
-.mobile-header-separator {
-  width: 100vw;
-  height: 1px;
-  background-color: #e5e5e5;
-  margin-bottom: 24px;
-  position: relative;
-  left: calc(-50vw + 50%);
+.app-menu-cons__logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.logo-skif-square {
+._icon-logo-skif {
   height: 40px;
   width: 40px;
 }
 
-.logo-dstu {
-  width: 140px;
+._icon-logo-dstu {
   height: 40px;
+  width: auto;
 }
 
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-.mobile-nav a,
-.mobile-nav router-link {
-  font-size: 16px;
-  font-weight: 600;
-  color: #e5e5e5;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  margin-bottom: 16px;
-}
-
-.mobile-nav a:hover,
-.mobile-nav router-link:hover {
-  color: #9bb7d3;
-}
-
-.additional-links {
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: 16px;
-}
-
-.bottom-links {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.bottom-links a {
-  font-size: 14px;
+/* Кнопка закрытия — стилизована под menu-button из хедера */
+.btn-primary.text-button._menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #1370B9;
+  color: #fff;
+  font-family: 'GolosText', sans-serif;
   font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  padding: 16px 20px;
+  margin-left: auto;
+  min-width: 108px;
+  height: 56px;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
 }
 
-/* Скрываем на desktop (от 1024px) */
-@media (min-width: 1024px) {
-  .mobile-menu-overlay {
+.btn-primary.text-button._menu:hover {
+  background-color: #0f5a8f;
+}
+
+.btn-primary__background {
+  display: none;
+}
+
+.btn-primary__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.btn-primary__icon svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+/* Navigation */
+.app-menu-cons__nav {
+  flex: 1;
+}
+
+.app-menu__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-menu__nav-list li {
+  margin: 0;
+}
+
+.app-menu__nav-list li a {
+  font-family: 'GolosText', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 34px;
+  letter-spacing: -0.9px;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px;
+  display: block;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.app-menu__nav-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== Tablet (744-1023px) ==================== */
+@media (min-width: 744px) and (max-width: 1023px) {
+  .app-menu-cons._menu-opened {
+    display: block;
+  }
+
+  .app-menu-cons__inner._bottom {
+    padding-top: 32px;
+  }
+
+  .app-menu-cons__logo {
+    gap: 16px;
+  }
+
+  ._icon-logo-skif {
+    height: 48px;
+    width: 48px;
+  }
+
+  ._icon-logo-dstu {
+    height: 48px;
+    width: auto;
+  }
+}
+
+/* ==================== Mobile (≤743px) ==================== */
+@media (max-width: 743px) {
+  .app-menu-cons._menu-opened {
+    display: block;
+  }
+
+  .app-menu-cons__inner._bottom {
+    padding-top: 20px;
+  }
+
+  .app-menu-cons__logo {
+    gap: 8px;
+  }
+
+  ._icon-logo-skif {
+    height: 40px;
+    width: 40px;
+  }
+
+  ._icon-logo-dstu {
+    height: 40px;
+    width: auto;
+  }
+
+  .btn-primary.text-button._menu {
+    width: 40px;
+    height: 40px;
+    min-width: unset;
+    padding: 12px;
+    justify-content: center;
+  }
+
+  .btn-primary.text-button._menu span:not(.btn-primary__icon) {
     display: none;
+  }
+
+  .btn-primary__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-primary__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ==================== Desktop (≥1024px) ==================== */
+@media (min-width: 1024px) {
+  .app-menu-cons {
+    display: none !important;
   }
 }
 </style>

@@ -57,15 +57,6 @@
             <IconBurgerMenu class="menu-button__icon" />
           </button>
 
-          <!-- Кнопка закрытия меню (показывается когда меню открыто) -->
-          <button
-              class="close-button"
-              :class="{ 'is-visible': isMobileMenuOpen }"
-              @click="toggleMobileMenu"
-              data-animate="data-animate"
-          >
-            <IconClose />
-          </button>
         </div>
       </div>
     </div>
@@ -82,8 +73,6 @@
 import { ref } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import MobileMenu from './MobileMenu.vue';
-import IconMenu from "@/components/icons/IconMenu.vue";
-import IconClose from "@/components/icons/IconClose.vue";
 import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
 
@@ -101,6 +90,7 @@ const isMobileMenuOpen = ref(false);
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
   document.body.style.overflow = isMobileMenuOpen.value ? 'hidden' : '';
+  document.body.classList.toggle('menu-open', isMobileMenuOpen.value);
 };
 </script>
 
@@ -294,33 +284,6 @@ const toggleMobileMenu = () => {
   height: 16px;
 }
 
-/* Кнопка закрытия меню */
-.close-button {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 12px;
-  background: #fff;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 300;
-}
-
-.close-button.is-visible {
-  display: flex;
-}
-
-.close-button svg {
-  width: 24px;
-  height: 24px;
-  color: #11519c;
-}
-
 /* ===================== Tablet (8 колонок) ===================== */
 @media (min-width: 744px) and (max-width: 1023px) {
   .main-header {
@@ -369,10 +332,6 @@ const toggleMobileMenu = () => {
   }
 
   .menu-button--mobile {
-    display: none;
-  }
-
-  .close-button {
     display: none;
   }
 }
@@ -426,10 +385,6 @@ const toggleMobileMenu = () => {
 
   .menu-button--mobile {
     display: flex;
-  }
-
-  .close-button {
-    display: none;
   }
 }
 
@@ -545,10 +500,6 @@ const toggleMobileMenu = () => {
   }
 
   .menu-button--mobile {
-    display: none;
-  }
-
-  .close-button {
     display: none;
   }
 
