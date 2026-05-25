@@ -64,8 +64,9 @@ import previewInstr1 from '@/assets/preview_instuctions/pre_vid_instr1.png'
 import previewInstr2 from '@/assets/preview_instuctions/pre_vid_instr2.png'
 import previewInstr3 from '@/assets/preview_instuctions/pre_vid_instr3.png'
 
+// TODO: при заливке на GH добавить '/skif_new/v2/' к to
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/' },
+  { title: 'Главная', to: '/skif_new/v2/' },
   { title: 'Инструкции', to: null }
 ])
 
