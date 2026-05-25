@@ -33,8 +33,8 @@
 
           </div>
         </div>
-        <div class="footer__contacts" data-animate="slide" data-animate-slide-direction="right" data-animate-full-screen="">
-          <div class="footer__tagline-wrapper" data-animate="slide" data-animate-slide-direction="right">
+        <div class="footer__contacts" data-animate="slide" data-animate-slide-direction="right">
+          <div class="footer__tagline-wrapper">
             <div class="footer__tagline" data-animate="slide" data-animate-slide-direction="right">
               <img src="@/assets/slogan.png" alt="Слоган" />
             </div>
@@ -65,8 +65,8 @@
           </div>
         </div>
         <div class="footer__foot">
-          <p class="text-body-small footer__copyright" data-animate="slide" data-animate-slide-direction="right" data-animate-full-screen>Донской государственный технический университет ©&nbsp;{{ currentYear }}</p>
-          <a class="footer__paraweb" href="https://paraweb.me/" target="_blank" rel="noopener noreferrer" data-animate="slide" data-animate-slide-direction="right" data-animate-full-screen>
+          <p class="text-body-small footer__copyright" data-animate="slide" data-animate-slide-direction="right">Донской государственный технический университет ©&nbsp;{{ currentYear }}</p>
+          <a class="footer__paraweb" href="https://paraweb.me/" target="_blank" rel="noopener noreferrer" data-animate="slide" data-animate-slide-direction="right" >
             <img src="@/assets/parawe-logo-xs.png" alt="paraweb" />
           </a>
         </div>

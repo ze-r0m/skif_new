@@ -51,8 +51,23 @@ export function initAnimations() {
         initHeaderAnimation()
         nextTick(() => {
             initDataAnimations()
+            setTimeout(() => ScrollTrigger.refresh(), 300)
+            finishStuckAnimations()
         })
     })
+}
+
+function finishStuckAnimations() {
+    setTimeout(() => {
+        document.querySelectorAll('[data-animate]').forEach((el) => {
+            if (!el._gsapAnimated) return
+            const x = Math.abs(gsap.getProperty(el, 'x'))
+            const opacity = gsap.getProperty(el, 'opacity')
+            if (x > 5 || opacity < 0.5) {
+                gsap.to(el, { x: 0, opacity: 1, duration: 0.5, clearProps: 'transform' })
+            }
+        })
+    }, 1500)
 }
 
 function nextTick(fn) {
@@ -102,7 +117,7 @@ function animateElementSlideUp(element) {
 
     ScrollTrigger.create({
         trigger: element,
-        start: 'top 85%',
+        start: 'top bottom',
         onEnter: () => {
             gsap.to(element, {
                 y: 0,
@@ -120,7 +135,7 @@ function animateElementFade(element) {
 
     ScrollTrigger.create({
         trigger: element,
-        start: 'top 85%',
+        start: 'top bottom',
         onEnter: () => {
             gsap.to(element, {
                 opacity: 1,
@@ -134,7 +149,7 @@ function animateElementFade(element) {
 
 function animateElementSlide(element) {
     const direction = element.getAttribute('data-animate-slide-direction') || 'left'
-    const isFullScreen = element.hasAttribute('data-animate-full-screen')
+    const isFullScreen = element.hasAttribute('data-animate-full-screen') || element.closest('[data-animate-full-screen]') !== null
 
     let xFrom = 0
     if (direction === 'right') {
@@ -146,6 +161,14 @@ function animateElementSlide(element) {
     gsap.set(element, { x: xFrom, opacity: 0 })
 
     if (isFullScreen) {
+        gsap.to(element, {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: 0.3
+        })
+    } else {
         ScrollTrigger.create({
             trigger: element,
             start: 'top bottom',
@@ -153,22 +176,8 @@ function animateElementSlide(element) {
                 gsap.to(element, {
                     x: 0,
                     opacity: 1,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                })
-            },
-            once: true
-        })
-    } else {
-        ScrollTrigger.create({
-            trigger: element,
-            start: 'top 85%',
-            onEnter: () => {
-                gsap.to(element, {
-                    x: 0,
-                    opacity: 1,
                     duration: 0.6,
-                    ease: 'power3.out'
+                    ease: 'power2.out'
                 })
             },
             once: true
@@ -235,7 +244,7 @@ function animateElementTitle(element) {
 
     ScrollTrigger.create({
         trigger: element,
-        start: 'top 85%',
+        start: 'top bottom',
         onEnter: () => {
             gsap.to(allCharSpans, {
                 y: '0%',
@@ -255,7 +264,7 @@ function animateElementText(element) {
 
     ScrollTrigger.create({
         trigger: element,
-        start: 'top 85%',
+        start: 'top bottom',
         onEnter: () => {
             gsap.to(element, {
                 y: 0,

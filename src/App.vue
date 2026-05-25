@@ -5,8 +5,8 @@
       <component :is="currentPageComponent" />
     </main>
     <TheFooter />
-    <ScrollToTop footer-selector="footer" />
   </div>
+  <ScrollToTop footer-selector="footer" />
 </template>
 
 <script setup>
@@ -56,6 +56,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: clip;
 }
 
 main {
