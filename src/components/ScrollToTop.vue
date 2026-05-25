@@ -12,6 +12,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import IconArrowUp from "@/components/icons/IconArrowUp.vue";
+import { getLenis } from "@/composables/useAnimations";
 
 const props = defineProps({
   footerSelector: {
@@ -32,8 +33,13 @@ const visible = ref(false);
 const buttonRef = ref(null);
 const lastDistanceToFooter = ref(9999);
 
+const getScrollY = () => {
+  const lenis = getLenis();
+  return lenis ? lenis.scroll : window.scrollY;
+};
+
 const handleScroll = () => {
-  const scrolledEnough = window.scrollY > props.offset;
+  const scrolledEnough = getScrollY() > props.offset;
 
   const footer = document.querySelector(props.footerSelector);
   let distanceToFooter = 9999;
@@ -49,15 +55,33 @@ const handleScroll = () => {
 };
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const lenis = getLenis();
+  if (lenis) {
+    lenis.scrollTo(0);
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 };
 
+let cleanup = null;
+
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
+  const attach = () => {
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.on("scroll", handleScroll);
+      cleanup = () => lenis.off("scroll", handleScroll);
+    } else {
+      window.addEventListener("scroll", handleScroll);
+      cleanup = () => window.removeEventListener("scroll", handleScroll);
+    }
+  };
+
+  setTimeout(attach, 0);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
+  if (cleanup) cleanup();
 });
 </script>
 
@@ -75,32 +99,67 @@ onUnmounted(() => {
   position: fixed;
   right: 28px;
   top: 50%;
-  transform: translateY(-50%);
-  transition: background-color 0.35s ease, color 0.35s ease;
+  transform: translateY(-50%) scale(0);
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease,
+    visibility 0s linear 0.35s,
+    background-color 0.35s ease,
+    color 0.35s ease;
   width: 56px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .scroll-to-top.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease,
+    visibility 0s linear 0s,
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 .scroll-to-top:hover {
   background-color: #1370b9;
   color: #FFFFFF;
 }
+/*
+.scroll-to-top svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
 
-@media (min-width: 744px) and (max-width: 1023px) {
+@media (min-width: 1441px) {
+  .scroll-to-top {
+    right: calc((100vw - 1440px) / 2 + 28px);
+  }
+}
+*/
+@media (min-width: 744px) and (max-width: 1024px) {
   .scroll-to-top {
     top: auto;
     bottom: 20px;
     right: 20px;
-    transform: none;
+    transform: scale(0);
+  }
+
+  .scroll-to-top.is-visible {
+    transform: scale(1);
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease,
+      visibility 0s linear 0s,
+      background-color 0.35s ease,
+      color 0.35s ease;
   }
 
   .scroll-to-top:hover {
@@ -114,9 +173,19 @@ onUnmounted(() => {
     top: auto;
     bottom: 20px;
     right: 20px;
-    transform: none;
+    transform: scale(0);
     width: 40px;
     height: 40px;
+  }
+
+  .scroll-to-top.is-visible {
+    transform: scale(1);
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease,
+      visibility 0s linear 0s,
+      background-color 0.35s ease,
+      color 0.35s ease;
   }
 
   .scroll-to-top:hover {

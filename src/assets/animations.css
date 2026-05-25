@@ -211,24 +211,3 @@
     opacity: 1 !important;
     transform: none !important;
 }
-
-/* Responsive animation settings */
-@media (max-width: 1023px) {
-    [data-animate="slide"] {
-        transform: translateY(30px) !important;
-    }
-
-    [data-animate="data-animate"] {
-        transform: translateY(20px) !important;
-    }
-}
-
-@media (max-width: 767px) {
-    [data-animate="slide"] {
-        transform: translateY(20px) !important;
-    }
-
-    [data-animate="data-animate"] {
-        transform: translateY(15px) !important;
-    }
-}

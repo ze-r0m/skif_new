@@ -115,7 +115,6 @@ const currentYear = computed(() => new Date().getFullYear());
 .footer__logo {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
   height: 65px;
 }
 
@@ -230,7 +229,16 @@ const currentYear = computed(() => new Date().getFullYear());
   transition: opacity 0.3s ease;
 }
 
-
+/* =======================================================
+   изменение размеров лого при узком экране
+   ======================================================= */
+@media (min-width: 1024px) {
+  .logo-icon--skif,
+  .logo-icon--dstu,
+  .footer__tagline {
+    max-width: 100%;
+  }
+}
 
 /* =======================================================
    Tablet (744px – 1023px)
