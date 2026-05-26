@@ -14,12 +14,14 @@
         <div class="container">
           <div class="app-menu-cons__inner _bottom">
             <div class="app-menu-cons__logo">
-              <a href="https://skif.donstu.ru/">
-                <IconSkifSquare class="_icon-logo-skif" />
-              </a>
-              <a href="https://donstu.ru/">
-                <IconDstuUcotBrandWhite class="_icon-logo-dstu" />
-              </a>
+              <div class="app-menu-cons__logo-group">
+                <a href="https://skif.donstu.ru/">
+                  <IconSkifSquare class="_icon-logo-skif" />
+                </a>
+                <a href="https://donstu.ru/">
+                  <IconDstuUcotBrandWhite class="_icon-logo-dstu" />
+                </a>
+              </div>
               <button class="btn-primary text-button _menu js-menu-close" type="button" @click="emit('close')">
                 <span class="btn-primary__background"></span>
                 <span>Меню</span>
@@ -32,14 +34,33 @@
               <nav>
                 <ul class="app-menu__nav-list">
                   <li v-for="item in navItems" :key="item.id">
-                    <a :href="item.to" @click="emit('close')">{{ item.title }}</a>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" :href="item.to" :text="item.title" :new-tab="false" />
+                    <a v-else :href="item.to" @click="emit('close')">{{ item.title }}</a>
                   </li>
-                  <li><a href="https://do.skif.donstu.ru/" @click="emit('close')">ДО.СКИФ</a></li>
-                  <li><a href="https://skif.donstu.ru/test/" @click="emit('close')">СКИФ.ТЕСТ</a></li>
-                  <li><a href="https://de.donstu.ru/zaoch/organizations/1" @click="emit('close')">СКИФ.Библиотека</a></li>
-                  <li><a href="https://skif.donstu.ru/spec/" @click="emit('close')">СКИФ.СПЕЦ</a></li>
-                  <li><a href="https://prof.skif.donstu.ru/" @click="emit('close')">ПРОФ.СКИФ</a></li>
-                  <li><a href="https://int.skif.donstu.ru/" @click="emit('close')">СКИФ.Международный</a></li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://do.skif.donstu.ru/" text="ДО.СКИФ" :new-tab="false" />
+                    <a v-else href="https://do.skif.donstu.ru/" @click="emit('close')">ДО.СКИФ</a>
+                  </li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/test/" text="СКИФ.ТЕСТ" :new-tab="false" />
+                    <a v-else href="https://skif.donstu.ru/test/" @click="emit('close')">СКИФ.ТЕСТ</a>
+                  </li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://de.donstu.ru/zaoch/organizations/1" text="СКИФ.Библиотека" :new-tab="false" />
+                    <a v-else href="https://de.donstu.ru/zaoch/organizations/1" @click="emit('close')">СКИФ.Библиотека</a>
+                  </li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/spec/" text="СКИФ.СПЕЦ" :new-tab="false" />
+                    <a v-else href="https://skif.donstu.ru/spec/" @click="emit('close')">СКИФ.СПЕЦ</a>
+                  </li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://prof.skif.donstu.ru/" text="ПРОФ.СКИФ" :new-tab="false" />
+                    <a v-else href="https://prof.skif.donstu.ru/" @click="emit('close')">ПРОФ.СКИФ</a>
+                  </li>
+                  <li>
+                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://int.skif.donstu.ru/" text="СКИФ.Международный" :new-tab="false" />
+                    <a v-else href="https://int.skif.donstu.ru/" @click="emit('close')">СКИФ.Международный</a>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -51,16 +72,32 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, onMounted, onUnmounted } from 'vue'
 import IconSkifSquare from '@/components/icons/IconSkifSquare.vue'
 import IconDstuUcotBrandWhite from '@/components/icons/IconDstuUcotBrandWhite.vue'
 import IconClose from '@/components/icons/IconClose.vue'
+import MainButton from "@/components/MainButton.vue";
 
 const props = defineProps({
   isMobileMenuOpen: Boolean,
   navItems: Array
 })
 const emit = defineEmits(['close'])
+
+const isMobile = ref(false)
+let mql = null
+
+const onMqlChange = (e) => { isMobile.value = e.matches }
+
+onMounted(() => {
+  mql = window.matchMedia('(max-width: 767px)')
+  isMobile.value = mql.matches
+  mql.addEventListener('change', onMqlChange)
+})
+
+onUnmounted(() => {
+  if (mql) mql.removeEventListener('change', onMqlChange)
+})
 </script>
 
 <style scoped>
@@ -72,12 +109,14 @@ const emit = defineEmits(['close'])
   width: 100%;
   height: 100%;
   z-index: 200;
-  display: none;
   overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .app-menu-cons._menu-opened {
-  display: block;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .app-menu-cons__bg {
@@ -85,6 +124,15 @@ const emit = defineEmits(['close'])
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  opacity: 0;
+  transition: visibility 0s ease .35s, opacity .35s ease;
+  visibility: hidden;
+}
+
+._menu-opened .app-menu-cons__bg {
+  opacity: 1;
+  transition: visibility 0s ease .1s, opacity .35s ease .1s;
+  visibility: visible;
 }
 
 .app-menu-cons__content {
@@ -96,13 +144,18 @@ const emit = defineEmits(['close'])
   background: var(--primary-color, #11519C);
   display: flex;
   flex-direction: column;
-  transform: translateY(-100%);
-  transition: transform 0.35s ease;
+  opacity: 0;
+  transform: translateY(-1%);
+  transition: visibility 0s ease .35s, transform .35s ease, opacity .35s ease;
+  visibility: hidden;
   overflow-y: auto;
 }
 
 ._menu-opened .app-menu-cons__content {
+  opacity: 1;
   transform: translateY(0);
+  transition: visibility 0s ease .2s, transform .35s ease .2s, opacity .35s ease .2s;
+  visibility: visible;
 }
 
 /* ==================== Top section ==================== */
@@ -159,8 +212,15 @@ const emit = defineEmits(['close'])
 .app-menu-cons__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   margin-bottom: 32px;
+}
+
+.app-menu-cons__logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
 }
 
 .app-menu-cons__logo a {
@@ -201,6 +261,7 @@ const emit = defineEmits(['close'])
   height: 56px;
   transition: background-color 0.3s ease;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .btn-primary.text-button._menu:hover {
@@ -253,26 +314,37 @@ const emit = defineEmits(['close'])
   color: #fff;
   text-decoration: none;
   padding: 12px;
-  display: block;
   border-radius: 12px;
   transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .app-menu__nav-list li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Mobile MainButton override */
+.menu-main-btn {
+  width: 100%;
+  padding: 12px;
+  gap: 17px;
+  height: auto;
+}
+
+.menu-main-btn :deep(.main-button__text) {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.7px;
+}
+
 /* ==================== Tablet (744-1023px) ==================== */
 @media (min-width: 744px) and (max-width: 1023px) {
-  .app-menu-cons._menu-opened {
-    display: block;
-  }
-
   .app-menu-cons__inner._bottom {
-    padding-top: 32px;
+    padding-top: 30px;
   }
 
-  .app-menu-cons__logo {
+  .app-menu-cons__logo-group {
     gap: 16px;
   }
 
@@ -289,32 +361,22 @@ const emit = defineEmits(['close'])
 
 /* ==================== Mobile (≤743px) ==================== */
 @media (max-width: 743px) {
-  .app-menu-cons._menu-opened {
-    display: block;
+  .app-menu__top {
+    height: 49px;
+  }
+
+  .app-menu-cons__sites-menu {
+    font-size: 12px;
   }
 
   .app-menu-cons__inner._bottom {
     padding-top: 20px;
   }
 
-  .app-menu-cons__logo {
-    gap: 8px;
-  }
-
-  ._icon-logo-skif {
-    height: 40px;
-    width: 40px;
-  }
-
-  ._icon-logo-dstu {
-    height: 40px;
-    width: auto;
-  }
-
   .btn-primary.text-button._menu {
     width: 40px;
     height: 40px;
-    min-width: unset;
+    min-width: 40px;
     padding: 12px;
     justify-content: center;
   }

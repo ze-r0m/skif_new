@@ -1,7 +1,7 @@
 <template>
   <a
       :href="href"
-      target="_blank"
+      :target="newTab ? '_blank' : null"
       :class="[
       'main-button',
       `main-button--${variant}`,
@@ -38,6 +38,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    newTab: {
+      type: Boolean,
+      default: true
     }
   }
 }

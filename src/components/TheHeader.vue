@@ -352,6 +352,14 @@ const toggleMobileMenu = () => {
     height: 40px;
   }
 
+  .top-bar{
+    height: 49px;
+  }
+
+  .top-bar a{
+    font-size: 12px;
+  }
+
   .header-logos {
     gap: 12px;
   }
