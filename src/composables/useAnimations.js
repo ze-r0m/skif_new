@@ -55,6 +55,15 @@ export function initAnimations() {
             finishStuckAnimations()
         })
     })
+
+}
+
+export function reinitAnimations() {
+    if (typeof window === 'undefined') return
+    requestAnimationFrame(() => {
+        initDataAnimations()
+        ScrollTrigger.refresh()
+    })
 }
 
 function finishStuckAnimations() {
@@ -74,6 +83,14 @@ function nextTick(fn) {
     requestAnimationFrame(fn)
 }
 
+function getAnimateOptions(element) {
+    const opts = {}
+    if (element.dataset.animateDuration) opts.duration = parseFloat(element.dataset.animateDuration)
+    if (element.dataset.animateEase) opts.ease = element.dataset.animateEase
+    if (element.dataset.animateDelay) opts.delay = parseFloat(element.dataset.animateDelay)
+    return opts
+}
+
 function initHeaderAnimation() {
     const header = document.querySelector('#js-header')
     if (!header) return
@@ -88,66 +105,106 @@ function initHeaderAnimation() {
     })
 }
 
-function initDataAnimations() {
-    const animatedElements = document.querySelectorAll('[data-animate]')
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect()
+    return rect.top < window.innerHeight && rect.bottom > 0
+}
 
-    animatedElements.forEach((element) => {
+function initDataAnimations() {
+    document.querySelectorAll('[data-animate-group]').forEach(group => {
+        if (group._gsapGroupHandled) return
+        group._gsapGroupHandled = true
+
+        const children = []
+        group.querySelectorAll('[data-animate]').forEach(child => {
+            if (child.closest('#js-header')) return
+            if (child._gsapAnimated) return
+            child._gsapAnimated = true
+            child._groupTrigger = group
+            children.push(child)
+        })
+
+        if (children.length === 0) return
+
+        const immediate = isInViewport(group)
+
+        if (immediate) {
+            children.forEach(child => {
+                const type = child.getAttribute('data-animate')
+                runChildAnimation(child, type, true)
+            })
+        } else {
+            ScrollTrigger.create({
+                trigger: group,
+                start: 'top bottom',
+                onEnter: () => {
+                    children.forEach(child => {
+                        const type = child.getAttribute('data-animate')
+                        runChildAnimation(child, type)
+                    })
+                },
+                once: true
+            })
+        }
+    })
+
+    document.querySelectorAll('[data-animate]').forEach(element => {
         if (element.closest('#js-header')) return
         if (element._gsapAnimated) return
+        if (element.closest('[data-animate-group]')) return
         element._gsapAnimated = true
 
         const animateType = element.getAttribute('data-animate')
-
-        if (animateType === 'data-animate') {
-            animateElementSlideUp(element)
-        } else if (animateType === 'fade') {
-            animateElementFade(element)
-        } else if (animateType === 'slide') {
-            animateElementSlide(element)
-        } else if (animateType === 'title') {
-            animateElementTitle(element)
-        } else if (animateType === 'text') {
-            animateElementText(element)
-        }
+        const immediate = isInViewport(element)
+        runChildAnimation(element, animateType, immediate)
     })
 }
 
-function animateElementSlideUp(element) {
-    gsap.set(element, { y: 30, opacity: 0 })
+function runChildAnimation(element, type, immediate) {
+    if (!type || type === 'data-animate' || type === 'fade') {
+        animateElementFade(element, immediate)
+    } else if (type === 'slide') {
+        animateElementSlide(element, immediate)
+    } else if (type === 'title') {
+        animateElementTitle(element, immediate)
+    } else if (type === 'text') {
+        animateElementText(element, immediate)
+    } else if (type === 'fill') {
+        animateElementFill(element, immediate)
+    } else if (type === 'counter') {
+        animateElementCounter(element, immediate)
+    }
+}
+
+function animateElementFade(element, immediate) {
+    gsap.set(element, { autoAlpha: 0 })
+
+    if (immediate) {
+        gsap.to(element, {
+            autoAlpha: 1,
+            duration: 0.7,
+            ease: 'power1.out',
+            onComplete: () => gsap.set(element, { clearProps: 'willChange' })
+        })
+        return
+    }
 
     ScrollTrigger.create({
-        trigger: element,
+        trigger: element._groupTrigger || element,
         start: 'top bottom',
         onEnter: () => {
             gsap.to(element, {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                ease: 'power2.out'
+                autoAlpha: 1,
+                duration: 0.7,
+                ease: 'power1.out',
+                onComplete: () => gsap.set(element, { clearProps: 'willChange' })
             })
         },
         once: true
     })
 }
 
-function animateElementFade(element) {
-    gsap.set(element, { opacity: 0 })
-
-    ScrollTrigger.create({
-        trigger: element,
-        start: 'top bottom',
-        onEnter: () => {
-            gsap.to(element, {
-                opacity: 1,
-                duration: 0.6,
-                ease: 'power2.out'
-            })
-        },
-        once: true
-    })
-}
-
-function animateElementSlide(element) {
+function animateElementSlide(element, immediate) {
     const direction = element.getAttribute('data-animate-slide-direction') || 'left'
     const isFullScreen = element.hasAttribute('data-animate-full-screen') || element.closest('[data-animate-full-screen]') !== null
 
@@ -158,7 +215,7 @@ function animateElementSlide(element) {
         xFrom = -85
     }
 
-    gsap.set(element, { x: xFrom, opacity: 0 })
+    gsap.set(element, { x: xFrom, autoAlpha: 0 })
 
     if (isFullScreen) {
         gsap.to(element, {
@@ -166,26 +223,40 @@ function animateElementSlide(element) {
             opacity: 1,
             duration: 0.8,
             ease: 'power3.out',
-            delay: 0.3
+            delay: 0.3,
+            onComplete: () => gsap.set(element, { clearProps: 'willChange' })
         })
-    } else {
-        ScrollTrigger.create({
-            trigger: element,
-            start: 'top bottom',
-            onEnter: () => {
-                gsap.to(element, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.6,
-                    ease: 'power2.out'
-                })
-            },
-            once: true
-        })
+        return
     }
+
+    if (immediate) {
+        gsap.to(element, {
+            x: 0,
+            autoAlpha: 1,
+            duration: 0.3,
+            ease: 'power1.out',
+            onComplete: () => gsap.set(element, { clearProps: 'willChange' })
+        })
+        return
+    }
+
+    ScrollTrigger.create({
+        trigger: element._groupTrigger || element,
+        start: 'top bottom',
+        onEnter: () => {
+            gsap.to(element, {
+                x: 0,
+                autoAlpha: 1,
+                duration: 0.3,
+                ease: 'power1.out',
+                onComplete: () => gsap.set(element, { clearProps: 'willChange' })
+            })
+        },
+        once: true
+    })
 }
 
-function animateElementTitle(element) {
+function animateElementTitle(element, immediate) {
     const originalText = element.textContent || ''
     if (!originalText.trim()) return
 
@@ -193,7 +264,6 @@ function animateElementTitle(element) {
     element._titleAnimated = true
 
     element.style.visibility = 'hidden'
-
     element.innerHTML = ''
 
     const wrapper = document.createElement('span')
@@ -217,7 +287,7 @@ function animateElementTitle(element) {
             const charSpan = document.createElement('span')
             charSpan.textContent = char
             charSpan.style.display = 'inline-block'
-            charSpan.style.transform = 'translateY(-45%)'
+            charSpan.style.transform = 'translateY(-30%)'
             charSpan.style.opacity = '0'
             charSpan.style.visibility = 'visible'
             wordWrapper.appendChild(charSpan)
@@ -235,45 +305,163 @@ function animateElementTitle(element) {
         }
     })
 
-
-
     element.style.display = 'block'
     element.style.overflow = 'hidden'
     element.appendChild(wrapper)
     element.style.visibility = 'visible'
 
+    const animate = () => {
+        gsap.to(allCharSpans, {
+            y: '0%',
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+            stagger: 0.02,
+            onComplete: () => {
+                gsap.set(allCharSpans, { clearProps: 'willChange' })
+            }
+        })
+    }
+
+    if (immediate) {
+        animate()
+        return
+    }
+
     ScrollTrigger.create({
-        trigger: element,
+        trigger: element._groupTrigger || element,
         start: 'top bottom',
-        onEnter: () => {
-            gsap.to(allCharSpans, {
-                y: '0%',
-                opacity: 1,
-                duration: 0.4,
-                ease: 'power2.out',
-                stagger: 0.025,
-                delay: 0.1
-            })
-        },
+        onEnter: animate,
         once: true
     })
 }
 
-function animateElementText(element) {
-    gsap.set(element, { y: 30, opacity: 0 })
+function animateElementText(element, immediate) {
+    const text = element.textContent || ''
+    if (!text.trim()) return
+
+    if (element._textAnimated) return
+    element._textAnimated = true
+
+    const words = text.split(' ')
+    const wordSpans = []
+
+    element.textContent = ''
+
+    words.forEach((word, i) => {
+        const span = document.createElement('span')
+        span.textContent = word
+        span.style.display = 'inline-block'
+        span.style.opacity = '0'
+        span.style.transform = 'translateY(-30%)'
+        element.appendChild(span)
+        wordSpans.push(span)
+        if (i < words.length - 1) {
+            element.appendChild(document.createTextNode(' '))
+        }
+    })
+
+    element.style.opacity = '1'
+
+    const animate = () => {
+        gsap.to(wordSpans, {
+            y: '0%',
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+            stagger: 0.01,
+            onComplete: () => {
+                gsap.set(wordSpans, { clearProps: 'willChange' })
+            }
+        })
+    }
+
+    if (immediate) {
+        animate()
+        return
+    }
 
     ScrollTrigger.create({
-        trigger: element,
+        trigger: element._groupTrigger || element,
         start: 'top bottom',
-        onEnter: () => {
-            gsap.to(element, {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                delay: 0.1,
-                ease: 'power2.out'
+        onEnter: animate,
+        once: true
+    })
+}
+
+function animateElementFill(element, immediate) {
+    const direction = element.dataset.animateFillDirection || 'bottom'
+    let clipStart = ''
+
+    switch (direction) {
+        case 'top':
+            clipStart = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)'
+            break
+        case 'right':
+            clipStart = 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)'
+            break
+        case 'bottom':
+            clipStart = 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
+            break
+        case 'left':
+            clipStart = 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)'
+            break
+    }
+
+    gsap.set(element, { autoAlpha: 0, willChange: 'clip-path' })
+
+    const animate = () => {
+        gsap.timeline()
+            .set(element, { autoAlpha: 1, clipPath: clipStart })
+            .to(element, {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                duration: 0.3,
+                ease: 'power1.out',
+                onComplete: () => gsap.set(element, { clearProps: 'willChange' })
             })
-        },
+    }
+
+    if (immediate) {
+        animate()
+        return
+    }
+
+    ScrollTrigger.create({
+        trigger: element._groupTrigger || element,
+        start: 'top bottom',
+        onEnter: animate,
+        once: true
+    })
+}
+
+function animateElementCounter(element, immediate) {
+    const target = parseFloat(element.dataset.counterTarget) || 100
+    const duration = parseFloat(element.dataset.animateDuration) || 2
+    const obj = { val: 0 }
+
+    gsap.set(element, { opacity: 0 })
+
+    const animate = () => {
+        gsap.to(element, { opacity: 1, duration: 0.3 })
+        gsap.to(obj, {
+            val: target,
+            duration: duration,
+            ease: 'power2.out',
+            onUpdate: () => {
+                element.textContent = Math.round(obj.val)
+            }
+        })
+    }
+
+    if (immediate) {
+        animate()
+        return
+    }
+
+    ScrollTrigger.create({
+        trigger: element._groupTrigger || element,
+        start: 'top bottom',
+        onEnter: animate,
         once: true
     })
 }

@@ -8,7 +8,7 @@
   >
     <div class="info-icon-card__body">
       <div class="info-icon-card__content">
-        <h3 class="info-icon-card__title text-h3">{{ title }}</h3>
+        <h3 class="info-icon-card__title text-h3" data-animate="data-animate">{{ title }}</h3>
         <p class="info-icon-card__description text-body" v-html="description"></p>
       </div>
       <div class="info-icon-card__footer">

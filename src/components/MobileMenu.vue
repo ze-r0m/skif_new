@@ -34,31 +34,31 @@
               <nav>
                 <ul class="app-menu__nav-list">
                   <li v-for="item in navItems" :key="item.id">
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" :href="item.to" :text="item.title" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" :href="item.to" :text="item.title" :new-tab="false" />
                     <a v-else :href="item.to" @click="emit('close')">{{ item.title }}</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://do.skif.donstu.ru/" text="ДО.СКИФ" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://do.skif.donstu.ru/" text="ДО.СКИФ" :new-tab="false" />
                     <a v-else href="https://do.skif.donstu.ru/" @click="emit('close')">ДО.СКИФ</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/test/" text="СКИФ.ТЕСТ" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/test/" text="СКИФ.ТЕСТ" :new-tab="false" />
                     <a v-else href="https://skif.donstu.ru/test/" @click="emit('close')">СКИФ.ТЕСТ</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://de.donstu.ru/zaoch/organizations/1" text="СКИФ.Библиотека" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://de.donstu.ru/zaoch/organizations/1" text="СКИФ.Библиотека" :new-tab="false" />
                     <a v-else href="https://de.donstu.ru/zaoch/organizations/1" @click="emit('close')">СКИФ.Библиотека</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/spec/" text="СКИФ.СПЕЦ" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/spec/" text="СКИФ.СПЕЦ" :new-tab="false" />
                     <a v-else href="https://skif.donstu.ru/spec/" @click="emit('close')">СКИФ.СПЕЦ</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://prof.skif.donstu.ru/" text="ПРОФ.СКИФ" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://prof.skif.donstu.ru/" text="ПРОФ.СКИФ" :new-tab="false" />
                     <a v-else href="https://prof.skif.donstu.ru/" @click="emit('close')">ПРОФ.СКИФ</a>
                   </li>
                   <li>
-                    <MainButton v-if="isMobile" variant="light" class="menu-main-btn" href="https://int.skif.donstu.ru/" text="СКИФ.Международный" :new-tab="false" />
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://int.skif.donstu.ru/" text="СКИФ.Международный" :new-tab="false" />
                     <a v-else href="https://int.skif.donstu.ru/" @click="emit('close')">СКИФ.Международный</a>
                   </li>
                 </ul>

@@ -7,17 +7,15 @@
 [data-animate="fade"],
 [data-animate="slide"],
 [data-animate="title"],
-[data-animate="text"] {
+[data-animate="text"],
+[data-animate="fill"],
+[data-animate="counter"] {
     will-change: transform, opacity;
 }
 
-/* Stagger animation for child elements */
-[data-animate="data-animate"] {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-/* Fade animation initial state */
+/* Fade animation initial state — для data-animate (без значения), data-animate="data-animate", data-animate="fade" */
+[data-animate=""],
+[data-animate="data-animate"],
 [data-animate="fade"] {
     opacity: 0;
 }
@@ -38,18 +36,22 @@
     transform: translateY(50px);
 }
 
-/* Title animation initial state - handled by JS now */
+/* Title animation initial state — handled by JS */
 [data-animate="title"] {
     visibility: hidden;
 }
 
-/* Text animation initial state */
+/* Text animation initial state — переопределяется JS (разбивка на слова), но на всякий случай скрываем */
 [data-animate="text"] {
     opacity: 0;
-    transform: translateY(30px);
 }
 
-/* Full screen animation - для элементов которые должны появляться раньше */
+/* Fill animation (clip-path) */
+[data-animate="fill"] {
+    will-change: clip-path;
+}
+
+/* Full screen animation */
 [data-animate-full-screen] {
     opacity: 0;
 }

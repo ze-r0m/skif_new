@@ -2,18 +2,29 @@
   <section class="services-section" id="services">
     <div class="container">
       <div class="services-section__header">
-        <h2 class="services-section__title text-h2">Управлением координируется <br> электронная образовательная среда вуза — СКИФ</h2>
+        <h2 class="services-section__title text-h2" data-animate>Управлением координируется <br> электронная образовательная среда вуза — СКИФ</h2>
       </div>
 
-      <div class="grid">
-        <div :class="getServiceGridClass(index)" v-for="(service, index) in services" :key="index">
-          <ServiceCard
-            :title="service.title"
-            :description="service.description"
-            :link="service.link"
-            :variant="service.variant"
+      <div class="services-section__grid">
+        <div
+          v-for="(row, ri) in serviceRows"
+          :key="ri"
+          class="services-section__row"
+          data-animate
+        >
+          <div
+            v-for="(service, si) in row"
+            :key="ri + '-' + si"
+            :class="getServiceGridClass(service)"
             data-animate="data-animate"
-          />
+          >
+            <ServiceCard
+              :title="service.title"
+              :description="service.description"
+              :link="service.link"
+              :variant="service.variant"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -21,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import ServiceCard from './cards/ServiceCard.vue';
 
 const services = ref([
@@ -69,8 +80,28 @@ const services = ref([
   }
 ]);
 
-const getServiceGridClass = (index) => {
-  const service = services.value[index];
+const serviceRows = computed(() => {
+  const rows = []
+  let currentRow = []
+  let currentWidth = 0
+
+  for (const service of services.value) {
+    const w = parseInt(service.width.replace('col-', ''))
+    if (currentWidth + w > 12 && currentRow.length > 0) {
+      rows.push(currentRow)
+      currentRow = []
+      currentWidth = 0
+    }
+    currentRow.push(service)
+    currentWidth += w
+  }
+  if (currentRow.length > 0) {
+    rows.push(currentRow)
+  }
+  return rows
+})
+
+const getServiceGridClass = (service) => {
   return [
     service.width,
     'col-md-4',
@@ -81,7 +112,7 @@ const getServiceGridClass = (index) => {
 
 <style scoped>
 /* =======================================================
-   Desktop styles (по макету Figma)
+   Desktop styles
    ======================================================= */
 .services-section {
   padding: 0 0 40px 0;
@@ -96,8 +127,23 @@ const getServiceGridClass = (index) => {
   margin: 0;
 }
 
+.services-section__grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-section__row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.services-section__row + .services-section__row {
+  margin-top: 20px;
+}
+
 /* =======================================================
-   Tablet (744px - 1023px)
+   Tablet (744px - 1023px) — stack vertically
    ======================================================= */
 @media (min-width: 744px) and (max-width: 1023px) {
   .services-section {
@@ -107,13 +153,14 @@ const getServiceGridClass = (index) => {
   .services-section__header {
     margin-bottom: 24px;
   }
-  .services-section .grid {
+
+  .services-section__row {
     grid-template-columns: 1fr;
   }
 
-  .services-section [class*="col-"],
-  .services-section [class*="col-md-"],
-  .services-section [class*="col-sm-"] {
+  .services-section__row [class*="col-"],
+  .services-section__row [class*="col-md-"],
+  .services-section__row [class*="col-sm-"] {
     grid-column: 1 / -1;
   }
 }
@@ -130,6 +177,13 @@ const getServiceGridClass = (index) => {
     margin-bottom: 24px;
   }
 
+  .services-section__row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
+  .services-section__row + .services-section__row {
+    margin-top: 12px;
+  }
 }
 </style>
