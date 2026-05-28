@@ -1,5 +1,5 @@
 <template>
-  <aside class="contact-card-no-image card" data-animate="data-animate">
+  <aside class="contact-card-no-image card" data-animate="slide" data-animate-slide-direction="bottom" data-animate-duration="0.20">
     <header class="contact-card-no-image__header">
       <h3 class="text-h3">{{ title }}</h3>
       <p v-if="subtitle">{{ subtitle }}</p>

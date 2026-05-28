@@ -1,16 +1,16 @@
 <template>
   <div class="contact-card" data-animate="data-animate">
-    <div class="contact-card__avatar">
+    <div class="contact-card__avatar" data-animate="slide" data-animate-slide-direction="right">
       <img :src="avatar" :alt="fullName">
     </div>
     <div class="contact-card__content">
       <div class="contact-card__titles">
-        <h3 class="contact-card__full-name text-h3">{{ fullName }}</h3>
-        <p class="contact-card__post text-body">{{ post }}</p>
-        <p v-if="additionalPost" class="contact-card__post text-body contact-card__post--additional">{{ additionalPost }}</p>
+        <h3 class="contact-card__full-name text-h3" data-animate="slide" data-animate-slide-direction="right">{{ fullName }}</h3>
+        <p class="contact-card__post text-body" data-animate="slide" data-animate-slide-direction="right">{{ post }}</p>
+        <p v-if="additionalPost" class="contact-card__post text-body contact-card__post--additional" data-animate="slide" data-animate-slide-direction="right">{{ additionalPost }}</p>
       </div>
       <div class="contact-card__contacts">
-        <div class="contact-card__links">
+        <div class="contact-card__links" data-animate="slide" data-animate-slide-direction="right">
           <span v-if="phone" class="contact-card__contact text-body-desktop">
             <IconPhone class="contact-card__icon"></IconPhone>
             <a :href="`tel:${phone}`">{{ phone }}</a>

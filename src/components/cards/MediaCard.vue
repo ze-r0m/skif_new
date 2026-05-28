@@ -1,5 +1,5 @@
 <template>
-  <div class="media-card" data-animate="data-animate">
+  <div class="media-card" data-animate="data-animate" data-animate-stagger="0.08">
     <div class="media-card__media">
       <div class="media-card__video" @click="$emit('open', videoUrl)">
         <img :src="image" :alt="title">

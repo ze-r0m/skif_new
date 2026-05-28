@@ -519,12 +519,12 @@ const toggleMobileMenu = () => {
     line-height: 24px;
     color: #38424F;
     text-decoration: none;
+    transition: color 0.35s ease;
   }
 
   .main-nav a:hover,
   .main-nav .nav-link:hover {
     color: #C7C9CF;
-    transition: opacity 0.35s ease, color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
   }
 }
 </style>

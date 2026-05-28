@@ -10,11 +10,11 @@
           <div class="grid">
             <div class="col-8">
               <div class="app-section__head">
-                <h1 class="text-h1">Сектор ресурсного обеспечения образовательной деятельности</h1>
+                <h1 class="text-h1" data-animate="title">Сектор ресурсного обеспечения образовательной деятельности</h1>
               </div>
               <div class="text-content">
-                <p class="text-body" style="margin-top: 0;">Сектор ресурсного обеспечения образовательной деятельности (СРООД) отвечает за материально‑техническую и организационную поддержку учебного процесса в университете.</p>
-                <p class="text-body">Основные направления работы сектора:</p>
+                <p class="text-body" style="margin-top: 0;" data-animate="text">Сектор ресурсного обеспечения образовательной деятельности (СРООД) отвечает за материально‑техническую и организационную поддержку учебного процесса в университете.</p>
+                <p class="text-body" data-animate="text">Основные направления работы сектора:</p>
                 <FeatureList :items="features"/>
               </div>
             </div>
@@ -36,7 +36,7 @@
 
     <section class="container app-section _gutter-sm">
       <div class="app-section__head">
-        <h1 class="text-h1">Сотрудники</h1>
+        <h1 class="text-h1" data-animate>Сотрудники</h1>
       </div>
       <div class="app-section__content">
         <div class="employees-section">

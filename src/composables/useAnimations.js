@@ -124,28 +124,32 @@ function initDataAnimations() {
             children.push(child)
         })
 
-        if (children.length === 0) return
+    if (children.length === 0) return
 
-        const immediate = isInViewport(group)
+    const stagger = parseFloat(group.getAttribute('data-animate-stagger')) || 0
+    const immediate = isInViewport(group)
 
-        if (immediate) {
-            children.forEach(child => {
-                const type = child.getAttribute('data-animate')
+    const fireChildren = () => {
+        children.forEach((child, i) => {
+            const type = child.getAttribute('data-animate')
+            if (stagger) {
+                gsap.delayedCall(i * stagger, () => runChildAnimation(child, type, true))
+            } else {
                 runChildAnimation(child, type, true)
-            })
-        } else {
-            ScrollTrigger.create({
-                trigger: group,
-                start: 'top bottom',
-                onEnter: () => {
-                    children.forEach(child => {
-                        const type = child.getAttribute('data-animate')
-                        runChildAnimation(child, type)
-                    })
-                },
-                once: true
-            })
-        }
+            }
+        })
+    }
+
+    if (immediate) {
+        fireChildren()
+    } else {
+        ScrollTrigger.create({
+            trigger: group,
+            start: 'top bottom',
+            onEnter: fireChildren,
+            once: true
+        })
+    }
     })
 
     document.querySelectorAll('[data-animate]').forEach(element => {
@@ -208,18 +212,23 @@ function animateElementSlide(element, immediate) {
     const direction = element.getAttribute('data-animate-slide-direction') || 'left'
     const isFullScreen = element.hasAttribute('data-animate-full-screen') || element.closest('[data-animate-full-screen]') !== null
 
-    let xFrom = 0
+    let xFrom = 0, yFrom = 0
     if (direction === 'right') {
         xFrom = 85
     } else if (direction === 'left') {
         xFrom = -85
+    } else if (direction === 'top') {
+        yFrom = -85
+    } else if (direction === 'bottom') {
+        yFrom = 85
     }
 
-    gsap.set(element, { x: xFrom, autoAlpha: 0 })
+    gsap.set(element, { x: xFrom, y: yFrom, autoAlpha: 0 })
 
     if (isFullScreen) {
         gsap.to(element, {
             x: 0,
+            y: 0,
             opacity: 1,
             duration: 0.8,
             ease: 'power3.out',
@@ -232,6 +241,7 @@ function animateElementSlide(element, immediate) {
     if (immediate) {
         gsap.to(element, {
             x: 0,
+            y: 0,
             autoAlpha: 1,
             duration: 0.3,
             ease: 'power1.out',
@@ -246,6 +256,7 @@ function animateElementSlide(element, immediate) {
         onEnter: () => {
             gsap.to(element, {
                 x: 0,
+                y: 0,
                 autoAlpha: 1,
                 duration: 0.3,
                 ease: 'power1.out',

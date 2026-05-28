@@ -1,14 +1,15 @@
 <template>
   <section class="app-section">
     <div class="app-section__head" v-if="title">
-      <h1 class="text-h1">{{ title }}</h1>
+      <h1 class="text-h1" data-animate>{{ title }}</h1>
     </div>
     <div class="app-section__content">
-      <div class="app-grid _columns-4-1">
+      <div class="app-grid _columns-4-1" data-animate-group data-animate-stagger="0.08" data-animate-slide-direction="right">
         <div
           v-for="(item, index) in items"
           :key="index"
           class="bullet-list-item"
+          data-animate
         >
           <div class="bullet-list-item__icon">
             <svg class="_icon-tick-box" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +20,7 @@
             </svg>
           </div>
           <div class="bullet-list-item__content">
-            <p class="text-body">{{ item }}</p>
+            <p class="text-body" data-animate="title">{{ item }}</p>
           </div>
         </div>
       </div>

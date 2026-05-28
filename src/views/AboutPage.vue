@@ -6,12 +6,12 @@
 
     <section class="container app-section _center _gutter-md" id="block-about">
         <div class="app-section__head">
-          <h1 class="text-h1">Об управлении</h1>
+          <h1 class="text-h1" data-animate="title">Об управлении</h1>
         </div>
         <div class="app-section__content text-content">
-          <p class="text-body" style="margin-top: 0">Управление цифровых образовательных технологий Донского государственного технического университета обеспечивает системное внедрение и развитие современных цифровых решений в образовательный процесс вуза.</p>
-          <p class="text-body">Внедрение цифровой среды учебного процесса — одна из ключевых задач Управления цифровых образовательных технологий.</p>
-          <p class="text-body">
+          <p class="text-body" style="margin-top: 0" data-animate="text">Управление цифровых образовательных технологий Донского государственного технического университета обеспечивает системное внедрение и развитие современных цифровых решений в образовательный процесс вуза.</p>
+          <p class="text-body" data-animate="text">Внедрение цифровой среды учебного процесса — одна из ключевых задач Управления цифровых образовательных технологий.</p>
+          <p class="text-body" data-animate="text">
             Деятельностью управления является автоматизация и цифровизация образовательной деятельности, внедрение в учебный процесс ДГТУ цифровых образовательных технологий, в том числе электронного обучения и дистанционных образовательных технологий, которые направлены на повышение эффективности профессионального обучения и образовательной деятельности ДГТУ.
           </p>
         </div>
@@ -19,18 +19,18 @@
 
     <section class="container app-section _gutter-sm">
     <BulletListSection
-      title="Основные направления деятельности:"
+      title="Основные направления деятельности"
       :items="features"
     />
       </section>
 
     <section class="container app-section _gutter-sm">
       <div class="app-section__head">
-        <h1 class="text-h1">Структура управления</h1>
+        <h1 class="text-h1" data-animate>Структура управления</h1>
       </div>
       <div class="app-section__content">
         <div class="app-grid _columns-1-1">
-          <div class="app-grid _columns-2-1">
+          <div class="app-grid _columns-2-1" data-animate-group data-animate-stagger="0.08">
 <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
 <ServiceCard
               title="Отдел сопровождения дистанционного образования (СДО)"
@@ -58,7 +58,7 @@
 
     <section class="container app-section _gutter-sm">
       <div class="app-section__head">
-        <h1 class="text-h1">Сотрудники</h1>
+        <h1 class="text-h1" data-animate="">Сотрудники</h1>
       </div>
       <div class="app-section__content">
         <div class="employees-section">

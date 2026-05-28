@@ -1,12 +1,12 @@
 <template>
   <div class="contact-card-small" data-animate="data-animate">
-    <div class="contact-card-small__avatar">
+    <div class="contact-card-small__avatar" data-animate="slide" data-animate-slide-direction="right">
       <img :src="avatar" :alt="fullName">
     </div>
     <div class="contact-card-small__content">
       <div class="contact-card-small__titles">
-        <h4 class="contact-card-small__full-name text-h4">{{ fullName }}</h4>
-        <p class="contact-card-small__post text-body-small">{{ post }}</p>
+        <h4 class="contact-card-small__full-name text-h4" data-animate="slide" data-animate-slide-direction="right">{{ fullName }}</h4>
+        <p class="contact-card-small__post text-body-small" data-animate="slide" data-animate-slide-direction="right">{{ post }}</p>
       </div>
       <div class="contact-card-small__footer">
         <a v-if="detailsLink" class="contact-icon-card-small__button btn-secondary text-button" :href="detailsLink" target="_blank">

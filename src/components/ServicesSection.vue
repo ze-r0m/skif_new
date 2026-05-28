@@ -5,7 +5,7 @@
         <h2 class="services-section__title text-h2" data-animate>Управлением координируется <br> электронная образовательная среда вуза — СКИФ</h2>
       </div>
 
-      <div class="services-section__grid">
+      <div class="services-section__grid" data-animate-group data-animate-stagger="0.08">
         <div
           v-for="(row, ri) in serviceRows"
           :key="ri"

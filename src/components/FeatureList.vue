@@ -1,6 +1,6 @@
 <template>
-  <ul class="feature-list">
-    <li v-for="(item, index) in items" :key="index" class="text-body" data-animate="data-animate">
+  <ul class="feature-list" data-animate-group data-animate-stagger="0.08">
+    <li v-for="(item, index) in items" :key="index" class="text-body" data-animate="slide" data-animate-slide-direction="bottom">
       {{ item }}
     </li>
   </ul>
