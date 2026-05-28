@@ -63,10 +63,10 @@ import mascotQue from '@/assets/maskot_question.png'
 import previewInstr1 from '@/assets/preview_instuctions/pre_vid_instr1.png'
 import previewInstr2 from '@/assets/preview_instuctions/pre_vid_instr2.png'
 import previewInstr3 from '@/assets/preview_instuctions/pre_vid_instr3.png'
+import { BASE_URL } from '@/config.js';
 
-// TODO: при заливке на GH добавить '/skif_new/v2/' к to
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/skif_new/v2/' },
+  { title: 'Главная', to: BASE_URL },
   { title: 'Инструкции', to: null }
 ])
 

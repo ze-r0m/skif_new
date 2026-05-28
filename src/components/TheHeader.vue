@@ -75,14 +75,12 @@ import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import MobileMenu from './MobileMenu.vue';
 import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
 import IconBurgerMenu from "@/components/icons/IconBurgerMenu.vue";
+import { BASE_URL } from '@/config.js';
 
-// <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
 const navItems = ref([
-  { id: 'home', title: 'Главная', to: '/skif_new/v2/' },
-  { id: 'about', title: 'Об управлении', to: '/skif_new/v2/about/' },
-  { id: 'instructions', title: 'Инструкции', to: '/skif_new/v2/instructions/' },
-  // { id: 'systems', title: 'Системы', to: '/skif_new/v2/#systems' },
-  // { id: 'creating_courses', title: 'Разработка курсов', to: '/skif_new/v2/#creating_courses' },
+  { id: 'home', title: 'Главная', to: BASE_URL },
+  { id: 'about', title: 'Об управлении', to: `${BASE_URL}about/` },
+  { id: 'instructions', title: 'Инструкции', to: `${BASE_URL}instructions/` },
 ]);
 
 const isMobileMenuOpen = ref(false);

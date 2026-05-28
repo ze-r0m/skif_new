@@ -31,24 +31,23 @@
       <div class="app-section__content">
         <div class="app-grid _columns-1-1">
           <div class="app-grid _columns-2-1" data-animate-group data-animate-stagger="0.08">
-<!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
 <ServiceCard
               title="Отдел сопровождения дистанционного образования (СДО)"
               description="Координация сопровождение и техническая поддержка пользователей на портале электронного обучения СКИФ ДГТУ"
-              link="/skif_new/v2/about/cdo/"
+              :link="`${BASE_URL}about/cdo/`"
               variant="gradient"
             />
             <ServiceCard
               title="Отдел сопровождения образовательной логистики (ООЛ)"
               description="Формирование расписания занятий по программам высшего образования"
-              link="/skif_new/v2/about/ool/"
+              :link="`${BASE_URL}about/ool/`"
               variant="primary-light"
             />
             <ServiceCard
               class="_span-1"
               title="Сектор ресурсного обеспечения образовательной деятельности"
               description="Сбор и анализ данных об оснащенности аудиторного фонда, требуемом оборудовании и программном обеспечении"
-              link="/skif_new/v2/about/rood/"
+              :link="`${BASE_URL}about/rood/`"
               variant="white"
             />
           </div>
@@ -94,9 +93,10 @@ import ServiceCard from "@/components/cards/ServiceCard.vue";
 import ContactCard from "@/components/cards/ContactCard.vue";
 import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import BulletListSection from "@/components/BulletListSection.vue";
+import { BASE_URL } from '@/config.js';
 
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/skif_new/v2/' },
+  { title: 'Главная', to: BASE_URL },
   { title: 'Об управлении', to: null }
 ])
 

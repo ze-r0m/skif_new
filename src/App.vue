@@ -22,8 +22,7 @@ import ResourcePage from "@/views/ResourcePage.vue";
 import InstructionsPage from "@/views/InstructionsPage.vue";
 import { initLenis, destroyLenis } from '@/composables/useAnimations';
 
-// <!-- TODO: для деплоя убрать '/skif_new/v2/' из link (приписка используется для gh)-->
-const base = '/skif_new/v2/'
+const base = import.meta.env.BASE_URL
 
 const pages = {
   '': HomePage,

@@ -73,11 +73,11 @@ import ContactCard from "@/components/cards/ContactCard.vue";
 import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import FeatureList from "@/components/FeatureList.vue";
 import ContactCardNoImage from "@/components/cards/ContactCardNoImage.vue";
+import { BASE_URL } from '@/config.js';
 
-// TODO: при заливке на GH добавить '/skif_new/v2/' к to
 const breadcrumbs = ref([
-  { title: 'Главная', to: '/skif_new/v2/' },
-  { title: 'Об управлении', to: '/skif_new/v2/about/' },
+  { title: 'Главная', to: BASE_URL },
+  { title: 'Об управлении', to: `${BASE_URL}about/` },
   { title: 'Отдел сопровождения дистанционного образования', to: null }
 ])
 
