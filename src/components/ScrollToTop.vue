@@ -131,19 +131,7 @@ onUnmounted(() => {
   background-color: #1370b9;
   color: #FFFFFF;
 }
-/*
-.scroll-to-top svg {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-}
 
-@media (min-width: 1441px) {
-  .scroll-to-top {
-    right: calc((100vw - 1440px) / 2 + 28px);
-  }
-}
-*/
 @media (min-width: 744px) and (max-width: 1024px) {
   .scroll-to-top {
     top: auto;
