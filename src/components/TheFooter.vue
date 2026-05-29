@@ -4,7 +4,7 @@
       <div class="container">
         <div class="footer__head">
           <div class="footer__logos">
-          <a class="footer__logo" href="https://skif.donstu.ru/" target="_blank" rel="noopener noreferrer" data-animate="slide" data-animate-slide-direction="right">
+          <a class="footer__logo" :href="SKIF_SITE" target="_blank" rel="noopener noreferrer" data-animate="slide" data-animate-slide-direction="right">
             <IconSkifSquare class="logo-icon--skif" />
           </a>
           <a class="footer__logo footer__logo--dstu" href="https://donstu.ru/university/struktura/priyemnaya-prorektora-po-strat-i-tsifrovomu-razvitiyu/upravleniye-tsifrovykh-obrazovatelnykh-tekhnologiy/" target="_blank" rel="noopener noreferrer" data-animate="slide" data-animate-slide-direction="right">
@@ -12,22 +12,22 @@
           </a>
           </div>
           <div class="footer__links">
-            <a class="footer__link text-h4-desktop" href="https://do.skif.donstu.ru/" target="_blank" data-animate="slide" data-animate-slide-direction="right">ДО.СКИФ
+            <a class="footer__link text-h4-desktop" :href="doLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ doLink.title }}
               <IconLinkExternal class="footer__link-icon" />
             </a>
-            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/spec/" target="_blank" data-animate="slide" data-animate-slide-direction="right">СКИФ.СПЕЦ</a>
-            <a class="footer__link text-h4-desktop" href="https://donstu.ru/" target="_blank" data-animate="slide" data-animate-slide-direction="right">Главный сайт
+            <a class="footer__link text-h4-desktop" :href="specLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ specLink.title }}</a>
+            <a class="footer__link text-h4-desktop" :href="MAIN_SITE" target="_blank" data-animate="slide" data-animate-slide-direction="right">Главный сайт
               <IconLinkExternal class="footer__link-icon" />
             </a>
-            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/test/" target="_blank" data-animate="slide" data-animate-slide-direction="right">СКИФ.ТЕСТ</a>
-            <a class="footer__link text-h4-desktop" href="https://int.skif.donstu.ru/" target="_blank" data-animate="slide" data-animate-slide-direction="right">СКИФ.Международный
+            <a class="footer__link text-h4-desktop" :href="testLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ testLink.title }}</a>
+            <a class="footer__link text-h4-desktop" :href="intLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ intLink.title }}
               <IconLinkExternal class="footer__link-icon" />
             </a>
-            <a class="footer__link text-h4-desktop" href="https://skif.donstu.ru/old" target="_blank" data-animate="slide" data-animate-slide-direction="right">Старая версия сайта</a>
-            <a class="footer__link text-h4-desktop" href="https://de.donstu.ru/zaoch/organizations/1" target="_blank" data-animate="slide" data-animate-slide-direction="right">СКИФ.Библиотека
+            <a class="footer__link text-h4-desktop" :href="OLD_SITE" target="_blank" data-animate="slide" data-animate-slide-direction="right">Старая версия сайта</a>
+            <a class="footer__link text-h4-desktop" :href="libraryLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ libraryLink.title }}
               <IconLinkExternal class="footer__link-icon" />
             </a>
-            <a class="footer__link text-h4-desktop" href="https://prof.skif.donstu.ru/" target="_blank" data-animate="slide" data-animate-slide-direction="right">ПРОФ.СКИФ
+            <a class="footer__link text-h4-desktop" :href="profLink.href" target="_blank" data-animate="slide" data-animate-slide-direction="right">{{ profLink.title }}
               <IconLinkExternal class="footer__link-icon" />
             </a>
 
@@ -80,6 +80,14 @@ import { computed } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import IconDstuUcotBrandWhite from "@/components/icons/IconDstuUcotBrandWhite.vue";
 import IconLinkExternal from "@/components/icons/IconLinkExternal.vue";
+import { serviceLinks, SKIF_SITE, MAIN_SITE, OLD_SITE } from '@/data/navigation.js'
+
+const doLink = serviceLinks[0]
+const testLink = serviceLinks[1]
+const libraryLink = serviceLinks[2]
+const specLink = serviceLinks[3]
+const intLink = serviceLinks[4]
+const profLink = serviceLinks[5]
 
 const currentYear = computed(() => new Date().getFullYear());
 </script>

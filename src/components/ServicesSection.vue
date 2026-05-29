@@ -34,47 +34,48 @@
 <script setup>
 import { ref, computed } from 'vue';
 import ServiceCard from './cards/ServiceCard.vue';
+import { serviceLinks } from '@/data/navigation.js';
 
 const services = ref([
   {
     title: 'ДО СКИФ',
     description: 'Система для дистанционного обучения и электронных курсов. Позволяет студентам и преподавателям участвовать в онлайн-занятиях, использовать актуальные учебные материалы и контролировать прогресс.',
-    link: 'https://do.skif.donstu.ru/',
+    link: serviceLinks[0].href,
     variant: 'primary',
     width: 'col-6'
   },
   {
     title: 'СКИФ ТЕСТ',
     description: 'Система для проведения массового тестирования студентов, дней навигации, анкетирования и государственных итоговых аттестаций.',
-    link: 'https://skif.donstu.ru/test/',
+    link: serviceLinks[1].href,
     variant: 'white',
     width: 'col-6'
   },
   {
     title: 'СКИФ БИБЛИОТЕКА',
     description: 'Система для обеспечения материалами заочной формы обучения. Содержит учебные пособия, методические указания, конспекты лекций по всем формам обучения.',
-    link: 'https://de.donstu.ru/zaoch/organizations/1',
+    link: serviceLinks[2].href,
     variant: 'white',
     width: 'col-8'
   },
   {
     title: 'СКИФ СПЕЦ',
     description: 'Система для проведения вступительных испытаний абитуриентов, конкурсов, олимпиад и разовых мероприятий. Обеспечивает организацию учета пользователей совместно с приемной комиссией вуза.',
-    link: 'https://skif.donstu.ru/spec/',
+    link: serviceLinks[3].href,
     variant: 'gradient',
     width: 'col-4'
   },
   {
     title: 'СКИФ МЕЖДУНАРОДНЫЙ',
     description: 'Система для факультета «Международный» и подфакультетов. Позволяет вести специализированные курсы и обеспечивает смешанную авторизацию пользователей с интеграцией в единую цифровую среду.',
-    link: 'https://int.skif.donstu.ru/',
+    link: serviceLinks[4].href,
     variant: 'primary-light',
     width: 'col-6'
   },
   {
     title: 'ПРОФ СКИФ',
     description: 'Система для программ профессионального обучения.',
-    link: 'https://prof.skif.donstu.ru/',
+    link: serviceLinks[5].href,
     variant: 'white',
     width: 'col-6'
   }

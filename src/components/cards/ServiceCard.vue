@@ -15,9 +15,7 @@
         <span class="info-icon-card__button btn-secondary text-button">
           <span class="btn-secondary__label">Подробнее</span>
           <span class="btn-secondary__icon">
-            <svg class="_icon-arrow-right" width="16" height="16" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.2514 28.4213C11.9902 28.4213 11.7289 28.325 11.5227 28.1188C11.1239 27.72 11.1239 27.06 11.5227 26.6613L20.4877 17.6963C21.1477 17.0363 21.1477 15.9638 20.4877 15.3038L11.5227 6.33876C11.1239 5.94001 11.1239 5.28001 11.5227 4.88126C11.9214 4.48251 12.5814 4.48251 12.9802 4.88126L21.9452 13.8463C22.6464 14.5475 23.0452 15.4963 23.0452 16.5C23.0452 17.5038 22.6602 18.4525 21.9452 19.1538L12.9802 28.1188C12.7739 28.3113 12.5127 28.4213 12.2514 28.4213Z" fill="currentColor"/>
-            </svg>
+            <IconArrowRight />
           </span>
         </span>
       </div>
@@ -27,6 +25,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 
 const props = defineProps({
   title: {
@@ -94,37 +93,6 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   margin-top: 0;
 }
 
-.info-icon-card__button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
-  text-decoration: none;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.btn-secondary__label {
-  white-space: nowrap;
-}
-
-.btn-secondary__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  padding: 4px;
-  flex-shrink: 0;
-}
-
-.btn-secondary__icon svg {
-  width: 16px;
-  height: 16px;
-}
-
 /* ========================================
    Вариант: White (rgba(255, 255, 255, 1))
    ======================================== */
@@ -156,7 +124,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   background: #0E468B;
 }
 
-.info-icon-card--white .btn-secondary__icon svg {
+.info-icon-card--white .btn-secondary__icon :deep(svg) {
   color: rgba(255, 255, 255, 1);
 }
 
@@ -186,7 +154,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   background: rgba(255, 255, 255, 1);
 }
 
-.info-icon-card--primary .btn-secondary__icon svg {
+.info-icon-card--primary .btn-secondary__icon :deep(svg) {
   color: rgba(19, 112, 185, 1);
 }
 
@@ -216,7 +184,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   background: rgba(255, 255, 255, 1);
 }
 
-.info-icon-card--primary-light .btn-secondary__icon svg {
+.info-icon-card--primary-light .btn-secondary__icon :deep(svg) {
   color: rgba(19, 112, 185, 1);
 }
 
@@ -265,7 +233,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   background: rgba(255, 255, 255, 1);
 }
 
-.info-icon-card--gradient .btn-secondary__icon svg {
+.info-icon-card--gradient .btn-secondary__icon :deep(svg) {
   color: rgba(19, 112, 185, 1);
 }
 
@@ -287,5 +255,18 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
   }
 }
 
+/* =======================================================
+   Mobile (≤743px) — уменьшаем иконку
+   ======================================================= */
+@media (max-width: 743px) {
+  .btn-secondary__icon {
+    width: 20px;
+    height: 20px;
+  }
 
+  .btn-secondary__icon :deep(svg) {
+    width: 12px;
+    height: 12px;
+  }
+}
 </style>

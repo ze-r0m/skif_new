@@ -55,34 +55,7 @@
       </div>
     </section>
 
-    <section class="container app-section _gutter-sm">
-      <div class="app-section__head">
-        <h1 class="text-h1" data-animate="">Сотрудники</h1>
-      </div>
-      <div class="app-section__content">
-        <div class="employees-section">
-          <ContactCardLarge
-            :fullName="manager.fullName"
-            :avatar="manager.avatar"
-            :post="manager.post"
-            :additionalPost="manager.additionalPost"
-            :phone="manager.phone"
-            :email="manager.email"
-            :detailsLink="manager.detailsLink"
-          />
-          <div class="employees-grid">
-            <ContactCard
-              v-for="employee in employees"
-              :key="employee.fullName"
-              :fullName="employee.fullName"
-              :avatar="employee.avatar"
-              :post="employee.post"
-              :detailsLink="employee.detailsLink"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <EmployeesSection :manager="aboutData.manager" :employees="aboutData.employees" />
 
   </div>
 </template>
@@ -90,10 +63,10 @@
 import { ref } from 'vue'
 import TheBreadcrumbs from "@/components/TheBreadcrumbs.vue";
 import ServiceCard from "@/components/cards/ServiceCard.vue";
-import ContactCard from "@/components/cards/ContactCard.vue";
-import ContactCardLarge from "@/components/cards/ContactCardLarge.vue";
 import BulletListSection from "@/components/BulletListSection.vue";
+import EmployeesSection from "@/components/EmployeesSection.vue";
 import { BASE_URL } from '@/config.js';
+import { about as aboutData } from '@/data/departments.js';
 
 const breadcrumbs = ref([
   { title: 'Главная', to: BASE_URL },
@@ -110,55 +83,9 @@ const features = ref([
   'Формирование системы методического обеспечения и сопровождения ДО',
   'Поддержка и обучение преподавателей работе с ЭИОС'
 ])
-
-const manager = {
-  fullName: 'Шлыкова Алла Ивановна',
-  avatar: new URL('@/assets/avatars/shlykova.jpeg', import.meta.url).href ,
-  post: 'начальник управления',
-  additionalPost: 'доцент',
-  phone: '+8 (863) 238-15-83',
-  email: 'ashlykova@donstu.ru',
-  detailsLink: 'https://donstu.ru/employees/shlykova-alla-ivanovna/'
-}
-
-const employees = ref([
-  {
-    fullName: 'Поркшеян Маркос Витальевич',
-    avatar: new URL('@/assets/avatars/porksheyan.jpeg', import.meta.url).href,
-    post: 'заместитель начальника',
-    detailsLink: 'https://donstu.ru/employees/porksheyan-markos-vitalevich/'
-  },
-  {
-    fullName: 'Степанян Сурен Давидович',
-    avatar: new URL('@/assets/avatars/stepanyan.jpeg', import.meta.url).href,
-    post: 'ведущий эксперт',
-    detailsLink: 'https://donstu.ru/employees/stepanyan-suren-davidovich/'
-  },
-
-  // {
-  //   fullName: 'Иванов Иван Иванович',
-  //   avatar: '',
-  //   post: 'Специалист',
-  //   detailsLink: '/employees/ivanov-ivan/'
-  // },
-
-])
 </script>
 
 <style scoped>
-.app-section {
-  margin-bottom: 80px;
-}
-
-.app-section__head {
-  margin-top: 0;
-  margin-bottom: 40px;
-}
-
-.app-section__head h1 {
-  margin: 0;
-}
-
 .app-grid {
   display: grid;
   gap: 20px;
@@ -176,41 +103,8 @@ const employees = ref([
   grid-column: 2 / 3;
 }
 
-.employees-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.employees-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-@media (max-width: 1023px) {
-  .app-section {
-    margin-bottom: 60px;
-  }
-
-  .employees-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 16px;
-  }
-
-}
-
 @media (max-width: 743px) {
-  .app-section {
-    margin-bottom: 40px;
-  }
-
-  .app-section__head {
-    margin-bottom: 24px;
-  }
-
   ._columns-2-1 {
-
     display: flex;
     flex-direction: column;
   }

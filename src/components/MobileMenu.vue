@@ -5,8 +5,8 @@
       <div class="app-menu__top">
         <div class="container">
           <div class="app-menu-cons__inner _top">
-            <a class="app-menu-cons__sites-menu" href="https://donstu.ru">Главный сайт</a>
-            <a class="app-menu-cons__sites-menu" href="https://skif.donstu.ru/old">Старая версия сайта</a>
+            <a class="app-menu-cons__sites-menu" :href="MAIN_SITE">Главный сайт</a>
+            <a class="app-menu-cons__sites-menu" :href="OLD_SITE">Старая версия сайта</a>
           </div>
         </div>
       </div>
@@ -15,10 +15,10 @@
           <div class="app-menu-cons__inner _bottom">
             <div class="app-menu-cons__logo">
               <div class="app-menu-cons__logo-group">
-                <a href="https://skif.donstu.ru/">
+                <a :href="SKIF_SITE">
                   <IconSkifSquare class="_icon-logo-skif" />
                 </a>
-                <a href="https://donstu.ru/">
+                <a :href="MAIN_SITE">
                   <IconDstuUcotBrandWhite class="_icon-logo-dstu" />
                 </a>
               </div>
@@ -37,29 +37,9 @@
                     <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" :href="item.to" :text="item.title" :new-tab="false" />
                     <a v-else :href="item.to" @click="emit('close')">{{ item.title }}</a>
                   </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://do.skif.donstu.ru/" text="ДО.СКИФ" :new-tab="false" />
-                    <a v-else href="https://do.skif.donstu.ru/" @click="emit('close')">ДО.СКИФ</a>
-                  </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/test/" text="СКИФ.ТЕСТ" :new-tab="false" />
-                    <a v-else href="https://skif.donstu.ru/test/" @click="emit('close')">СКИФ.ТЕСТ</a>
-                  </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://de.donstu.ru/zaoch/organizations/1" text="СКИФ.Библиотека" :new-tab="false" />
-                    <a v-else href="https://de.donstu.ru/zaoch/organizations/1" @click="emit('close')">СКИФ.Библиотека</a>
-                  </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://skif.donstu.ru/spec/" text="СКИФ.СПЕЦ" :new-tab="false" />
-                    <a v-else href="https://skif.donstu.ru/spec/" @click="emit('close')">СКИФ.СПЕЦ</a>
-                  </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://prof.skif.donstu.ru/" text="ПРОФ.СКИФ" :new-tab="false" />
-                    <a v-else href="https://prof.skif.donstu.ru/" @click="emit('close')">ПРОФ.СКИФ</a>
-                  </li>
-                  <li>
-                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" href="https://int.skif.donstu.ru/" text="СКИФ.Международный" :new-tab="false" />
-                    <a v-else href="https://int.skif.donstu.ru/" @click="emit('close')">СКИФ.Международный</a>
+                  <li v-for="link in serviceLinks" :key="link.id">
+                    <MainButton v-if="isMobile" :disable-animation="true" variant="light" class="menu-main-btn" :href="link.href" :text="link.title" :new-tab="false" />
+                    <a v-else :href="link.href" @click="emit('close')">{{ link.title }}</a>
                   </li>
                 </ul>
               </nav>
@@ -77,6 +57,7 @@ import IconSkifSquare from '@/components/icons/IconSkifSquare.vue'
 import IconDstuUcotBrandWhite from '@/components/icons/IconDstuUcotBrandWhite.vue'
 import IconClose from '@/components/icons/IconClose.vue'
 import MainButton from "@/components/MainButton.vue";
+import { serviceLinks, SKIF_SITE, MAIN_SITE, OLD_SITE } from '@/data/navigation.js'
 
 const props = defineProps({
   isMobileMenuOpen: Boolean,

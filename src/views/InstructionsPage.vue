@@ -89,19 +89,6 @@ const closePopup = () => {
   width: 100%;
 }
 
-.app-section {
-  margin-bottom: 80px;
-}
-
-.app-section__head {
-  margin-top: 0;
-  margin-bottom: 40px;
-}
-
-.app-section__head h1 {
-  margin: 0;
-}
-
 .app-grid {
   display: grid;
   flex-grow: 1;
@@ -113,21 +100,8 @@ const closePopup = () => {
 }
 
 @media (max-width: 1023px) {
-  .app-section {
-    margin-bottom: 60px;
-  }
   .app-grid._columns-3-1{
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 743px) {
-  .app-section {
-    margin-bottom: 40px;
-  }
-
-  .app-section__head {
-    margin-bottom: 24px;
   }
 }
 </style>
