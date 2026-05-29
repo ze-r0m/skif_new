@@ -2,17 +2,6 @@
    Animations CSS - Design System СКИФ
    ======================================== */
 
-/* Initial states for animated elements */
-[data-animate],
-[data-animate="fade"],
-[data-animate="slide"],
-[data-animate="title"],
-[data-animate="text"],
-[data-animate="fill"],
-[data-animate="counter"] {
-    will-change: transform, opacity;
-}
-
 /* Fade animation initial state — для data-animate (без значения), data-animate="data-animate", data-animate="fade" */
 [data-animate=""],
 [data-animate="data-animate"],
@@ -44,11 +33,6 @@
 /* Text animation initial state — переопределяется JS (разбивка на слова), но на всякий случай скрываем */
 [data-animate="text"] {
     opacity: 0;
-}
-
-/* Fill animation (clip-path) */
-[data-animate="fill"] {
-    will-change: clip-path;
 }
 
 /* Full screen animation */
