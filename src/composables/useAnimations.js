@@ -58,14 +58,6 @@ export function initAnimations() {
 
 }
 
-export function reinitAnimations() {
-    if (typeof window === 'undefined') return
-    requestAnimationFrame(() => {
-        initDataAnimations()
-        ScrollTrigger.refresh()
-    })
-}
-
 function finishStuckAnimations() {
     setTimeout(() => {
         document.querySelectorAll('[data-animate]').forEach((el) => {
@@ -477,8 +469,3 @@ function animateElementCounter(element, immediate) {
     })
 }
 
-export function refreshAnimations() {
-    ScrollTrigger.refresh()
-}
-
-export { gsap, ScrollTrigger }

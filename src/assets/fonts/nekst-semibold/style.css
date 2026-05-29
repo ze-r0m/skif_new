@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Nekst';
-    src: local('Nekst SemiBold'), local('Nekst-SemiBold'),
-        url('Nekst-SemiBold.woff2') format('woff2'),
-        url('Nekst-SemiBold.woff') format('woff'),
-        url('Nekst-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-  }
