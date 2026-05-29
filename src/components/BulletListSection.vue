@@ -4,7 +4,7 @@
       <h1 class="text-h1" data-animate>{{ title }}</h1>
     </div>
     <div class="app-section__content">
-      <div class="app-grid _columns-4-1" data-animate-group data-animate-stagger="0.08" data-animate-slide-direction="right">
+      <div class="app-grid _columns-4-1" data-animate data-animate-stagger="0.08" >
         <div
           v-for="(item, index) in items"
           :key="index"
