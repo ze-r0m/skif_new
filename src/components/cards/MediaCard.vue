@@ -128,7 +128,7 @@ defineEmits(['open'])
 
 .btn-secondary__icon {
   align-items: center;
-  background-color: #1370b9;
+  background-color: var(--text-link-color);
   border-radius: 8px;
   color: var(--text-contrast-color);
   display: flex;
@@ -148,13 +148,13 @@ defineEmits(['open'])
 }
 
 .media-card__title {
-  color: #38424F;
+  color: var(--text-color);
   margin: 0;
   transition: color 0.35s ease;
 }
 
 .media-card:hover .media-card__title {
-  color: rgba(19, 112, 185, 1);
+  color: var(--text-link-color);
 }
 @media (max-width: 1023px) {
   .media-card {

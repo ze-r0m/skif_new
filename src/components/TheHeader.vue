@@ -149,7 +149,7 @@ const toggleMobileMenu = () => {
 /* общий стиль ссылок top-bar */
 .top-bar a {
   text-decoration: none;
-  color: #80889D;
+  color: var(--text-2-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
@@ -159,7 +159,7 @@ const toggleMobileMenu = () => {
 }
 
 .top-bar a:hover {
-  color: #C7C9CF;
+  color: var(--text-disabled-color);
 }
 
 /* Скрытие ссылок по умолчанию (mobile) */
@@ -226,12 +226,12 @@ const toggleMobileMenu = () => {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background-color: #1370B9;
+  background-color: var(--text-link-color);
   transition: background-color 0.3s ease;
 }
 
 .menu-button:hover {
-  background-color: #0f5a8f;
+  background-color: var(--primary-hover);
 }
 
 .menu-button__text {
@@ -240,14 +240,14 @@ const toggleMobileMenu = () => {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.24px;
-  color: #FFFFFF;
+  color: var(--text-contrast-color);
   white-space: nowrap;
 }
 
 .menu-button__icon {
   width: 24px;
   height: 24px;
-  color: #FFFFFF;
+  color: var(--text-contrast-color);
   flex-shrink: 0;
 }
 
@@ -520,14 +520,14 @@ const toggleMobileMenu = () => {
     font-weight: 500;
     letter-spacing: -0.24px;
     line-height: 24px;
-    color: #38424F;
+    color: var(--text-color);
     text-decoration: none;
     transition: color 0.35s ease;
   }
 
   .main-nav a:hover,
   .main-nav .nav-link:hover {
-    color: #C7C9CF;
+    color: var(--text-disabled-color);
   }
 }
 </style>

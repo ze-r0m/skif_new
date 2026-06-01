@@ -97,43 +97,43 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
    Вариант: White (rgba(255, 255, 255, 1))
    ======================================== */
 .info-icon-card--white .info-icon-card__body {
-  background: rgba(255, 255, 255, 1);
-  color: rgba(56, 66, 79, 1);
+  background: var(--element-bg);
+  color: var(--text-color);
   transition: background .35s ease;
 }
 
 .info-icon-card--white .info-icon-card__body:hover {
-  background: rgba(233, 237, 242, 1);
+  background: var(--element-bg-2);
 }
 
 .info-icon-card--white .info-icon-card__title,
 .info-icon-card--white .btn-secondary__label {
-  color: rgba(56, 66, 79, 1);
+  color: var(--text-color);
 }
 
 .info-icon-card--white .info-icon-card__description {
-  color: rgba(128, 136, 157, 1);
+  color: var(--text-2-color);
 }
 
 .info-icon-card--white .btn-secondary__icon {
-  background: rgba(19, 112, 185, 1);
+  background: var(--text-link-color);
   transition: background .35s ease;
 }
 
 .info-icon-card--white .info-icon-card__body:hover .btn-secondary__icon {
-  background: #0E468B;
+  background: var(--app-contrast-2);
 }
 
 .info-icon-card--white .btn-secondary__icon :deep(svg) {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 /* ========================================
    Вариант: Primary (синий rgba(17, 81, 156, 1))
    ======================================== */
 .info-icon-card--primary .info-icon-card__body {
-  background: rgba(17, 81, 156, 1);
-  color: rgba(255, 255, 255, 1);
+  background: var(--primary-color);
+  color: var(--text-contrast-color);
   transition: background .35s ease;
 }
 
@@ -143,7 +143,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
 
 .info-icon-card--primary .info-icon-card__title,
 .info-icon-card--primary .btn-secondary__label {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 .info-icon-card--primary .info-icon-card__description {
@@ -151,29 +151,29 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
 }
 
 .info-icon-card--primary .btn-secondary__icon {
-  background: rgba(255, 255, 255, 1);
+  background: var(--element-bg);
 }
 
 .info-icon-card--primary .btn-secondary__icon :deep(svg) {
-  color: rgba(19, 112, 185, 1);
+  color: var(--text-link-color);
 }
 
 /* ========================================
-   Вариант: Primary Light (rgba(19, 112, 185, 1))
+   Вариант: Primary Light
    ======================================== */
 .info-icon-card--primary-light .info-icon-card__body {
-  background: rgba(19, 112, 185, 1);
-  color: rgba(255, 255, 255, 1);
+  background: var(--text-link-color);
+  color: var(--text-contrast-color);
   transition: background .35s ease;
 }
 
 .info-icon-card--primary-light .info-icon-card__body:hover {
-  background: rgba(17, 81, 156, 1);
+  background: var(--primary-color);
 }
 
 .info-icon-card--primary-light .info-icon-card__title,
 .info-icon-card--primary-light .btn-secondary__label {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 .info-icon-card--primary-light .info-icon-card__description {
@@ -181,11 +181,11 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
 }
 
 .info-icon-card--primary-light .btn-secondary__icon {
-  background: rgba(255, 255, 255, 1);
+  background: var(--element-bg);
 }
 
 .info-icon-card--primary-light .btn-secondary__icon :deep(svg) {
-  color: rgba(19, 112, 185, 1);
+  color: var(--text-link-color);
 }
 
 /* ========================================
@@ -193,7 +193,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
    ======================================== */
 .info-icon-card--gradient .info-icon-card__body {
   background: linear-gradient(238.27deg, #11519C -4.32%, #288AD8 91.02%);
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
   position: relative;
   overflow: hidden;
 }
@@ -222,7 +222,7 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
 
 .info-icon-card--gradient .info-icon-card__title,
 .info-icon-card--gradient .btn-secondary__label {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 .info-icon-card--gradient .info-icon-card__description {
@@ -230,11 +230,11 @@ const isExternal = computed(() => props.link && (props.link.startsWith('http://'
 }
 
 .info-icon-card--gradient .btn-secondary__icon {
-  background: rgba(255, 255, 255, 1);
+  background: var(--element-bg);
 }
 
 .info-icon-card--gradient .btn-secondary__icon :deep(svg) {
-  color: rgba(19, 112, 185, 1);
+  color: var(--text-link-color);
 }
 
 /* =======================================================

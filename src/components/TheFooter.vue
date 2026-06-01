@@ -95,12 +95,8 @@ const currentYear = computed(() => new Date().getFullYear());
 <style scoped>
 /* ==================== Общие ==================== */
 .footer {
-  background-color: rgba(14, 70, 139, 1);
-  color: #ffffff;
-}
-
-.footer__head-contacts {
-  display: none;
+  background-color: var(--app-contrast-2);
+  color: var(--text-contrast-color);
 }
 
 /* ==================== footer__head ==================== */
@@ -143,7 +139,7 @@ const currentYear = computed(() => new Date().getFullYear());
 }
 
 .footer__link {
-  color: #ffffff;
+  color: var(--text-contrast-color);
   text-decoration: none;
   transition: opacity 0.3s ease;
   display: inline-flex;
@@ -158,7 +154,7 @@ const currentYear = computed(() => new Date().getFullYear());
 }
 
 .footer__link:hover {
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
 /* ==================== footer__contacts ==================== */
@@ -203,13 +199,13 @@ const currentYear = computed(() => new Date().getFullYear());
 }
 
 .footer__contact-link {
-  color: #ffffff;
+  color: var(--text-contrast-color);
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
 
 .footer__contact-link:hover {
-  opacity: 0.7;
+  opacity: 0.7 !important;
 }
 
 .footer__contact-item address {

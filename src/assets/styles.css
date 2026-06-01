@@ -1,24 +1,35 @@
 :root {
     --app-bg: #f4f4f4;
     --app-contrast-bg: #11519C;
+    --app-contrast-2: #0E468B;
     --element-bg: #FFFFFF;
     --element-bg-2: #E7E9ED;
     --element-bg-gradient: linear-gradient(215deg, #0E468B 0%, #1370B9 100%);
     --text-color: rgba(56, 66, 79, 1);
     --text-link-color: #1370B9;
     --text-contrast-color: #FFFFFF;
-    --primary-color: #11519C;
-    --accent-color-yellow: #FDC51F;
     --text-2-color: #80889D;
+    --text-disabled-color: #C7C9CF;
+    --primary-color: #11519C;
+    --primary-hover: #0f5a8f;
+    --accent-color-yellow: #FDC51F;
+    --border-color: #D2DAE3;
 }
 
 
 /* базовый рессет */
 * { box-sizing: border-box; }
-html { height:100%; margin:0; overflow-x: hidden; scrollbar-width: none;
-    background:var(--app-bg); color:var(--text-color); }
-html::-webkit-scrollbar { display: none; }
-body,#app { height:100%; margin:0; }
+html {
+    height:100%;
+    margin:0;
+    overflow-x: hidden;
+    background:var(--app-bg);
+    color:var(--text-color);
+}
+body,#app {
+    height:100%;
+    margin:0;
+}
 
 /* ========================================
    Grid System - Design System СКИФ
@@ -194,7 +205,7 @@ body::-webkit-scrollbar {
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-    background-color: #1370b9;
+    background-color: var(--text-link-color);
     border-radius: 10px;
 }
 

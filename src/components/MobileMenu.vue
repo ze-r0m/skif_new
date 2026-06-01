@@ -166,7 +166,7 @@ onUnmounted(() => {
 }
 
 .app-menu-cons__sites-menu:hover {
-  color: #fff;
+  color: var(--text-contrast-color);
 }
 
 .app-menu__top .container {
@@ -229,8 +229,8 @@ onUnmounted(() => {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background-color: #1370B9;
-  color: #fff;
+  background-color: var(--text-link-color);
+  color: var(--text-contrast-color);
   font-family: 'GolosText', sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -246,7 +246,7 @@ onUnmounted(() => {
 }
 
 .btn-primary.text-button._menu:hover {
-  background-color: #0f5a8f;
+  background-color: var(--primary-hover);
 }
 
 .btn-primary__background {
@@ -265,7 +265,7 @@ onUnmounted(() => {
 .btn-primary__icon svg {
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: var(--text-contrast-color);
 }
 
 /* Navigation */
@@ -292,7 +292,7 @@ onUnmounted(() => {
   font-size: 26px;
   line-height: 34px;
   letter-spacing: -0.9px;
-  color: #fff;
+  color: var(--text-contrast-color);
   text-decoration: none;
   padding: 12px;
   border-radius: 12px;
@@ -380,7 +380,7 @@ onUnmounted(() => {
 /* ==================== Desktop (≥1024px) ==================== */
 @media (min-width: 1024px) {
   .app-menu-cons {
-    display: none !important;
+    display: none;
   }
 }
 </style>

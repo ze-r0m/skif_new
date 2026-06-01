@@ -78,7 +78,7 @@ defineProps({
   overflow: hidden;
   row-gap: 32px;
 
-  background: #FFFFFF;
+  background: var(--element-bg);
   border-radius: 32px;
   padding: 32px;
 }
@@ -95,7 +95,7 @@ defineProps({
 
 .contact-card-no-image__header {
   padding-bottom: 45px;
-  border-bottom: 1px solid #D2DAE3;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .contact-card-no-image__contacts {
@@ -113,7 +113,7 @@ defineProps({
 
 .contact-card-no-image__contact a,
 .contact-card-no-image__contact span {
-  color: #38424F;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.35s ease;
 }
@@ -134,18 +134,18 @@ defineProps({
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  color: #1370B9;
+  color: var(--text-link-color);
   margin-top: -2px;
 }
 
 .contact-card-no-image__contact--hover:hover a,
 .contact-card-no-image__contact--hover:hover span,
 a.contact-card-no-image__contact--hover:hover {
-  color: #1370B9;
+  color: var(--text-link-color);
 }
 
 .contact-card-no-image__contact--hover:hover .contact-card-no-image__icon {
-  color: #1370B9;
+  color: var(--text-link-color);
 }
 
 @media (max-width: 1023px) {

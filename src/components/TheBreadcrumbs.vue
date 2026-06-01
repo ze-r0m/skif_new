@@ -75,11 +75,11 @@ defineProps({
   align-items: center;
   gap: 16px;
   text-decoration: none;
-  color: #80889D;
+  color: var(--text-2-color);
 }
 
 .breadcrumbs__item-link::before {
-  background-color: #80889D;
+  background-color: var(--text-2-color);
   bottom: 0;
   content: "";
   display: block;
@@ -100,11 +100,11 @@ defineProps({
 }
 
 .breadcrumbs__item-text {
-  color: #C7C9CF;
+  color: var(--text-disabled-color);
 }
 
 .breadcrumbs__item--current .breadcrumbs__item-link {
-  color: #C7C9CF;
+  color: var(--text-disabled-color);
 }
 
 .breadcrumbs__item--current .breadcrumbs__item-link::before {
@@ -112,7 +112,7 @@ defineProps({
 }
 
 .breadcrumbs__item:last-child .breadcrumbs__item-link {
-  color: #C7C9CF;
+  color: var(--text-disabled-color);
 }
 
 .breadcrumbs__item:last-child .breadcrumbs__item-link::before {

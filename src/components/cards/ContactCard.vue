@@ -45,7 +45,7 @@ const props = defineProps({
 
 <style scoped>
 .contact-card-small {
-  background: #FFFFFF;
+  background: var(--element-bg);
   border-radius: 32px;
   column-gap: 24px;
   display: flex;
@@ -76,7 +76,7 @@ const props = defineProps({
 }
 
 .contact-card-small__titles {
-  color: #38424F;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   row-gap: 16px;
@@ -110,22 +110,22 @@ const props = defineProps({
 
 .contact-card-small__contact a,
 .contact-card-small__contact span {
-  color: #38424F !important;
-  text-decoration: none !important;
+  color: var(--text-color);
+  text-decoration: none;
   transition: color 0.35s ease;
 }
 
 .contact-icon-card-small__button:hover .btn-secondary__icon {
-  background: #0E468B;
+  background: var(--app-contrast-2);
 }
 
 .btn-secondary__icon {
-  background: rgba(19, 112, 185, 1);
+  background: var(--text-link-color);
   transition: background 0.35s ease;
 }
 
 .btn-secondary__icon :deep(svg) {
-  color: #FFFFFF;
+  color: var(--text-contrast-color);
 }
 
 @media (max-width: 1023px) {

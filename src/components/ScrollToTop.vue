@@ -88,11 +88,11 @@ onUnmounted(() => {
 <style scoped>
 .scroll-to-top {
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: var(--element-bg);
   border: none;
   border-radius: 50%;
   box-shadow: -2px 2px 4px rgba(56, 66, 79, 0.1);
-  color: #38424f;
+  color: var(--text-color);
   display: flex;
   height: 56px;
   justify-content: center;
@@ -128,8 +128,8 @@ onUnmounted(() => {
 }
 
 .scroll-to-top:hover {
-  background-color: #1370b9;
-  color: #FFFFFF;
+  background-color: var(--text-link-color);
+  color: var(--text-contrast-color);
 }
 
 @media (min-width: 744px) and (max-width: 1024px) {
@@ -151,8 +151,8 @@ onUnmounted(() => {
   }
 
   .scroll-to-top:hover {
-    background-color: #FFFFFF;
-    color: #38424f;
+    background-color: var(--element-bg);
+    color: var(--text-color);
   }
 }
 
@@ -177,8 +177,8 @@ onUnmounted(() => {
   }
 
   .scroll-to-top:hover {
-    background-color: #FFFFFF;
-    color: #38424f;
+    background-color: var(--element-bg);
+    color: var(--text-color);
   }
 }
 </style>

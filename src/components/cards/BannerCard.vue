@@ -123,7 +123,7 @@ h2 {
   padding: 24px;
   padding-bottom: 40px;
   background: linear-gradient(215deg, #0E468B 0%, #1370B9 100%);
-  color: #FFFFFF;
+  color: var(--text-contrast-color);
   min-height: 280px;
 }
 

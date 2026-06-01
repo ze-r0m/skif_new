@@ -109,7 +109,7 @@ export default {
   min-width: 0;
   flex-shrink: 0;
   border-radius: 6px;
-  background: rgba(19, 112, 185, 1); /* цвет для светлого фона по умолчанию */
+  background: var(--text-link-color); /* цвет для светлого фона по умолчанию */
   transition: background 0.3s ease; /* только изменение фона */
   color: var(--icon-color, var(--text-contrast-color));
 }
@@ -134,11 +134,11 @@ export default {
 }
 
 .main-button--light .main-button__icon {
-  background: rgba(255, 255, 255, 1); /* цвет для темного фона */
+  background: var(--element-bg); /* цвет для темного фона */
 }
 
 .main-button--dark .main-button__icon {
-  background: rgba(19, 112, 185, 1); /* цвет для светлого фона */
+  background: var(--text-link-color); /* цвет для светлого фона */
 }
 
 /* Hover effects */
@@ -160,17 +160,21 @@ export default {
 
 /* Изменение цвета текста для light варианта в hover */
 .main-button--light:hover .main-button__text {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 /* Изменение цвета текста для dark варианта в hover */
+.main-button--dark:hover {
+  --text-contrast-color: #FFFFFF;
+}
+
 .main-button--dark:hover .main-button__text {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 /* Hover effect for icon square */
-.main-button__icon:hover {
-  background: rgba(255, 255, 255, 0.1) !important; /* приоритетный эффект при наведении на квадрат */
+.main-button .main-button__icon:hover {
+  background: rgba(255, 255, 255, 0.1); /* приоритетный эффект при наведении на квадрат */
 }
 
 /* Disabled state */

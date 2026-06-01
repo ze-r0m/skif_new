@@ -69,7 +69,7 @@ defineProps({
 }
 
 .bullet-list-item {
-  background-color: #ffffff;
+  background-color: var(--element-bg);
   border-radius: 24px;
   display: flex;
   gap: 24px;

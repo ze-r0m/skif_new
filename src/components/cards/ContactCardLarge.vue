@@ -75,7 +75,7 @@ const props = defineProps({
 
 <style scoped>
 .contact-card {
-  background: #FFFFFF;
+  background: var(--element-bg);
   border-radius: 32px;
   -moz-column-gap: 32px;
   column-gap: 32px;
@@ -125,7 +125,7 @@ const props = defineProps({
 }
 
 .contact-card__contacts {
-  border-bottom: 1px solid #D2DAE3;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   gap: 32px 4px;
   margin-top: auto;
@@ -155,25 +155,25 @@ const props = defineProps({
 
 .contact-card__contact a,
 .contact-card__contact span {
-  color: #38424F !important;
-  text-decoration: none !important;
+  color: var(--text-color);
+  text-decoration: none;
   transition: color 0.35s ease;
 }
 
 .contact-card__contact:hover a,
 .contact-card__contact:hover span {
-  color: #1370B9 !important;
+  color: var(--text-link-color);
 }
 
 .contact-card__contact:hover .contact-card__icon {
-  color: #1370B9 !important;
+  color: var(--text-link-color);
 }
 
 .contact-card__icon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  color: #1370B9;
+  color: var(--text-link-color);
 }
 
 .contact-icon-card__footer {
@@ -195,16 +195,16 @@ const props = defineProps({
 }
 
 .contact-icon-card__button:hover .btn-secondary__icon {
-  background: #0E468B;
+  background: var(--app-contrast-2);
 }
 
 .btn-secondary__icon {
-  background: rgba(19, 112, 185, 1);
+  background: var(--text-link-color);
   transition: background 0.35s ease;
 }
 
 .btn-secondary__icon :deep(svg) {
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-contrast-color);
 }
 
 @media (max-width: 1023px) {
