@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-card" data-animate="data-animate">
+  <div class="contact-card" data-animate>
     <div class="contact-card__avatar" data-animate="slide" data-animate-slide-direction="right">
       <img :src="avatar" :alt="fullName">
     </div>
@@ -20,12 +20,11 @@
             <span>{{ email }}</span>
           </a>
         </div>
-        <div class="contact-card__socials">
-        </div>
+  
       </div>
 
       <div class="contact-icon-card__footer">
-        <a :href="detailsLink" class="contact-icon-card__button btn-secondary text-button" target="_blank">
+        <a v-if="detailsLink" :href="detailsLink" class="contact-icon-card__button btn-secondary text-button" target="_blank" rel="noopener noreferrer">
           <span class="btn-secondary__label">Подробнее</span>
           <span class="btn-secondary__icon">
             <IconArrowRight />
@@ -41,7 +40,7 @@ import IconPhone from "@/components/icons/IconPhone.vue";
 import IconMessage from "@/components/icons/IconMessage.vue";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 
-const props = defineProps({
+defineProps({
   fullName: {
     type: String,
     required: true

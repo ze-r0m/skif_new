@@ -1,7 +1,7 @@
 <template>
   <section class="container app-section _gutter-sm">
     <div class="app-section__head">
-      <h1 class="text-h1" data-animate>Сотрудники</h1>
+      <h2 class="text-h1" data-animate>Сотрудники</h2>
     </div>
     <div class="app-section__content">
       <div class="employees-section">

@@ -25,6 +25,8 @@ html {
     overflow-x: hidden;
     background:var(--app-bg);
     color:var(--text-color);
+    scroll-behavior: smooth;
+    font-family: 'GolosText', sans-serif;
 }
 body,#app {
     height:100%;
@@ -191,10 +193,6 @@ body,#app {
 .d-inline { display: inline; }
 .d-none { display: none; }
 
-html {
-    scroll-behavior: smooth;
-    font-family: 'GolosText', sans-serif;
-}
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {

@@ -4,12 +4,12 @@
       <div class="container">
         <div class="top-bar-content">
           <div class="top-links-left">
-            <a :href="MAIN_SITE" class="link-always-mobile" data-animate="data-animate">Главный сайт</a>
-            <a :href="OLD_SITE" class="link-hide-mobile link-hide-1" data-animate="data-animate">Старая версия сайта</a>
+            <a :href="MAIN_SITE" target="_blank" rel="noopener noreferrer" class="link-always-mobile" data-animate>Главный сайт</a>
+            <a :href="OLD_SITE" class="link-hide-mobile link-hide-1" data-animate>Старая версия сайта</a>
           </div>
 
           <div class="top-links-right">
-            <a v-for="link in rightLinks" :key="link.id" :href="link.href" :class="link.className" data-animate="data-animate">{{ link.title }}</a>
+            <a v-for="link in rightLinks" :key="link.id" :href="link.href" :class="link.className" data-animate>{{ link.title }}</a>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
           </div>
 
           <nav class="main-nav">
-            <a v-for="item in navItems" :key="item.id" :href="item.to" class="nav-link" data-animate="data-animate">{{ item.title }}</a>
+            <a v-for="item in navItems" :key="item.id" :href="item.to" class="nav-link" data-animate>{{ item.title }}</a>
           </nav>
 
           <!-- Кнопка меню для Tablet -->
@@ -36,7 +36,7 @@
               class="menu-button menu-button--tablet"
               :class="{ 'is-active': isMobileMenuOpen }"
               @click="toggleMobileMenu"
-              data-animate="data-animate"
+              data-animate
           >
             <span class="menu-button__text">Меню</span>
             <IconBurgerMenu class="menu-button__icon" />
@@ -47,7 +47,7 @@
               class="menu-button menu-button--mobile"
               :class="{ 'is-active': isMobileMenuOpen }"
               @click="toggleMobileMenu"
-              data-animate="data-animate"
+              data-animate
           >
             <IconBurgerMenu class="menu-button__icon" />
           </button>

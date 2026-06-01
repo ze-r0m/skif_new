@@ -5,7 +5,7 @@
         <div class="grid">
           <div class="col-8">
             <div class="app-section__head">
-              <h1 class="text-h1" data-animate="title">{{ title }}</h1>
+              <h2 class="text-h1" data-animate="title">{{ title }}</h2>
             </div>
             <div class="text-content">
               <p class="text-body" style="margin-top: 0;" data-animate="text">{{ intro }}</p>

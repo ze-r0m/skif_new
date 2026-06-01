@@ -16,7 +16,7 @@
             v-for="(service, si) in row"
             :key="ri + '-' + si"
             :class="getServiceGridClass(service)"
-            data-animate="data-animate"
+            data-animate
           >
             <ServiceCard
               :title="service.title"

@@ -2,10 +2,10 @@
   <a
       :href="href"
       :target="newTab ? '_blank' : null"
+      :rel="newTab ? 'noopener noreferrer' : null"
       :class="[
       'main-button',
-      `main-button--${variant}`,
-      { 'main-button--disabled': disabled }
+      `main-button--${variant}`
     ]"
   >
     <span class="main-button__background"></span>
@@ -36,10 +36,7 @@ export default {
       default: 'light', // 'light' | 'dark'
       validator: (value) => ['light', 'dark'].includes(value)
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
+
     newTab: {
       type: Boolean,
       default: true

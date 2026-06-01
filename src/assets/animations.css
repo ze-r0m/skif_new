@@ -2,7 +2,7 @@
    Animations CSS - Design System СКИФ
    ======================================== */
 
-/* Fade animation initial state — для data-animate (без значения), data-animate="data-animate", data-animate="fade" */
+/* Fade animation initial state — для data-animate (без значения) и data-animate="fade" */
 [data-animate=""],
 [data-animate="data-animate"],
 [data-animate="fade"] {
@@ -32,11 +32,6 @@
 
 /* Text animation initial state — переопределяется JS (разбивка на слова), но на всякий случай скрываем */
 [data-animate="text"] {
-    opacity: 0;
-}
-
-/* Full screen animation */
-[data-animate-full-screen] {
     opacity: 0;
 }
 

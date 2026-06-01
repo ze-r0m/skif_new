@@ -72,7 +72,7 @@ defineProps({
 </script>
 
 <style scoped>
-.contact-card-no-image {;
+.contact-card-no-image {
   display: flex;
   flex-direction: column;
   overflow: hidden;

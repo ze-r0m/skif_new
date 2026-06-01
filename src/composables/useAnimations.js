@@ -2,6 +2,9 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 
 let lenis = null
+let animationsObserver = null
+let tickerCallback = null
+let scrollHandler = null
 
 export function initLenis() {
     if (lenis) return lenis
@@ -17,11 +20,12 @@ export function initLenis() {
         infinite: false,
     })
 
-    gsap.ticker.add((time) => {
+    tickerCallback = (time) => {
         lenis.raf(time * 1000)
-    })
+    }
+    gsap.ticker.add(tickerCallback)
 
-    gsap.ticker.lagSmoothing(0)
+    gsap.ticker.lagSmoothing(500)
 
     return lenis
 }
@@ -32,8 +36,20 @@ export function getLenis() {
 
 export function destroyLenis() {
     if (lenis) {
+        if (tickerCallback) {
+            gsap.ticker.remove(tickerCallback)
+            tickerCallback = null
+        }
+        if (scrollHandler) {
+            lenis.off('scroll', scrollHandler)
+            scrollHandler = null
+        }
         lenis.destroy()
         lenis = null
+    }
+    if (animationsObserver) {
+        animationsObserver.disconnect()
+        animationsObserver = null
     }
 }
 
@@ -64,9 +80,10 @@ function finishStuckAnimations() {
     setTimeout(fixStuck, 3000)
 
     if (lenis) {
-        lenis.on('scroll', () => {
+        scrollHandler = () => {
             if (!lenis.isScrolling) fixStuck()
-        })
+        }
+        lenis.on('scroll', scrollHandler)
     }
 }
 
@@ -94,11 +111,11 @@ function isInViewport(el) {
 }
 
 function initDataAnimations() {
-    const observer = new IntersectionObserver((entries) => {
+    animationsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return
             const el = entry.target
-            observer.unobserve(el)
+            animationsObserver.unobserve(el)
 
             if (el._animateChildren) {
                 const children = el._animateChildren
@@ -147,7 +164,7 @@ function initDataAnimations() {
             })
         } else {
             group._animateChildren = children
-            observer.observe(group)
+            animationsObserver.observe(group)
         }
     })
 
@@ -162,7 +179,7 @@ function initDataAnimations() {
         if (immediate) {
             runChildAnimation(element, animateType)
         } else {
-            observer.observe(element)
+            animationsObserver.observe(element)
         }
     })
 }
@@ -178,8 +195,6 @@ function runChildAnimation(element, type) {
         animateElementText(element)
     } else if (type === 'fill') {
         animateElementFill(element)
-    } else if (type === 'counter') {
-        animateElementCounter(element)
     }
 }
 
@@ -198,7 +213,6 @@ function animateElementFade(element) {
 
 function animateElementSlide(element) {
     const direction = element.getAttribute('data-animate-slide-direction') || 'left'
-    const isFullScreen = element.hasAttribute('data-animate-full-screen') || element.closest('[data-animate-full-screen]') !== null
 
     let xFrom = 0, yFrom = 0
     if (direction === 'right') {
@@ -212,22 +226,6 @@ function animateElementSlide(element) {
     }
 
     gsap.set(element, { x: xFrom, y: yFrom, autoAlpha: 0 })
-
-    if (isFullScreen) {
-        gsap.to(element, {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: 'power3.out',
-            delay: 0.3,
-            onComplete: () => {
-                element._done = true
-                gsap.set(element, { clearProps: 'willChange' })
-            }
-        })
-        return
-    }
 
     gsap.to(element, {
         x: 0,
@@ -257,6 +255,7 @@ function animateElementTitle(element) {
     wrapper.style.flexWrap = 'wrap'
     wrapper.style.overflow = 'hidden'
     wrapper.style.alignItems = 'baseline'
+    wrapper.style.columnGap = '0.3em'
 
     const words = originalText.split(' ')
     const allCharSpans = []
@@ -281,14 +280,6 @@ function animateElementTitle(element) {
         })
 
         wrapper.appendChild(wordWrapper)
-
-        if (wordIndex < words.length - 1) {
-            const space = document.createElement('span')
-            space.style.display = 'inline'
-            space.style.width = '0.3em'
-            space.style.visibility = 'visible'
-            wrapper.appendChild(space)
-        }
     })
 
     element.style.display = 'block'
@@ -383,21 +374,5 @@ function animateElementFill(element) {
         })
 }
 
-function animateElementCounter(element) {
-    const target = parseFloat(element.dataset.counterTarget) || 100
-    const duration = parseFloat(element.dataset.animateDuration) || 2
-    const obj = { val: 0 }
 
-    gsap.set(element, { opacity: 0 })
-
-    gsap.to(element, { opacity: 1, duration: 0.3, onComplete: () => { element._done = true } })
-    gsap.to(obj, {
-        val: target,
-        duration: duration,
-        ease: 'power2.out',
-        onUpdate: () => {
-            element.textContent = Math.round(obj.val)
-        }
-    })
-}
 

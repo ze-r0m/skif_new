@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-card-small" data-animate="data-animate">
+  <div class="contact-card-small" data-animate>
     <div class="contact-card-small__avatar" data-animate="slide" data-animate-slide-direction="right">
       <img :src="avatar" :alt="fullName">
     </div>
@@ -9,7 +9,7 @@
         <p class="contact-card-small__post text-body-small" data-animate="slide" data-animate-slide-direction="right">{{ post }}</p>
       </div>
       <div class="contact-card-small__footer">
-        <a v-if="detailsLink" class="contact-icon-card-small__button btn-secondary text-button" :href="detailsLink" target="_blank">
+        <a v-if="detailsLink" class="contact-icon-card-small__button btn-secondary text-button" :href="detailsLink" target="_blank" rel="noopener noreferrer">
           <span class="btn-secondary__label">Подробнее</span>
           <span class="btn-secondary__icon">
             <IconArrowRight />
@@ -23,7 +23,7 @@
 <script setup>
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 
-const props = defineProps({
+defineProps({
   fullName: {
     type: String,
     required: true

@@ -11,7 +11,7 @@
         :variant="buttonVariant"
         :href="buttonHref"
         class="banner-card__button-item"
-        data-animate="data-animate"
+        data-animate
       />
     </div>
     <div class="banner-card__img" data-animate :style="imageStyles">

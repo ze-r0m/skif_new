@@ -1,11 +1,11 @@
 <template>
-  <div class="media-card" data-animate="data-animate" data-animate-stagger="0.08">
+  <div class="media-card" data-animate data-animate-stagger="0.08">
     <div class="media-card__media">
       <div class="media-card__video" @click="$emit('open', videoUrl)">
         <img :src="image" :alt="title">
       </div>
       <div class="media-card__play">
-        <button class="btn-secondary text-button media-card__play-btn _contrast _outline" type="button" data-animate="data-animate">
+        <button class="btn-secondary text-button media-card__play-btn _contrast _outline" type="button" data-animate>
           <span class="btn-secondary__icon _no-bg">
             <IconPlay class="_icon-play"></IconPlay>
           </span>

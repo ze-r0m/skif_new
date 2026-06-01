@@ -5,8 +5,8 @@
       <div class="app-menu__top">
         <div class="container">
           <div class="app-menu-cons__inner _top">
-            <a class="app-menu-cons__sites-menu" :href="MAIN_SITE">Главный сайт</a>
-            <a class="app-menu-cons__sites-menu" :href="OLD_SITE">Старая версия сайта</a>
+            <a class="app-menu-cons__sites-menu" :href="MAIN_SITE" target="_blank" rel="noopener noreferrer">Главный сайт</a>
+            <a class="app-menu-cons__sites-menu" :href="OLD_SITE" target="_blank" rel="noopener noreferrer">Старая версия сайта</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ import IconClose from '@/components/icons/IconClose.vue'
 import MainButton from "@/components/MainButton.vue";
 import { serviceLinks, SKIF_SITE, MAIN_SITE, OLD_SITE } from '@/data/navigation.js'
 
-const props = defineProps({
+defineProps({
   isMobileMenuOpen: Boolean,
   navItems: Array
 })

@@ -1,7 +1,7 @@
 <template>
   <section class="app-section">
     <div class="app-section__head" v-if="title">
-      <h1 class="text-h1" data-animate>{{ title }}</h1>
+      <h2 class="text-h1" data-animate>{{ title }}</h2>
     </div>
     <div class="app-section__content">
       <div class="app-grid _columns-4-1" data-animate data-animate-stagger="0.08" >
