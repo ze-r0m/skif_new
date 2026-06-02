@@ -20,7 +20,6 @@
         <h1 class="text-h1" data-animate="title">Видеоинструкции</h1>
       </div>
       <div class="app-section__content text-content">
-        <p class="text-body" style="margin-top: 0" data-animate="text">Наглядные обучающие ролики пошагово демонстрируют ключевые функции системы: от регистрации и входа в личный кабинет до составления тестов и проверки результатов, настройки параметров тестирования и анализа результатов. Видеоматериалы структурированы по темам, выберите необходимый их них и получите ответы на возникающие вами вопросы.</p>
 
         <div class="app-grid _columns-3-1" data-animate-group data-animate-stagger="0.17">
           <MediaCard
