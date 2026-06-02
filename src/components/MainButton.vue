@@ -1,8 +1,8 @@
 <template>
   <a
       :href="href"
-      :target="newTab ? '_blank' : null"
-      :rel="newTab ? 'noopener noreferrer' : null"
+      :target="newTab ? '_blank' : undefined"
+      :rel="newTab ? 'noopener noreferrer' : undefined"
       :class="[
       'main-button',
       `main-button--${variant}`

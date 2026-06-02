@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
 import ScrollToTop from "@/components/ScrollToTop.vue";
@@ -35,17 +35,25 @@ const pages = {
   'instructions': InstructionsPage,
 }
 
+const currentPath = ref(window.location.pathname)
+
+const onPopState = () => {
+  currentPath.value = window.location.pathname
+}
+
 const currentPageComponent = computed(() => {
-  const path = window.location.pathname
+  const path = currentPath.value
   let cleanPath = path.replace(base, '').replace(/\/$/, '')
   return pages[cleanPath] || HomePage
 })
 
 onMounted(() => {
   initLenis()
+  window.addEventListener('popstate', onPopState)
 })
 
 onUnmounted(() => {
+  window.removeEventListener('popstate', onPopState)
   destroyLenis()
 })
 </script>

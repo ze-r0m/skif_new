@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 import IconSkifSquare from "@/components/icons/IconSkifSquare.vue";
 import MobileMenu from './MobileMenu.vue';
 import IconDstuUcotBrandBlue from "@/components/icons/IconDstuUcotBrandBlue.vue";
@@ -95,6 +95,11 @@ const toggleMobileMenu = () => {
   document.body.style.overflow = isMobileMenuOpen.value ? 'hidden' : '';
   document.body.classList.toggle('menu-open', isMobileMenuOpen.value);
 };
+
+onUnmounted(() => {
+  document.body.style.overflow = '';
+  document.body.classList.remove('menu-open');
+});
 </script>
 
 <style scoped>

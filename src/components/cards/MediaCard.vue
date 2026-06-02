@@ -100,7 +100,7 @@ defineEmits(['open'])
   border: 1px solid var(--divider-contrast-color);
   border-radius: 12px;
   color: var(--text-contrast-color);
-  font-size: 1.4rem;
+  font-size: 14px;
   font-weight: 500;
   gap: 8px;
   line-height: 20px;
@@ -114,8 +114,8 @@ defineEmits(['open'])
 }
 
 .btn-secondary._outline .btn-secondary__icon {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
 }
 
 .btn-secondary._outline._contrast svg {

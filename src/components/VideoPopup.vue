@@ -56,7 +56,7 @@ const isDirectVideo = computed(() => {
 
 watch(() => props.isOpen, (newVal) => {
   document.body.style.overflow = newVal ? 'hidden' : ''
-})
+}, { immediate: true })
 
 const handleKeydown = (e) => {
   if (e.key === 'Escape') {
