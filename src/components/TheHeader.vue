@@ -4,7 +4,7 @@
       <div class="container">
         <div class="top-bar-content">
           <div class="top-links-left">
-            <a :href="MAIN_SITE" target="_blank" rel="noopener noreferrer" class="link-always-mobile" data-animate>Главный сайт</a>
+            <a :href="MAIN_SITE" rel="noopener noreferrer" class="link-always-mobile" data-animate>Главный сайт</a>
             <a :href="OLD_SITE" class="link-hide-mobile link-hide-1" data-animate>Старая версия сайта</a>
           </div>
 
@@ -19,7 +19,7 @@
       <div class="container">
         <div class="main-header-content">
           <div class="header-logos">
-            <a :href="SKIF_SITE" target="_blank" rel="noopener noreferrer" data-animate>
+            <a :href="SKIF_SITE" rel="noopener noreferrer" data-animate>
               <IconSkifSquare class="logo-skif-square"/>
             </a>
             <a :href="MAIN_SITE" target="_blank" rel="noopener noreferrer" data-animate>

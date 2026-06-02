@@ -19,7 +19,8 @@ export default defineConfig({
         host: '0.0.0.0',
         port: 5173,
     },
-    base: '/skif_new/v2/',
+    // base: '/skif_new/v2/', #dev
+    base: '/',
     build: {
         outDir: 'dist',
         rollupOptions: {
