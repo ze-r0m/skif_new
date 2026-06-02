@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Собираем проект
-RUN npm run build
+RUN npm run build:v2
 
 # Этап отдачи через Nginx
 FROM nginx:alpine

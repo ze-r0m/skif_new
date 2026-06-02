@@ -1,0 +1,6 @@
+  GNU nano 7.2                                                                                          .dockerignore
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
